@@ -8,6 +8,12 @@ uint32_t pin_get_pin_reg(pin_num_t pin)
 	return REG_READ(GPIO_REG(pin));
 }
 
+// Get the value of the output function register for the specified pin argument.
+uint32_t pin_get_func_out_sel_cfg_reg(pin_num_t pin)
+{
+	return REG_READ(GPIO_FUNC0_OUT_SEL_CFG_REG + (pin * 4));
+}
+
 // Get the value of the IO MUX register for the specified pin argument.
 uint32_t pin_get_io_mux_reg(pin_num_t pin)
 {

@@ -4,7 +4,7 @@ set(EXTRA_COMPONENT_DIRS "../components")
 set(COMPONENTS "main" "lcd" "pin" "spiffs")
 
 include($ENV{IDF_PATH}/tools/cmake/project.cmake)
-project(lab01)
+project(lab02)
 # idf_build_set_property(COMPILE_OPTIONS "-Wno-error" APPEND)
 
 # Create a SPIFFS image from the contents of the 'font' directory

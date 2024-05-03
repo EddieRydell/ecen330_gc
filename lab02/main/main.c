@@ -113,7 +113,7 @@ void app_main(void)
 	lcdInit(&dev);
 	lcdFillScreen(&dev, BLACK);
 
-	for (int32_t i = 0; i < PIN_MAX; i++) {
+	for (pin_num_t i = 0; i < PIN_MAX; i++) {
 		// only initialize specified pins
 		if (!(in_pin[i] || out_pin[i])) continue;
 #ifdef USE_GPIO
@@ -132,9 +132,10 @@ void app_main(void)
 			pin_set_level(i, 0);
 		}
 #endif /* USE_GPIO */
-		printf("rtc_gpio(%02ld)  : %d\n", i, rtc_gpio_is_valid_gpio(i));
-		printf("pin_reg(%02ld)   : %lX\n", i, pin_get_pin_reg(i));
-		printf("io_mux_reg(%02ld): %lX\n", i, pin_get_io_mux_reg(i));
+		printf("rtc_gpio(%02hhd)  : %d\n", i, rtc_gpio_is_valid_gpio(i));
+		printf("pin_reg(%02hhd)   : %lX\n", i, pin_get_pin_reg(i));
+		printf("out_sel(%02hhd)   : %lX\n", i, pin_get_func_out_sel_cfg_reg(i));
+		printf("io_mux_reg(%02hhd): %lX\n", i, pin_get_io_mux_reg(i));
 		// gpio_dump_io_configuration(stdout, 1LLU << i);
 	}
 
