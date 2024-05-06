@@ -1,0 +1,2 @@
+C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\ar.exe qc libesp_pm.a CMakeFiles/__idf_esp_pm.dir/pm_locks.c.obj CMakeFiles/__idf_esp_pm.dir/pm_trace.c.obj CMakeFiles/__idf_esp_pm.dir/pm_impl.c.obj
+C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\ranlib.exe libesp_pm.a

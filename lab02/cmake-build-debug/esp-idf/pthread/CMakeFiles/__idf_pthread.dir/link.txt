@@ -1,0 +1,2 @@
+C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\ar.exe qc libpthread.a CMakeFiles/__idf_pthread.dir/pthread.c.obj CMakeFiles/__idf_pthread.dir/pthread_cond_var.c.obj CMakeFiles/__idf_pthread.dir/pthread_local_storage.c.obj CMakeFiles/__idf_pthread.dir/pthread_rwlock.c.obj CMakeFiles/__idf_pthread.dir/pthread_semaphore.c.obj
+C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\ranlib.exe libpthread.a

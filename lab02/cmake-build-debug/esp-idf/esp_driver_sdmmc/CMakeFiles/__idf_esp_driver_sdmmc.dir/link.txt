@@ -1,0 +1,2 @@
+C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\ar.exe qc libesp_driver_sdmmc.a CMakeFiles/__idf_esp_driver_sdmmc.dir/src/sdmmc_transaction.c.obj CMakeFiles/__idf_esp_driver_sdmmc.dir/src/sdmmc_host.c.obj
+C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\ranlib.exe libesp_driver_sdmmc.a

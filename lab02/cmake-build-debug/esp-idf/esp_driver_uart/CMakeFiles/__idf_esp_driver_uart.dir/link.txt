@@ -1,0 +1,2 @@
+C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\ar.exe qc libesp_driver_uart.a CMakeFiles/__idf_esp_driver_uart.dir/src/uart.c.obj CMakeFiles/__idf_esp_driver_uart.dir/src/uart_vfs.c.obj
+C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\ranlib.exe libesp_driver_uart.a

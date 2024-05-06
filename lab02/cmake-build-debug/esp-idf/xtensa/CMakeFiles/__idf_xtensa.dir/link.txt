@@ -1,0 +1,2 @@
+C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\ar.exe qc libxtensa.a CMakeFiles/__idf_xtensa.dir/eri.c.obj CMakeFiles/__idf_xtensa.dir/xt_trax.c.obj CMakeFiles/__idf_xtensa.dir/xtensa_context.S.obj CMakeFiles/__idf_xtensa.dir/xtensa_intr_asm.S.obj CMakeFiles/__idf_xtensa.dir/xtensa_intr.c.obj CMakeFiles/__idf_xtensa.dir/xtensa_vectors.S.obj
+C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\ranlib.exe libxtensa.a

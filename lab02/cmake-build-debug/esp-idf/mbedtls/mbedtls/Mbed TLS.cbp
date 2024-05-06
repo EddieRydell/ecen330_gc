@@ -1,0 +1,1702 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Mbed TLS"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\esp\;CMake Files\..\..\..\esp\esp-idf\;CMake Files\..\..\..\esp\esp-idf\components\;CMake Files\..\..\..\esp\esp-idf\components\mbedtls\;CMake Files\..\..\..\esp\esp-idf\components\mbedtls\mbedtls\;CMake Files\..\..\..\esp\esp-idf\components\mbedtls\mbedtls\include\;CMake Files\..\..\..\esp\esp-idf\components\mbedtls\mbedtls\3rdparty\;CMake Files\..\..\..\esp\esp-idf\components\mbedtls\mbedtls\3rdparty\everest\;CMake Files\..\..\..\esp\esp-idf\components\mbedtls\mbedtls\3rdparty\p256-m\;CMake Files\..\..\..\esp\esp-idf\components\mbedtls\mbedtls\library\;CMake Files\..\..\..\esp\esp-idf\components\xtensa\;CMake Files\..\..\..\esp\esp-idf\components\esp_driver_gpio\;CMake Files\..\..\..\esp\esp-idf\components\esp_timer\;CMake Files\..\..\..\esp\esp-idf\components\esp_pm\;CMake Files\..\..\..\esp\esp-idf\components\esp_app_format\;CMake Files\..\..\..\esp\esp-idf\components\efuse\;CMake Files\..\..\..\esp\esp-idf\components\efuse\esp32\;CMake Files\..\..\..\esp\esp-idf\components\esp_bootloader_format\;CMake Files\..\..\..\esp\esp-idf\components\bootloader_support\;CMake Files\..\..\..\esp\esp-idf\components\bootloader\;CMake Files\..\..\..\esp\esp-idf\components\bootloader\subproject\;CMake Files\..\..\..\esp\esp-idf\components\bootloader\subproject\components\;CMake Files\..\..\..\esp\esp-idf\components\bootloader\subproject\components\micro-ecc\;CMake Files\..\..\..\esp\esp-idf\components\bootloader\subproject\components\micro-ecc\micro-ecc\;CMake Files\..\..\..\esp\esp-idf\components\esptool_py\;CMake Files\..\..\..\esp\esp-idf\components\partition_table\;CMake Files\..\..\..\esp\esp-idf\components\app_update\;CMake Files\..\..\..\esp\esp-idf\components\esp_mm\;CMake Files\..\..\..\esp\esp-idf\components\spi_flash\;CMake Files\..\..\..\esp\esp-idf\components\esp_system\;CMake Files\..\..\..\esp\esp-idf\components\esp_system\ld\;CMake Files\..\..\..\esp\esp-idf\components\esp_system\port\;CMake Files\..\..\..\esp\esp-idf\components\esp_system\port\soc\;CMake Files\..\..\..\esp\esp-idf\components\esp_system\port\soc\esp32\;CMake Files\..\..\..\esp\esp-idf\components\esp_common\;CMake Files\..\..\..\esp\esp-idf\components\esp_rom\;CMake Files\..\..\..\esp\esp-idf\components\hal\;CMake Files\..\..\..\esp\esp-idf\components\log\;CMake Files\..\..\..\esp\esp-idf\components\heap\;CMake Files\..\..\..\esp\esp-idf\components\heap\tlsf\;CMake Files\..\..\..\esp\esp-idf\components\soc\;CMake Files\..\..\..\esp\esp-idf\components\esp_hw_support\;CMake Files\..\..\..\esp\esp-idf\components\esp_hw_support\port\;CMake Files\..\..\..\esp\esp-idf\components\esp_hw_support\port\esp32\;CMake Files\..\..\..\esp\esp-idf\components\esp_hw_support\lowpower\;CMake Files\..\..\..\esp\esp-idf\components\freertos\;CMake Files\..\..\..\esp\esp-idf\components\newlib\;CMake Files\..\..\..\esp\esp-idf\components\newlib\port\;CMake Files\..\..\..\esp\esp-idf\components\pthread\;CMake Files\..\..\..\esp\esp-idf\components\cxx\;CMake Files\..\..\..\esp\esp-idf\components\esp_partition\;CMake Files\..\..\..\esp\esp-idf\components\esp_ringbuf\;CMake Files\..\..\..\esp\esp-idf\components\esp_driver_uart\;CMake Files\..\..\..\esp\esp-idf\components\esp_driver_usb_serial_jtag\;CMake Files\..\..\..\esp\esp-idf\components\esp_vfs_console\;CMake Files\..\..\..\esp\esp-idf\components\vfs\;CMake Files\..\..\..\esp\esp-idf\components\spiffs\;CMake Files\..\..\..\esp\esp-idf\components\spiffs\spiffs\;CMake Files\..\..\..\esp\esp-idf\components\esp_driver_pcnt\;CMake Files\..\..\..\esp\esp-idf\components\esp_driver_gptimer\;CMake Files\..\..\..\esp\esp-idf\components\esp_driver_spi\;CMake Files\..\..\..\esp\esp-idf\components\esp_driver_mcpwm\;CMake Files\..\..\..\esp\esp-idf\components\esp_driver_ana_cmpr\;CMake Files\..\..\..\esp\esp-idf\components\esp_driver_i2s\;CMake Files\..\..\..\esp\esp-idf\components\sdmmc\;CMake Files\..\..\..\esp\esp-idf\components\esp_driver_sdmmc\;CMake Files\..\..\..\esp\esp-idf\components\esp_driver_sdspi\;CMake Files\..\..\..\esp\esp-idf\components\esp_driver_sdio\;CMake Files\..\..\..\esp\esp-idf\components\esp_driver_dac\;CMake Files\..\..\..\esp\esp-idf\components\esp_driver_rmt\;CMake Files\..\..\..\esp\esp-idf\components\esp_driver_tsens\;CMake Files\..\..\..\esp\esp-idf\components\esp_driver_sdm\;CMake Files\..\..\..\esp\esp-idf\components\esp_driver_i2c\;CMake Files\..\..\..\esp\esp-idf\components\esp_driver_ledc\;CMake Files\..\..\..\esp\esp-idf\components\esp_driver_parlio\;CMake Files\..\..\..\esp\esp-idf\components\driver\;CMake Files\..\..\..\esp\esp-idf\components\bt\;CMake Files\..\..\..\esp\esp-idf\components\bt\controller\;CMake Files\..\..\..\esp\esp-idf\components\bt\controller\lib_esp32\;CMake Files\..\..\..\esp\esp-idf\components\bt\controller\lib_esp32c2\;CMake Files\..\..\..\esp\esp-idf\components\bt\controller\lib_esp32c2\esp32c2-bt-lib\;CMake Files\..\..\..\esp\esp-idf\components\bt\controller\lib_esp32c3_family\;CMake Files\..\..\..\esp\esp-idf\components\bt\controller\lib_esp32c5\;CMake Files\..\..\..\esp\esp-idf\components\bt\controller\lib_esp32c5\esp32c5-bt-lib\;CMake Files\..\..\..\esp\esp-idf\components\bt\controller\lib_esp32c6\;CMake Files\..\..\..\esp\esp-idf\components\bt\controller\lib_esp32c6\esp32c6-bt-lib\;CMake Files\..\..\..\esp\esp-idf\components\bt\controller\lib_esp32h2\;CMake Files\..\..\..\esp\esp-idf\components\bt\controller\lib_esp32h2\esp32h2-bt-lib\;CMake Files\..\..\..\esp\esp-idf\components\bt\esp_ble_mesh\;CMake Files\..\..\..\esp\esp-idf\components\bt\esp_ble_mesh\lib\;CMake Files\..\..\..\esp\esp-idf\components\bt\esp_ble_mesh\lib\lib\;CMake Files\..\..\..\esp\esp-idf\components\bt\host\;CMake Files\..\..\..\esp\esp-idf\components\bt\host\nimble\;CMake Files\..\..\..\esp\esp-idf\components\bt\host\nimble\nimble\;CMake Files\..\..\..\esp\esp-idf\components\cmock\;CMake Files\..\..\..\esp\esp-idf\components\cmock\CMock\;CMake Files\..\..\..\esp\esp-idf\components\esp_coex\;CMake Files\..\..\..\esp\esp-idf\components\esp_coex\lib\;CMake Files\..\..\..\esp\esp-idf\components\esp_phy\;CMake Files\..\..\..\esp\esp-idf\components\esp_phy\lib\;CMake Files\..\..\..\esp\esp-idf\components\esp_wifi\;CMake Files\..\..\..\esp\esp-idf\components\esp_wifi\lib\;CMake Files\..\..\..\esp\esp-idf\components\json\;CMake Files\..\..\..\esp\esp-idf\components\json\cJSON\;CMake Files\..\..\..\esp\esp-idf\components\lwip\;CMake Files\..\..\..\esp\esp-idf\components\lwip\lwip\;CMake Files\..\..\..\esp\esp-idf\components\mqtt\;CMake Files\..\..\..\esp\esp-idf\components\mqtt\esp-mqtt\;CMake Files\..\..\..\esp\esp-idf\components\openthread\;CMake Files\..\..\..\esp\esp-idf\components\openthread\lib\;CMake Files\..\..\..\esp\esp-idf\components\openthread\openthread\;CMake Files\..\..\..\esp\esp-idf\components\protobuf-c\;CMake Files\..\..\..\esp\esp-idf\components\protobuf-c\protobuf-c\;CMake Files\..\..\..\esp\esp-idf\components\unity\;CMake Files\..\..\..\esp\esp-idf\components\unity\unity\;CMake Files\..\..\..\esp\esp-idf\tools\;CMake Files\..\..\..\esp\esp-idf\tools\cmake\;CMake Files\..\..\..\esp\esp-idf\tools\cmake\third_party\;CMake Files\..\..\..\esp\esp-idf\tools\kconfig_new\;CMake Files\..\..\..\esp\esp-idf\.git\;CMake Files\..\..\..\esp\esp-idf\.git\refs\;CMake Files\..\..\..\esp\esp-idf\.git\refs\heads\;CMake Files\..\..\..\esp\esp-idf\.git\modules\;CMake Files\..\..\..\esp\esp-idf\.git\modules\components\;CMake Files\..\..\..\esp\esp-idf\.git\modules\components\bootloader\;CMake Files\..\..\..\esp\esp-idf\.git\modules\components\bootloader\subproject\;CMake Files\..\..\..\esp\esp-idf\.git\modules\components\bootloader\subproject\components\;CMake Files\..\..\..\esp\esp-idf\.git\modules\components\bootloader\subproject\components\micro-ecc\;CMake Files\..\..\..\esp\esp-idf\.git\modules\components\bootloader\subproject\components\micro-ecc\micro-ecc\;CMake Files\..\..\..\esp\esp-idf\.git\modules\components\bt\;CMake Files\..\..\..\esp\esp-idf\.git\modules\components\bt\controller\;CMake Files\..\..\..\esp\esp-idf\.git\modules\components\bt\controller\lib_esp32\;CMake Files\..\..\..\esp\esp-idf\.git\modules\components\bt\controller\lib_esp32c2\;CMake Files\..\..\..\esp\esp-idf\.git\modules\components\bt\controller\lib_esp32c2\esp32c2-bt-lib\;CMake Files\..\..\..\esp\esp-idf\.git\modules\components\bt\controller\lib_esp32c3_family\;CMake Files\..\..\..\esp\esp-idf\.git\modules\components\bt\controller\lib_esp32c5\;CMake Files\..\..\..\esp\esp-idf\.git\modules\components\bt\controller\lib_esp32c5\esp32c5-bt-lib\;CMake Files\..\..\..\esp\esp-idf\.git\modules\components\bt\controller\lib_esp32c6\;CMake Files\..\..\..\esp\esp-idf\.git\modules\components\bt\controller\lib_esp32c6\esp32c6-bt-lib\;CMake Files\..\..\..\esp\esp-idf\.git\modules\components\bt\controller\lib_esp32h2\;CMake Files\..\..\..\esp\esp-idf\.git\modules\components\bt\controller\lib_esp32h2\esp32h2-bt-lib\;CMake Files\..\..\..\esp\esp-idf\.git\modules\components\bt\esp_ble_mesh\;CMake Files\..\..\..\esp\esp-idf\.git\modules\components\bt\esp_ble_mesh\lib\;CMake Files\..\..\..\esp\esp-idf\.git\modules\components\bt\esp_ble_mesh\lib\lib\;CMake Files\..\..\..\esp\esp-idf\.git\modules\components\bt\host\;CMake Files\..\..\..\esp\esp-idf\.git\modules\components\bt\host\nimble\;CMake Files\..\..\..\esp\esp-idf\.git\modules\components\bt\host\nimble\nimble\;CMake Files\..\..\..\esp\esp-idf\.git\modules\components\cmock\;CMake Files\..\..\..\esp\esp-idf\.git\modules\components\cmock\CMock\;CMake Files\..\..\..\esp\esp-idf\.git\modules\components\esp_coex\;CMake Files\..\..\..\esp\esp-idf\.git\modules\components\esp_coex\lib\;CMake Files\..\..\..\esp\esp-idf\.git\modules\components\esp_phy\;CMake Files\..\..\..\esp\esp-idf\.git\modules\components\esp_phy\lib\;CMake Files\..\..\..\esp\esp-idf\.git\modules\components\esp_wifi\;CMake Files\..\..\..\esp\esp-idf\.git\modules\components\esp_wifi\lib\;CMake Files\..\..\..\esp\esp-idf\.git\modules\components\heap\;CMake Files\..\..\..\esp\esp-idf\.git\modules\components\heap\tlsf\;CMake Files\..\..\..\esp\esp-idf\.git\modules\components\json\;CMake Files\..\..\..\esp\esp-idf\.git\modules\components\json\cJSON\;CMake Files\..\..\..\esp\esp-idf\.git\modules\components\lwip\;CMake Files\..\..\..\esp\esp-idf\.git\modules\components\lwip\lwip\;CMake Files\..\..\..\esp\esp-idf\.git\modules\components\mbedtls\;CMake Files\..\..\..\esp\esp-idf\.git\modules\components\mbedtls\mbedtls\;CMake Files\..\..\..\esp\esp-idf\.git\modules\components\mqtt\;CMake Files\..\..\..\esp\esp-idf\.git\modules\components\mqtt\esp-mqtt\;CMake Files\..\..\..\esp\esp-idf\.git\modules\components\openthread\;CMake Files\..\..\..\esp\esp-idf\.git\modules\components\openthread\lib\;CMake Files\..\..\..\esp\esp-idf\.git\modules\components\openthread\openthread\;CMake Files\..\..\..\esp\esp-idf\.git\modules\components\protobuf-c\;CMake Files\..\..\..\esp\esp-idf\.git\modules\components\protobuf-c\protobuf-c\;CMake Files\..\..\..\esp\esp-idf\.git\modules\components\spiffs\;CMake Files\..\..\..\esp\esp-idf\.git\modules\components\spiffs\spiffs\;CMake Files\..\..\..\esp\esp-idf\.git\modules\components\unity\;CMake Files\..\..\..\esp\esp-idf\.git\modules\components\unity\unity\;CMake Files\..\components\;CMake Files\..\components\lcd\;CMake Files\..\components\pin\;CMake Files\..\.git\;CMake Files\..\.git\refs\;CMake Files\..\.git\refs\heads\;CMake Files\cmake-build-debug\;CMake Files\cmake-build-debug\esp-idf\;CMake Files\cmake-build-debug\esp-idf\bootloader\;CMake Files\cmake-build-debug\esp-idf\esptool_py\;CMake Files\cmake-build-debug\esp-idf\partition_table\;CMake Files\cmake-build-debug\config\;CMake Files\cmake-build-debug\bootloader-prefix\;CMake Files\cmake-build-debug\bootloader-prefix\tmp\;CMake Files\main\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="apidoc">
+				<Option working_dir="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/Makefile&quot;  VERBOSE=1 apidoc"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="everest">
+				<Option output="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/3rdparty/everest/libeverest.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/3rdparty/everest"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DMBEDTLS_CONFIG_FILE=&quot;mbedtls/esp_config.h&quot;"/>
+					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
+					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
+					<Add option="-D_GNU_SOURCE"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-78-gd4cd437ede&quot;"/>
+					<Add option="-DESP_PLATFORM"/>
+					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
+					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
+					<Add option="-DSOC_XTAL_FREQ_MHZ=CONFIG_XTAL_FREQ"/>
+					<Add directory="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/config"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/port/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/3rdparty/everest/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/3rdparty/everest/include/everest"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/3rdparty/everest/include/everest/kremlib"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/newlib/platform_include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/config/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/config/include/freertos"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/config/xtensa/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/esp_additions/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/include/soc"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/include/soc/esp32"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/dma/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/ldo/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/port/esp32/."/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/port/esp32/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/heap/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/log/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/soc/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/soc/esp32"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/soc/esp32/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/hal/platform_port/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/hal/esp32/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/hal/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_rom/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_rom/include/esp32"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_rom/esp32"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_common/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_system/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_system/port/soc"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_system/port/include/private"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/xtensa/esp32/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/xtensa/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/xtensa/deprecated_include"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/../../../../xtensa-esp-elf/include/c++/13.2.0"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/../../../../xtensa-esp-elf/include/c++/13.2.0/xtensa-esp-elf/esp32"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/../../../../xtensa-esp-elf/include/c++/13.2.0/backward"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/include"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/include-fixed"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/../../../../xtensa-esp-elf/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/3rdparty/everest/Makefile&quot;  VERBOSE=1 everest"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/3rdparty/everest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/3rdparty/everest/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/3rdparty/everest/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="everest/fast">
+				<Option output="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/3rdparty/everest/libeverest.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/3rdparty/everest"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DMBEDTLS_CONFIG_FILE=&quot;mbedtls/esp_config.h&quot;"/>
+					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
+					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
+					<Add option="-D_GNU_SOURCE"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-78-gd4cd437ede&quot;"/>
+					<Add option="-DESP_PLATFORM"/>
+					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
+					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
+					<Add option="-DSOC_XTAL_FREQ_MHZ=CONFIG_XTAL_FREQ"/>
+					<Add directory="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/config"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/port/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/3rdparty/everest/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/3rdparty/everest/include/everest"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/3rdparty/everest/include/everest/kremlib"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/newlib/platform_include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/config/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/config/include/freertos"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/config/xtensa/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/esp_additions/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/include/soc"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/include/soc/esp32"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/dma/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/ldo/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/port/esp32/."/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/port/esp32/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/heap/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/log/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/soc/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/soc/esp32"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/soc/esp32/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/hal/platform_port/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/hal/esp32/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/hal/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_rom/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_rom/include/esp32"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_rom/esp32"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_common/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_system/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_system/port/soc"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_system/port/include/private"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/xtensa/esp32/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/xtensa/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/xtensa/deprecated_include"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/../../../../xtensa-esp-elf/include/c++/13.2.0"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/../../../../xtensa-esp-elf/include/c++/13.2.0/xtensa-esp-elf/esp32"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/../../../../xtensa-esp-elf/include/c++/13.2.0/backward"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/include"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/include-fixed"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/../../../../xtensa-esp-elf/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/3rdparty/everest/Makefile&quot;  VERBOSE=1 everest/fast"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/3rdparty/everest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/3rdparty/everest/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/3rdparty/everest/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="p256m">
+				<Option output="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/3rdparty/p256-m/libp256m.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/3rdparty/p256-m"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DMBEDTLS_CONFIG_FILE=&quot;mbedtls/esp_config.h&quot;"/>
+					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
+					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
+					<Add option="-D_GNU_SOURCE"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-78-gd4cd437ede&quot;"/>
+					<Add option="-DESP_PLATFORM"/>
+					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
+					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
+					<Add option="-DSOC_XTAL_FREQ_MHZ=CONFIG_XTAL_FREQ"/>
+					<Add directory="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/config"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/port/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/3rdparty/p256-m"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/3rdparty/p256-m/p256-m"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/newlib/platform_include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/config/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/config/include/freertos"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/config/xtensa/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/esp_additions/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/include/soc"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/include/soc/esp32"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/dma/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/ldo/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/port/esp32/."/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/port/esp32/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/heap/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/log/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/soc/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/soc/esp32"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/soc/esp32/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/hal/platform_port/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/hal/esp32/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/hal/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_rom/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_rom/include/esp32"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_rom/esp32"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_common/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_system/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_system/port/soc"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_system/port/include/private"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/xtensa/esp32/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/xtensa/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/xtensa/deprecated_include"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/../../../../xtensa-esp-elf/include/c++/13.2.0"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/../../../../xtensa-esp-elf/include/c++/13.2.0/xtensa-esp-elf/esp32"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/../../../../xtensa-esp-elf/include/c++/13.2.0/backward"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/include"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/include-fixed"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/../../../../xtensa-esp-elf/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/3rdparty/p256-m/Makefile&quot;  VERBOSE=1 p256m"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/3rdparty/p256-m/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/3rdparty/p256-m/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/3rdparty/p256-m/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="p256m/fast">
+				<Option output="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/3rdparty/p256-m/libp256m.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/3rdparty/p256-m"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DMBEDTLS_CONFIG_FILE=&quot;mbedtls/esp_config.h&quot;"/>
+					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
+					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
+					<Add option="-D_GNU_SOURCE"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-78-gd4cd437ede&quot;"/>
+					<Add option="-DESP_PLATFORM"/>
+					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
+					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
+					<Add option="-DSOC_XTAL_FREQ_MHZ=CONFIG_XTAL_FREQ"/>
+					<Add directory="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/config"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/port/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/3rdparty/p256-m"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/3rdparty/p256-m/p256-m"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/newlib/platform_include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/config/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/config/include/freertos"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/config/xtensa/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/esp_additions/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/include/soc"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/include/soc/esp32"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/dma/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/ldo/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/port/esp32/."/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/port/esp32/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/heap/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/log/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/soc/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/soc/esp32"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/soc/esp32/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/hal/platform_port/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/hal/esp32/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/hal/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_rom/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_rom/include/esp32"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_rom/esp32"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_common/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_system/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_system/port/soc"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_system/port/include/private"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/xtensa/esp32/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/xtensa/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/xtensa/deprecated_include"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/../../../../xtensa-esp-elf/include/c++/13.2.0"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/../../../../xtensa-esp-elf/include/c++/13.2.0/xtensa-esp-elf/esp32"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/../../../../xtensa-esp-elf/include/c++/13.2.0/backward"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/include"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/include-fixed"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/../../../../xtensa-esp-elf/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/3rdparty/p256-m/Makefile&quot;  VERBOSE=1 p256m/fast"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/3rdparty/p256-m/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/3rdparty/p256-m/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/3rdparty/p256-m/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="mbedcrypto">
+				<Option output="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/library/libmbedcrypto.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/library"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DMBEDTLS_CONFIG_FILE=&quot;mbedtls/esp_config.h&quot;"/>
+					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
+					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
+					<Add option="-D_GNU_SOURCE"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-78-gd4cd437ede&quot;"/>
+					<Add option="-DESP_PLATFORM"/>
+					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
+					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
+					<Add option="-DSOC_XTAL_FREQ_MHZ=CONFIG_XTAL_FREQ"/>
+					<Add directory="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/config"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/port/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library"/>
+					<Add directory="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/library"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/port/aes/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/newlib/platform_include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/config/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/config/include/freertos"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/config/xtensa/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/esp_additions/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/include/soc"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/include/soc/esp32"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/dma/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/ldo/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/port/esp32/."/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/port/esp32/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/heap/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/log/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/soc/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/soc/esp32"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/soc/esp32/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/hal/platform_port/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/hal/esp32/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/hal/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_rom/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_rom/include/esp32"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_rom/esp32"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_common/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_system/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_system/port/soc"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_system/port/include/private"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/xtensa/esp32/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/xtensa/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/xtensa/deprecated_include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/3rdparty/everest/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/3rdparty/p256-m"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/3rdparty/p256-m/p256-m"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/../../../../xtensa-esp-elf/include/c++/13.2.0"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/../../../../xtensa-esp-elf/include/c++/13.2.0/xtensa-esp-elf/esp32"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/../../../../xtensa-esp-elf/include/c++/13.2.0/backward"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/include"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/include-fixed"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/../../../../xtensa-esp-elf/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/library/Makefile&quot;  VERBOSE=1 mbedcrypto"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/library/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/library/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/library/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="mbedcrypto/fast">
+				<Option output="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/library/libmbedcrypto.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/library"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DMBEDTLS_CONFIG_FILE=&quot;mbedtls/esp_config.h&quot;"/>
+					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
+					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
+					<Add option="-D_GNU_SOURCE"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-78-gd4cd437ede&quot;"/>
+					<Add option="-DESP_PLATFORM"/>
+					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
+					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
+					<Add option="-DSOC_XTAL_FREQ_MHZ=CONFIG_XTAL_FREQ"/>
+					<Add directory="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/config"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/port/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library"/>
+					<Add directory="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/library"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/port/aes/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/newlib/platform_include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/config/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/config/include/freertos"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/config/xtensa/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/esp_additions/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/include/soc"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/include/soc/esp32"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/dma/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/ldo/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/port/esp32/."/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/port/esp32/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/heap/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/log/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/soc/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/soc/esp32"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/soc/esp32/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/hal/platform_port/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/hal/esp32/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/hal/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_rom/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_rom/include/esp32"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_rom/esp32"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_common/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_system/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_system/port/soc"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_system/port/include/private"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/xtensa/esp32/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/xtensa/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/xtensa/deprecated_include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/3rdparty/everest/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/3rdparty/p256-m"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/3rdparty/p256-m/p256-m"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/../../../../xtensa-esp-elf/include/c++/13.2.0"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/../../../../xtensa-esp-elf/include/c++/13.2.0/xtensa-esp-elf/esp32"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/../../../../xtensa-esp-elf/include/c++/13.2.0/backward"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/include"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/include-fixed"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/../../../../xtensa-esp-elf/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/library/Makefile&quot;  VERBOSE=1 mbedcrypto/fast"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/library/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/library/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/library/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="mbedx509">
+				<Option output="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/library/libmbedx509.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/library"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DMBEDTLS_CONFIG_FILE=&quot;mbedtls/esp_config.h&quot;"/>
+					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
+					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
+					<Add option="-D_GNU_SOURCE"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-78-gd4cd437ede&quot;"/>
+					<Add option="-DESP_PLATFORM"/>
+					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
+					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
+					<Add option="-DSOC_XTAL_FREQ_MHZ=CONFIG_XTAL_FREQ"/>
+					<Add directory="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/config"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/port/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library"/>
+					<Add directory="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/library"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/newlib/platform_include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/config/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/config/include/freertos"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/config/xtensa/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/esp_additions/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/include/soc"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/include/soc/esp32"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/dma/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/ldo/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/port/esp32/."/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/port/esp32/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/heap/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/log/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/soc/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/soc/esp32"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/soc/esp32/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/hal/platform_port/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/hal/esp32/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/hal/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_rom/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_rom/include/esp32"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_rom/esp32"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_common/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_system/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_system/port/soc"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_system/port/include/private"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/xtensa/esp32/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/xtensa/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/xtensa/deprecated_include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/3rdparty/everest/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/3rdparty/p256-m"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/3rdparty/p256-m/p256-m"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/../../../../xtensa-esp-elf/include/c++/13.2.0"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/../../../../xtensa-esp-elf/include/c++/13.2.0/xtensa-esp-elf/esp32"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/../../../../xtensa-esp-elf/include/c++/13.2.0/backward"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/include"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/include-fixed"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/../../../../xtensa-esp-elf/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/library/Makefile&quot;  VERBOSE=1 mbedx509"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/library/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/library/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/library/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="mbedx509/fast">
+				<Option output="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/library/libmbedx509.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/library"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DMBEDTLS_CONFIG_FILE=&quot;mbedtls/esp_config.h&quot;"/>
+					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
+					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
+					<Add option="-D_GNU_SOURCE"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-78-gd4cd437ede&quot;"/>
+					<Add option="-DESP_PLATFORM"/>
+					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
+					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
+					<Add option="-DSOC_XTAL_FREQ_MHZ=CONFIG_XTAL_FREQ"/>
+					<Add directory="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/config"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/port/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library"/>
+					<Add directory="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/library"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/newlib/platform_include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/config/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/config/include/freertos"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/config/xtensa/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/esp_additions/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/include/soc"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/include/soc/esp32"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/dma/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/ldo/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/port/esp32/."/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/port/esp32/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/heap/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/log/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/soc/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/soc/esp32"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/soc/esp32/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/hal/platform_port/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/hal/esp32/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/hal/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_rom/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_rom/include/esp32"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_rom/esp32"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_common/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_system/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_system/port/soc"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_system/port/include/private"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/xtensa/esp32/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/xtensa/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/xtensa/deprecated_include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/3rdparty/everest/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/3rdparty/p256-m"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/3rdparty/p256-m/p256-m"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/../../../../xtensa-esp-elf/include/c++/13.2.0"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/../../../../xtensa-esp-elf/include/c++/13.2.0/xtensa-esp-elf/esp32"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/../../../../xtensa-esp-elf/include/c++/13.2.0/backward"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/include"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/include-fixed"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/../../../../xtensa-esp-elf/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/library/Makefile&quot;  VERBOSE=1 mbedx509/fast"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/library/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/library/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/library/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="mbedtls">
+				<Option output="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/library/libmbedtls.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/library"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DMBEDTLS_CONFIG_FILE=&quot;mbedtls/esp_config.h&quot;"/>
+					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
+					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
+					<Add option="-D_GNU_SOURCE"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-78-gd4cd437ede&quot;"/>
+					<Add option="-DESP_PLATFORM"/>
+					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
+					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
+					<Add option="-DSOC_XTAL_FREQ_MHZ=CONFIG_XTAL_FREQ"/>
+					<Add directory="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/config"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/port/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library"/>
+					<Add directory="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/library"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/newlib/platform_include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/config/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/config/include/freertos"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/config/xtensa/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/esp_additions/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/include/soc"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/include/soc/esp32"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/dma/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/ldo/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/port/esp32/."/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/port/esp32/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/heap/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/log/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/soc/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/soc/esp32"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/soc/esp32/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/hal/platform_port/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/hal/esp32/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/hal/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_rom/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_rom/include/esp32"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_rom/esp32"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_common/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_system/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_system/port/soc"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_system/port/include/private"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/xtensa/esp32/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/xtensa/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/xtensa/deprecated_include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/3rdparty/everest/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/3rdparty/p256-m"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/3rdparty/p256-m/p256-m"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/../../../../xtensa-esp-elf/include/c++/13.2.0"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/../../../../xtensa-esp-elf/include/c++/13.2.0/xtensa-esp-elf/esp32"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/../../../../xtensa-esp-elf/include/c++/13.2.0/backward"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/include"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/include-fixed"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/../../../../xtensa-esp-elf/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/library/Makefile&quot;  VERBOSE=1 mbedtls"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/library/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/library/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/library/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="mbedtls/fast">
+				<Option output="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/library/libmbedtls.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/library"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DMBEDTLS_CONFIG_FILE=&quot;mbedtls/esp_config.h&quot;"/>
+					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
+					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
+					<Add option="-D_GNU_SOURCE"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-78-gd4cd437ede&quot;"/>
+					<Add option="-DESP_PLATFORM"/>
+					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
+					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
+					<Add option="-DSOC_XTAL_FREQ_MHZ=CONFIG_XTAL_FREQ"/>
+					<Add directory="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/config"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/port/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library"/>
+					<Add directory="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/library"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/newlib/platform_include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/config/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/config/include/freertos"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/config/xtensa/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/esp_additions/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/include/soc"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/include/soc/esp32"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/dma/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/ldo/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/port/esp32/."/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_hw_support/port/esp32/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/heap/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/log/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/soc/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/soc/esp32"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/soc/esp32/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/hal/platform_port/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/hal/esp32/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/hal/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_rom/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_rom/include/esp32"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_rom/esp32"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_common/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_system/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_system/port/soc"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_system/port/include/private"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/xtensa/esp32/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/xtensa/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/xtensa/deprecated_include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/3rdparty/everest/include"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/3rdparty/p256-m"/>
+					<Add directory="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/3rdparty/p256-m/p256-m"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/../../../../xtensa-esp-elf/include/c++/13.2.0"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/../../../../xtensa-esp-elf/include/c++/13.2.0/xtensa-esp-elf/esp32"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/../../../../xtensa-esp-elf/include/c++/13.2.0/backward"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/include"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/include-fixed"/>
+					<Add directory="C:/Users/eddie/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240305/xtensa-esp-elf/bin/../lib/gcc/xtensa-esp-elf/13.2.0/../../../../xtensa-esp-elf/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/library/Makefile&quot;  VERBOSE=1 mbedtls/fast"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/library/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/library/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/library/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="lib">
+				<Option working_dir="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/library"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/library/Makefile&quot;  VERBOSE=1 lib"/>
+					<CompileFile command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/library/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/library/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/JETBRA~1/CLION2~1.4/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/mbedtls/library/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/3rdparty/everest/library/Hacl_Curve25519_joined.c">
+			<Option target="everest"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/3rdparty/everest/library/everest.c">
+			<Option target="everest"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/3rdparty/everest/library/x25519.c">
+			<Option target="everest"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/3rdparty/p256-m/p256-m/p256-m.c">
+			<Option target="p256m"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/3rdparty/p256-m/p256-m/p256-m.h">
+			<Option target="p256m"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/3rdparty/p256-m/p256-m_driver_entrypoints.c">
+			<Option target="p256m"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/3rdparty/p256-m/p256-m_driver_entrypoints.h">
+			<Option target="p256m"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/aes.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/aesce.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/aesce.h">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/aesni.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/aesni.h">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/aria.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/asn1parse.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/asn1write.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/base64.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/bignum.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/bignum_core.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/bignum_core.h">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/bignum_mod.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/bignum_mod.h">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/bignum_mod_raw.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/bignum_mod_raw.h">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/camellia.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/ccm.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/chacha20.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/chachapoly.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/cipher.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/cipher_wrap.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/cipher_wrap.h">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/cmac.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/constant_time.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/ctr_drbg.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/debug.c">
+			<Option target="mbedtls"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/des.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/dhm.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/ecdh.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/ecdsa.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/ecjpake.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/ecp.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/ecp_curves.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/ecp_curves_new.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/entropy.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/entropy_poll.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/entropy_poll.h">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/error.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/gcm.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/hkdf.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/hmac_drbg.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/lmots.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/lmots.h">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/lms.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/md.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/md5.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/memory_buffer_alloc.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/mps_reader.c">
+			<Option target="mbedtls"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/mps_reader.h">
+			<Option target="mbedtls"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/mps_trace.c">
+			<Option target="mbedtls"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/mps_trace.h">
+			<Option target="mbedtls"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/nist_kw.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/oid.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/padlock.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/padlock.h">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/pem.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/pk.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/pk_wrap.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/pk_wrap.h">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/pkcs12.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/pkcs5.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/pkcs7.c">
+			<Option target="mbedx509"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/pkparse.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/pkwrite.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/pkwrite.h">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/platform.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/platform_util.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/poly1305.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/psa_crypto.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/psa_crypto_aead.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/psa_crypto_aead.h">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/psa_crypto_cipher.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/psa_crypto_cipher.h">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/psa_crypto_client.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/psa_crypto_driver_wrappers_no_static.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/psa_crypto_driver_wrappers_no_static.h">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/psa_crypto_ecp.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/psa_crypto_ecp.h">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/psa_crypto_ffdh.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/psa_crypto_ffdh.h">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/psa_crypto_hash.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/psa_crypto_hash.h">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/psa_crypto_mac.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/psa_crypto_mac.h">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/psa_crypto_pake.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/psa_crypto_pake.h">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/psa_crypto_rsa.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/psa_crypto_rsa.h">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/psa_crypto_se.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/psa_crypto_se.h">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/psa_crypto_slot_management.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/psa_crypto_slot_management.h">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/psa_crypto_storage.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/psa_crypto_storage.h">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/psa_its_file.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/psa_util.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/ripemd160.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/rsa.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/rsa_alt_helpers.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/rsa_alt_helpers.h">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/sha1.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/sha256.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/sha3.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/sha512.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/ssl_cache.c">
+			<Option target="mbedtls"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/ssl_ciphersuites.c">
+			<Option target="mbedtls"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/ssl_client.c">
+			<Option target="mbedtls"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/ssl_client.h">
+			<Option target="mbedtls"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/ssl_cookie.c">
+			<Option target="mbedtls"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/ssl_debug_helpers_generated.c">
+			<Option target="mbedtls"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/ssl_msg.c">
+			<Option target="mbedtls"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/ssl_ticket.c">
+			<Option target="mbedtls"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/ssl_tls.c">
+			<Option target="mbedtls"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/ssl_tls12_client.c">
+			<Option target="mbedtls"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/ssl_tls12_server.c">
+			<Option target="mbedtls"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/ssl_tls13_client.c">
+			<Option target="mbedtls"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/ssl_tls13_generic.c">
+			<Option target="mbedtls"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/ssl_tls13_keys.c">
+			<Option target="mbedtls"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/ssl_tls13_keys.h">
+			<Option target="mbedtls"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/ssl_tls13_server.c">
+			<Option target="mbedtls"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/threading.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/timing.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/version.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/version_features.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/x509.c">
+			<Option target="mbedx509"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/x509_create.c">
+			<Option target="mbedx509"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/x509_crl.c">
+			<Option target="mbedx509"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/x509_crt.c">
+			<Option target="mbedx509"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/x509_csr.c">
+			<Option target="mbedx509"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/x509write.c">
+			<Option target="mbedx509"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/x509write_crt.c">
+			<Option target="mbedx509"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/mbedtls/library/x509write_csr.c">
+			<Option target="mbedx509"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/port/aes/block/esp_aes.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/port/aes/esp_aes_common.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/port/aes/esp_aes_gcm.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/port/aes/esp_aes_xts.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/port/bignum/bignum_alt.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/port/bignum/esp_bignum.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/port/esp_hardware.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/port/esp_mem.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/port/esp_platform_time.c">
+			<Option target="mbedtls"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/port/esp_timing.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/port/mbedtls_debug.c">
+			<Option target="mbedtls"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/port/md/esp_md.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/port/sha/esp_sha.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/port/sha/parallel_engine/esp_sha1.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/port/sha/parallel_engine/esp_sha256.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/port/sha/parallel_engine/esp_sha512.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/esp/esp-idf/components/mbedtls/port/sha/parallel_engine/sha.c">
+			<Option target="mbedcrypto"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/sdkconfig">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/mbedtls/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\mbedtls\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/mbedtls/mbedtls/.git">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\mbedtls\mbedtls\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/mbedtls/mbedtls/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\mbedtls\mbedtls\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/mbedtls/mbedtls/include/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\mbedtls\mbedtls\include\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/mbedtls/mbedtls/3rdparty/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\mbedtls\mbedtls\3rdparty\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/mbedtls/mbedtls/3rdparty/everest/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\mbedtls\mbedtls\3rdparty\everest\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/mbedtls/mbedtls/3rdparty/p256-m/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\mbedtls\mbedtls\3rdparty\p256-m\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/mbedtls/mbedtls/library/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\mbedtls\mbedtls\library\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/xtensa/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\xtensa\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/xtensa/project_include.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\xtensa\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/esp_driver_gpio/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\esp_driver_gpio\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/esp_timer/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\esp_timer\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/esp_pm/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\esp_pm\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/esp_app_format/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\esp_app_format\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/efuse/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\efuse\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/efuse/esp32/sources.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\efuse\esp32\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/esp_bootloader_format/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\esp_bootloader_format\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/bootloader_support/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\bootloader_support\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/bootloader/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\bootloader\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/bootloader/project_include.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\bootloader\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/bootloader/subproject/components/micro-ecc/micro-ecc/.git">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\bootloader\subproject\components\micro-ecc\micro-ecc\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/esptool_py/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\esptool_py\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/esptool_py/espefuse.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\esptool_py\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/esptool_py/project_include.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\esptool_py\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/partition_table/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\partition_table\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/partition_table/partitions_singleapp.csv">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\partition_table\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/partition_table/project_include.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\partition_table\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/app_update/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\app_update\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/esp_mm/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\esp_mm\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/spi_flash/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\spi_flash\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/esp_system/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\esp_system\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/esp_system/ld/ld.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\esp_system\ld\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/esp_system/port/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\esp_system\port\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/esp_system/port/soc/esp32/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\esp_system\port\soc\esp32\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/esp_common/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\esp_common\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/esp_common/project_include.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\esp_common\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/esp_rom/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\esp_rom\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/hal/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\hal\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/log/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\log\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/heap/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\heap\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/heap/tlsf/.git">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\heap\tlsf\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/soc/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\soc\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/esp_hw_support/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\esp_hw_support\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/esp_hw_support/port/esp32/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\esp_hw_support\port\esp32\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/esp_hw_support/lowpower/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\esp_hw_support\lowpower\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/freertos/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\freertos\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/newlib/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\newlib\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/newlib/project_include.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\newlib\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/newlib/port/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\newlib\port\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/pthread/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\pthread\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/cxx/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\cxx\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/esp_partition/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\esp_partition\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/esp_ringbuf/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\esp_ringbuf\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/esp_driver_uart/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\esp_driver_uart\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/esp_driver_usb_serial_jtag/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\esp_driver_usb_serial_jtag\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/esp_vfs_console/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\esp_vfs_console\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/vfs/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\vfs\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/spiffs/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\spiffs\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/spiffs/project_include.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\spiffs\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/spiffs/spiffs/.git">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\spiffs\spiffs\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/esp_driver_pcnt/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\esp_driver_pcnt\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/esp_driver_gptimer/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\esp_driver_gptimer\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/esp_driver_spi/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\esp_driver_spi\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/esp_driver_mcpwm/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\esp_driver_mcpwm\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/esp_driver_ana_cmpr/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\esp_driver_ana_cmpr\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/esp_driver_i2s/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\esp_driver_i2s\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/sdmmc/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\sdmmc\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/esp_driver_sdmmc/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\esp_driver_sdmmc\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/esp_driver_sdspi/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\esp_driver_sdspi\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/esp_driver_sdio/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\esp_driver_sdio\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/esp_driver_dac/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\esp_driver_dac\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/esp_driver_rmt/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\esp_driver_rmt\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/esp_driver_tsens/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\esp_driver_tsens\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/esp_driver_sdm/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\esp_driver_sdm\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/esp_driver_i2c/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\esp_driver_i2c\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/esp_driver_ledc/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\esp_driver_ledc\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/esp_driver_parlio/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\esp_driver_parlio\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/driver/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\driver\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/bt/controller/lib_esp32/.git">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\bt\controller\lib_esp32\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/bt/controller/lib_esp32c2/esp32c2-bt-lib/.git">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\bt\controller\lib_esp32c2\esp32c2-bt-lib\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/bt/controller/lib_esp32c3_family/.git">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\bt\controller\lib_esp32c3_family\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/bt/controller/lib_esp32c5/esp32c5-bt-lib/.git">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\bt\controller\lib_esp32c5\esp32c5-bt-lib\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/bt/controller/lib_esp32c6/esp32c6-bt-lib/.git">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\bt\controller\lib_esp32c6\esp32c6-bt-lib\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/bt/controller/lib_esp32h2/esp32h2-bt-lib/.git">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\bt\controller\lib_esp32h2\esp32h2-bt-lib\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/bt/esp_ble_mesh/lib/lib/.git">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\bt\esp_ble_mesh\lib\lib\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/bt/host/nimble/nimble/.git">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\bt\host\nimble\nimble\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/cmock/CMock/.git">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\cmock\CMock\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/esp_coex/lib/.git">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\esp_coex\lib\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/esp_phy/lib/.git">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\esp_phy\lib\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/esp_wifi/lib/.git">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\esp_wifi\lib\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/json/cJSON/.git">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\json\cJSON\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/lwip/lwip/.git">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\lwip\lwip\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/mqtt/esp-mqtt/.git">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\mqtt\esp-mqtt\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/openthread/lib/.git">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\openthread\lib\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/openthread/openthread/.git">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\openthread\openthread\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/protobuf-c/protobuf-c/.git">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\protobuf-c\protobuf-c\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/components/unity/unity/.git">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\components\unity\unity\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/tools/cmake/build.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\tools\cmake\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/tools/cmake/component.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\tools\cmake\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/tools/cmake/depgraph.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\tools\cmake\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/tools/cmake/dfu.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\tools\cmake\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/tools/cmake/git_submodules.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\tools\cmake\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/tools/cmake/idf.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\tools\cmake\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/tools/cmake/kconfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\tools\cmake\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/tools/cmake/ldgen.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\tools\cmake\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/tools/cmake/project.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\tools\cmake\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/tools/cmake/project_description.json.in">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\tools\cmake\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/tools/cmake/targets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\tools\cmake\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/tools/cmake/tool_version_check.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\tools\cmake\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/tools/cmake/toolchain-esp32.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\tools\cmake\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/tools/cmake/utilities.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\tools\cmake\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/tools/cmake/version.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\tools\cmake\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/tools/cmake/third_party/GetGitRevisionDescription.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\tools\cmake\third_party\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/tools/cmake/third_party/GetGitRevisionDescription.cmake.in">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\tools\cmake\third_party\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/tools/kconfig_new/confgen.py">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\tools\kconfig_new\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/tools/kconfig_new/config.env.in">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\tools\kconfig_new\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/.git/HEAD">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\.git\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/.git/refs/heads/master">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\.git\refs\heads\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/.git/modules/components/bootloader/subproject/components/micro-ecc/micro-ecc/HEAD">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\.git\modules\components\bootloader\subproject\components\micro-ecc\micro-ecc\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/.git/modules/components/bt/controller/lib_esp32/HEAD">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\.git\modules\components\bt\controller\lib_esp32\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/.git/modules/components/bt/controller/lib_esp32c2/esp32c2-bt-lib/HEAD">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\.git\modules\components\bt\controller\lib_esp32c2\esp32c2-bt-lib\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/.git/modules/components/bt/controller/lib_esp32c3_family/HEAD">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\.git\modules\components\bt\controller\lib_esp32c3_family\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/.git/modules/components/bt/controller/lib_esp32c5/esp32c5-bt-lib/HEAD">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\.git\modules\components\bt\controller\lib_esp32c5\esp32c5-bt-lib\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/.git/modules/components/bt/controller/lib_esp32c6/esp32c6-bt-lib/HEAD">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\.git\modules\components\bt\controller\lib_esp32c6\esp32c6-bt-lib\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/.git/modules/components/bt/controller/lib_esp32h2/esp32h2-bt-lib/HEAD">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\.git\modules\components\bt\controller\lib_esp32h2\esp32h2-bt-lib\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/.git/modules/components/bt/esp_ble_mesh/lib/lib/HEAD">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\.git\modules\components\bt\esp_ble_mesh\lib\lib\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/.git/modules/components/bt/host/nimble/nimble/HEAD">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\.git\modules\components\bt\host\nimble\nimble\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/.git/modules/components/cmock/CMock/HEAD">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\.git\modules\components\cmock\CMock\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/.git/modules/components/esp_coex/lib/HEAD">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\.git\modules\components\esp_coex\lib\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/.git/modules/components/esp_phy/lib/HEAD">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\.git\modules\components\esp_phy\lib\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/.git/modules/components/esp_wifi/lib/HEAD">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\.git\modules\components\esp_wifi\lib\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/.git/modules/components/heap/tlsf/HEAD">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\.git\modules\components\heap\tlsf\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/.git/modules/components/json/cJSON/HEAD">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\.git\modules\components\json\cJSON\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/.git/modules/components/lwip/lwip/HEAD">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\.git\modules\components\lwip\lwip\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/.git/modules/components/mbedtls/mbedtls/HEAD">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\.git\modules\components\mbedtls\mbedtls\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/.git/modules/components/mqtt/esp-mqtt/HEAD">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\.git\modules\components\mqtt\esp-mqtt\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/.git/modules/components/openthread/lib/HEAD">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\.git\modules\components\openthread\lib\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/.git/modules/components/openthread/openthread/HEAD">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\.git\modules\components\openthread\openthread\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/.git/modules/components/protobuf-c/protobuf-c/HEAD">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\.git\modules\components\protobuf-c\protobuf-c\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/.git/modules/components/spiffs/spiffs/HEAD">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\.git\modules\components\spiffs\spiffs\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../../../esp/esp-idf/.git/modules/components/unity/unity/HEAD">
+			<Option virtualFolder="CMake Files\..\..\..\esp\esp-idf\.git\modules\components\unity\unity\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../components/lcd/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\components\lcd\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../components/pin/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\components\pin\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../.git/HEAD">
+			<Option virtualFolder="CMake Files\..\.git\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/../.git/refs/heads/main">
+			<Option virtualFolder="CMake Files\..\.git\refs\heads\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/app-flash_args">
+			<Option virtualFolder="CMake Files\cmake-build-debug\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/bootloader-flash_args">
+			<Option virtualFolder="CMake Files\cmake-build-debug\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/flash_args">
+			<Option virtualFolder="CMake Files\cmake-build-debug\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/flash_args.in">
+			<Option virtualFolder="CMake Files\cmake-build-debug\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/ldgen_libraries.in">
+			<Option virtualFolder="CMake Files\cmake-build-debug\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/bootloader/bootloader-flash_args.in">
+			<Option virtualFolder="CMake Files\cmake-build-debug\esp-idf\bootloader\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/esptool_py/app-flash_args.in">
+			<Option virtualFolder="CMake Files\cmake-build-debug\esp-idf\esptool_py\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/esptool_py/flasher_args.json.in">
+			<Option virtualFolder="CMake Files\cmake-build-debug\esp-idf\esptool_py\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/partition_table/partition-table-flash_args.in">
+			<Option virtualFolder="CMake Files\cmake-build-debug\esp-idf\partition_table\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/config/sdkconfig.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\config\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/config/sdkconfig.h">
+			<Option virtualFolder="CMake Files\cmake-build-debug\config\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/bootloader-prefix/tmp/bootloader-mkdirs.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\bootloader-prefix\tmp\"/>
+		</Unit>
+		<Unit filename="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/main/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\main\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

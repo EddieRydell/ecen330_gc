@@ -1,0 +1,2 @@
+C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\ar.exe qc libsdmmc.a CMakeFiles/__idf_sdmmc.dir/sdmmc_cmd.c.obj CMakeFiles/__idf_sdmmc.dir/sdmmc_common.c.obj CMakeFiles/__idf_sdmmc.dir/sdmmc_init.c.obj CMakeFiles/__idf_sdmmc.dir/sdmmc_io.c.obj CMakeFiles/__idf_sdmmc.dir/sdmmc_mmc.c.obj CMakeFiles/__idf_sdmmc.dir/sdmmc_sd.c.obj CMakeFiles/__idf_sdmmc.dir/sd_pwr_ctrl/sd_pwr_ctrl.c.obj
+C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\ranlib.exe libsdmmc.a

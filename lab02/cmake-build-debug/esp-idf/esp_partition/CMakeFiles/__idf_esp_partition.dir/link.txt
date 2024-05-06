@@ -1,0 +1,2 @@
+C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\ar.exe qc libesp_partition.a CMakeFiles/__idf_esp_partition.dir/partition.c.obj CMakeFiles/__idf_esp_partition.dir/partition_target.c.obj
+C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\ranlib.exe libesp_partition.a

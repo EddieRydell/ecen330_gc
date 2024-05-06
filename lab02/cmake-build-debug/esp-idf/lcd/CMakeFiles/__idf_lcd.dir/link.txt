@@ -1,0 +1,2 @@
+C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\ar.exe qc liblcd.a CMakeFiles/__idf_lcd.dir/lcd.c.obj CMakeFiles/__idf_lcd.dir/fontx.c.obj CMakeFiles/__idf_lcd.dir/lcd_test.c.obj
+C:\PROGRA~1\JETBRA~1\CLION2~1.4\bin\mingw\bin\ranlib.exe liblcd.a
