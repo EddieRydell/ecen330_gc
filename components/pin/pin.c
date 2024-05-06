@@ -3,22 +3,43 @@
 #include "driver/rtc_io.h" // rtc_gpio_*
 #include "pin.h"
 
+#define REGISTER_SIZE 32
+#define NUM_PINS 40
+
 // GPIO Matrix Registers
-#define GPIO_OUT_REG          (DR_REG_GPIO_BASE+0x04)
-// TODO: GPIO_OUT_W1TS_REG ...
-// NOTE: Remember to enclose the macro values in parenthesis, as above
+#define GPIO_OUT_REG (DR_REG_GPIO_BASE + 0x04)
+#define GPIO_OUT_W1TS_REG (DR_REG_GPIO_BASE + 0x08)
+#define GPIO_OUT_W1TC_REG (DR_REG_GPIO_BASE + 0x0C)
+
+#define GPIO_OUT1_REG (DR_REG_GPIO_BASE + 0x10)
+#define GPIO_OUT1_W1TS_REG (DR_REG_GPIO_BASE + 0x14)
+#define GPIO_OUT1_W1TC_REG (DR_REG_GPIO_BASE + 0x18)
+
+#define GPIO_ENABLE_REG (DR_REG_GPIO_BASE + 0x20)
+#define GPIO_ENABLE_W1TS_REG (DR_REG_GPIO_BASE + 0x24)
+#define GPIO_ENABLE_W1TC_REG (DR_REG_GPIO_BASE + 0x28)
+
+#define GPIO_ENABLE1_REG (DR_REG_GPIO_BASE + 0x2C)
+#define GPIO_ENABLE1_W1TS_REG (DR_REG_GPIO_BASE + 0x30)
+#define GPIO_ENABLE1_W1TC_REG (DR_REG_GPIO_BASE + 0x34)
+
+#define GPIO_IN_REG (DR_REG_GPIO_BASE + 0x3C)
+#define GPIO_IN1_REG (DR_REG_GPIO_BASE + 0x40)
 
 // IO MUX Registers
-#define IO_MUX_REG(n) // TODO: Add DR_REG_IO_MUX_BASE with PIN_MUX_REG_OFFSET[n]
+#define IO_MUX_REG(n) (DR_REG_IO_MUX_BASE + PIN_MUX_REG_OFFSET[n])
 
 // IO MUX Register Fields
-#define FUN_WPD  7
-// TODO: FUN_WPU ...
+#define FUN_WPD 7
+#define FUN_WPU 8
+#define FUN_IE 9
+
+#define PAD_DRIVER 2
 
 #define REG(r) (*(volatile uint32_t *)(r))
-#define REG_SET_BIT(r,b) // TODO: Finish these macros
-#define REG_CLR_BIT(r,b) // TODO: Hint, use the REG() macro
-#define REG_GET_BIT(r,b) // TODO:
+#define REG_SET_BIT(r,b) (REG(r) |= (0x01 << (b)))
+#define REG_CLR_BIT(r,b) (REG(r) &= (0xFFFFFFFE << (b)))
+#define REG_GET_BIT(r,b) ((REG(r) >> (b)) & 0x01)
 
 // Gives byte offset of IO_MUX Configuration Register
 // from base address DR_REG_IO_MUX_BASE
@@ -55,7 +76,12 @@ int32_t pin_pullup(pin_num_t pin, bool enable)
 		if (enable) return rtc_gpio_pullup_en(pin);
 		else return rtc_gpio_pullup_dis(pin);
 	}
-	// TODO: Set or clear the FUN_WPU bit in an IO_MUX register
+    if (enable) {
+        REG_SET_BIT(IO_MUX_REG(pin), FUN_WPU);
+    }
+    else {
+        REG_CLR_BIT(IO_MUX_REG(pin), FUN_WPU);
+    }
 	return 0;
 }
 
@@ -66,54 +92,117 @@ int32_t pin_pulldown(pin_num_t pin, bool enable)
 		if (enable) return rtc_gpio_pulldown_en(pin);
 		else return rtc_gpio_pulldown_dis(pin);
 	}
-	// TODO: Set or clear the FUN_WPD bit in an IO_MUX register
+    if (enable) {
+        REG_SET_BIT(IO_MUX_REG(pin), FUN_WPD);
+    }
+    else {
+        REG_CLR_BIT(IO_MUX_REG(pin), FUN_WPD);
+    }
 	return 0;
 }
 
 // Enable or disable the pin as an input signal.
 int32_t pin_input(pin_num_t pin, bool enable)
 {
-	// TODO: Set or clear the FUN_IE bit in an IO_MUX register
+    if (pin < 0 || pin >= NUM_PINS) {
+        return -1; //todo errCode
+    }
+    if (enable) {
+        REG_SET_BIT(IO_MUX_REG(pin), FUN_IE);
+    }
+    else {
+        REG_CLR_BIT(IO_MUX_REG(pin), FUN_IE);
+    }
 	return 0;
 }
 
 // Enable or disable the pin as an output signal.
 int32_t pin_output(pin_num_t pin, bool enable)
 {
-	// TODO: Set or clear the I/O pin bit in the ENABLE or ENABLE1 register
+    if (pin < 0 || pin >= NUM_PINS) {
+        return -1;
+    }
+    if (pin < REGISTER_SIZE) {
+        if (enable) {
+            REG_SET_BIT(GPIO_ENABLE_W1TS_REG, pin);
+        } else {
+            REG_CLR_BIT(GPIO_ENABLE_W1TC_REG, pin);
+        }
+    }
+    else {
+        pin -= REGISTER_SIZE;
+        if (enable) {
+            REG_SET_BIT(GPIO_ENABLE1_W1TS_REG, pin);
+        } else {
+            REG_CLR_BIT(GPIO_ENABLE1_W1TC_REG, pin);
+        }
+    }
 	return 0;
 }
 
 // Enable or disable the pin as an open-drain signal.
 int32_t pin_odrain(pin_num_t pin, bool enable)
 {
-	// TODO: Set or clear the PAD_DRIVER bit in a PIN register
+    if (pin < 0 || pin >= NUM_PINS) {
+        return -1;
+    }
+    if (enable) {
+        REG_SET_BIT(IO_MUX_REG(pin), PAD_DRIVER);
+    } else {
+        REG_CLR_BIT(IO_MUX_REG(pin), PAD_DRIVER);
+    }
 	return 0;
 }
 
 // Sets the output signal level if the pin is configured as an output.
 int32_t pin_set_level(pin_num_t pin, int32_t level)
 {
-	// TODO: Set or clear the I/O pin bit in the OUT or OUT1 register
+    if (pin < 0 || pin >= NUM_PINS) {
+        return -1;
+    }
+    if (pin < REGISTER_SIZE) {
+        if (level) {
+            REG_SET_BIT(GPIO_OUT_W1TS_REG, pin);
+        } else {
+            REG_CLR_BIT(GPIO_OUT_W1TC_REG, pin);
+        }
+    }
+    else {
+        pin -= REGISTER_SIZE;
+        if (level) {
+            REG_SET_BIT(GPIO_OUT1_W1TS_REG, pin);
+        } else {
+            REG_CLR_BIT(GPIO_OUT1_W1TC_REG, pin);
+        }
+    }
 	return 0;
 }
 
 // Gets the input signal level if the pin is configured as an input.
 int32_t pin_get_level(pin_num_t pin)
 {
-	// TODO: Get the I/O pin bit from the IN or IN1 register
+    if (pin < 0 || pin >= NUM_PINS) {
+        return -1;
+    }
+    if (pin < REGISTER_SIZE) {
+        return REG_GET_BIT(GPIO_IN_REG, pin);
+    }
+    else {
+        pin -= REGISTER_SIZE;
+        return REG_GET_BIT(GPIO_IN1_REG, pin);
+    }
 }
 
 // Get the value of the input registers, one pin per bit.
 // The two 32-bit input registers are concatenated into a uint64_t.
 uint64_t pin_get_in_reg(void)
 {
-	// TODO: Read the IN and IN1 registers, return the concatenated values
+    return ((uint64_t)GPIO_IN_REG << REGISTER_SIZE) | GPIO_IN1_REG;
 }
 
 // Get the value of the output registers, one pin per bit.
 // The two 32-bit output registers are concatenated into a uint64_t.
 uint64_t pin_get_out_reg(void)
 {
-	// TODO: Read the OUT and OUT1 registers, return the concatenated values
+    return ((uint64_t)GPIO_OUT_REG << REGISTER_SIZE) | GPIO_OUT1_REG;
 }
