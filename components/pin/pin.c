@@ -6,6 +6,8 @@
 #define REGISTER_SIZE 32
 #define NUM_PINS 40
 
+#define ERR_INVALID_PIN (-1)
+
 // GPIO Matrix Registers
 #define GPIO_OUT_REG (DR_REG_GPIO_BASE + 0x04)
 #define GPIO_OUT_W1TS_REG (DR_REG_GPIO_BASE + 0x08)
@@ -26,8 +28,8 @@
 #define GPIO_IN_REG (DR_REG_GPIO_BASE + 0x3C)
 #define GPIO_IN1_REG (DR_REG_GPIO_BASE + 0x40)
 
-#define GPIO_PIN_REG(n) (0x88 + (0x4 * (n)))
-#define GPIO_FUNC_OUT_SEL_CFG_REG(n) (0x3FF44530 + (n))
+#define GPIO_PIN_REG(n) (DR_REG_GPIO_BASE+ 0x88 + (0x4 * (n)))
+#define GPIO_FUNC_OUT_SEL_CFG_REG(n) (DR_REG_GPIO_BASE + 0x0530 + (0x04 * (n)))
 #define GPIO_FUNC_OUT_SEL_FIELD 0
 
 // IO MUX Registers
@@ -44,7 +46,7 @@
 
 #define REG(r) (*(volatile uint32_t*)(r))
 #define REG_SET_BIT(r,b) (REG(r) |= (0x01 << (b)))
-#define REG_CLR_BIT(r,b) (REG(r) &= (0xFFFFFFFE << (b)))
+#define REG_CLR_BIT(r,b) (REG(r) &= ~(0x01 << (b)))
 #define REG_GET_BIT(r,b) ((REG(r) >> (b)) & 0x01)
 #define REG_SET_FIELD(r,b,v) (REG(r) |= (v) << (b))
 #define REG_CLR_ALL(r) (REG(r) &= 0)
@@ -64,23 +66,25 @@ static const uint8_t PIN_MUX_REG_OFFSET[] = {
 // Pull-up is enabled so the pin does not float.
 int32_t pin_reset(pin_num_t pin)
 {
-	if (rtc_gpio_is_valid_gpio(pin)) { // hand-off work to RTC subsystem
-		rtc_gpio_deinit(pin);
-		rtc_gpio_pullup_en(pin);
-		rtc_gpio_pulldown_dis(pin);
-	}
-    // Reset GPIO_PINn_REG: All fields zero
-    /*REG_CLR_ALL(GPIO_PIN_REG(pin));
+    if (rtc_gpio_is_valid_gpio(pin)) { // hand-off work to RTC subsystem
+        rtc_gpio_deinit(pin);
+        rtc_gpio_pullup_en(pin);
+        rtc_gpio_pulldown_dis(pin);
+    }
+    else {
+        // Reset GPIO_PINn_REG: All fields zero
+        REG_CLR_ALL(GPIO_PIN_REG(pin));
 
-    // Reset GPIO_FUNCn_OUT_SEL_CFG_REG: GPIO_FUNCn_OUT_SEL=0x100
-    REG_CLR_ALL(GPIO_FUNC_OUT_SEL_CFG_REG(pin));
-    REG_SET_FIELD(GPIO_FUNC_OUT_SEL_CFG_REG(pin), GPIO_FUNC_OUT_SEL_FIELD, 0x100);
+        // Reset GPIO_FUNCn_OUT_SEL_CFG_REG: GPIO_FUNCn_OUT_SEL=0x100
+        REG_CLR_ALL(GPIO_FUNC_OUT_SEL_CFG_REG(pin));
+        REG_SET_FIELD(GPIO_FUNC_OUT_SEL_CFG_REG(pin), GPIO_FUNC_OUT_SEL_FIELD, 0x100);
 
-    //Reset IO_MUX_x_REG: MCU_SEL=2, FUN_DRV=2, FUN_WPU_BIT=1
-    REG_CLR_ALL(IO_MUX_REG(pin));
-    REG_SET_BIT(IO_MUX_REG(pin), FUN_WPU_BIT);
-    REG_SET_FIELD(IO_MUX_REG(pin), FUN_DRV_FIELD, 2);
-    REG_SET_FIELD(IO_MUX_REG(pin), MCU_SEL_FIELD, 2);*/
+        //Reset IO_MUX_x_REG: MCU_SEL=2, FUN_DRV=2, FUN_WPU_BIT=1
+        REG_CLR_ALL(IO_MUX_REG(pin));
+        REG_SET_FIELD(IO_MUX_REG(pin), MCU_SEL_FIELD, 2);
+        REG_SET_FIELD(IO_MUX_REG(pin), FUN_DRV_FIELD, 2);
+        REG_SET_BIT(IO_MUX_REG(pin), FUN_WPU_BIT);
+    }
 
 	// Now that the pin is reset, set the output level to zero
 	return pin_set_level(pin, 0);
@@ -122,7 +126,7 @@ int32_t pin_pulldown(pin_num_t pin, bool enable)
 int32_t pin_input(pin_num_t pin, bool enable)
 {
     if (pin < 0 || pin >= NUM_PINS) {
-        return -1; //todo errCode
+        return ERR_INVALID_PIN;
     }
     if (enable) {
         REG_SET_BIT(IO_MUX_REG(pin), FUN_IE_BIT);
@@ -137,7 +141,7 @@ int32_t pin_input(pin_num_t pin, bool enable)
 int32_t pin_output(pin_num_t pin, bool enable)
 {
     if (pin < 0 || pin >= NUM_PINS) {
-        return -1;
+        return ERR_INVALID_PIN;
     }
     if (pin < REGISTER_SIZE) {
         if (enable) {
@@ -162,7 +166,7 @@ int32_t pin_output(pin_num_t pin, bool enable)
 int32_t pin_odrain(pin_num_t pin, bool enable)
 {
     if (pin < 0 || pin >= NUM_PINS) {
-        return -1;
+        return ERR_INVALID_PIN;
     }
     if (enable) {
         REG_SET_BIT(IO_MUX_REG(pin), PAD_DRIVER_BIT);
@@ -176,7 +180,7 @@ int32_t pin_odrain(pin_num_t pin, bool enable)
 int32_t pin_set_level(pin_num_t pin, int32_t level)
 {
     if (pin < 0 || pin >= NUM_PINS) {
-        return -1;
+        return ERR_INVALID_PIN;
     }
     if (pin < REGISTER_SIZE) {
         if (level) {
@@ -200,7 +204,7 @@ int32_t pin_set_level(pin_num_t pin, int32_t level)
 int32_t pin_get_level(pin_num_t pin)
 {
     if (pin < 0 || pin >= NUM_PINS) {
-        return -1;
+        return ERR_INVALID_PIN;
     }
     if (pin < REGISTER_SIZE) {
         return REG_GET_BIT(GPIO_IN_REG, pin);

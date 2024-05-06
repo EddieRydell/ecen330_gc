@@ -1550,8 +1550,8 @@ CMakeFiles/uf2-app.dir/clean:
 # Target rules for target CMakeFiles/merge-bin.dir
 
 # All Build rule for target.
-CMakeFiles/merge-bin.dir/all: CMakeFiles/gen_project_binary.dir/all
 CMakeFiles/merge-bin.dir/all: CMakeFiles/bootloader.dir/all
+CMakeFiles/merge-bin.dir/all: CMakeFiles/gen_project_binary.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\merge-bin.dir\build.make CMakeFiles/merge-bin.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\merge-bin.dir\build.make CMakeFiles/merge-bin.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\eddie\CLionProjects\ecen330_gc\lab02\cmake-build-debug\CMakeFiles --progress-num= "Built target merge-bin"
@@ -1603,8 +1603,8 @@ CMakeFiles/monitor.dir/clean:
 # Target rules for target CMakeFiles/flash.dir
 
 # All Build rule for target.
-CMakeFiles/flash.dir/all: CMakeFiles/app.dir/all
 CMakeFiles/flash.dir/all: CMakeFiles/bootloader.dir/all
+CMakeFiles/flash.dir/all: CMakeFiles/app.dir/all
 CMakeFiles/flash.dir/all: esp-idf/partition_table/CMakeFiles/partition_table_bin.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\flash.dir\build.make CMakeFiles/flash.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\flash.dir\build.make CMakeFiles/flash.dir/build
@@ -1687,22 +1687,22 @@ CMakeFiles/lab02.elf.dir/all: CMakeFiles/_project_elf_src.dir/all
 CMakeFiles/lab02.elf.dir/all: esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/all
 CMakeFiles/lab02.elf.dir/all: esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/all
 CMakeFiles/lab02.elf.dir/all: esp-idf/spiffs/CMakeFiles/__idf_spiffs.dir/all
-CMakeFiles/lab02.elf.dir/all: esp-idf/esp_driver_spi/CMakeFiles/__idf_esp_driver_spi.dir/all
-CMakeFiles/lab02.elf.dir/all: esp-idf/esp_driver_pcnt/CMakeFiles/__idf_esp_driver_pcnt.dir/all
 CMakeFiles/lab02.elf.dir/all: esp-idf/main/CMakeFiles/__idf_main.dir/all
 CMakeFiles/lab02.elf.dir/all: esp-idf/esp_driver_gptimer/CMakeFiles/__idf_esp_driver_gptimer.dir/all
+CMakeFiles/lab02.elf.dir/all: esp-idf/esp_driver_pcnt/CMakeFiles/__idf_esp_driver_pcnt.dir/all
+CMakeFiles/lab02.elf.dir/all: esp-idf/esp_driver_spi/CMakeFiles/__idf_esp_driver_spi.dir/all
 CMakeFiles/lab02.elf.dir/all: esp-idf/esp_driver_mcpwm/CMakeFiles/__idf_esp_driver_mcpwm.dir/all
 CMakeFiles/lab02.elf.dir/all: esp-idf/esp_driver_i2s/CMakeFiles/__idf_esp_driver_i2s.dir/all
 CMakeFiles/lab02.elf.dir/all: esp-idf/sdmmc/CMakeFiles/__idf_sdmmc.dir/all
-CMakeFiles/lab02.elf.dir/all: esp-idf/esp_driver_sdmmc/CMakeFiles/__idf_esp_driver_sdmmc.dir/all
 CMakeFiles/lab02.elf.dir/all: esp-idf/esp_driver_sdio/CMakeFiles/__idf_esp_driver_sdio.dir/all
-CMakeFiles/lab02.elf.dir/all: esp-idf/esp_driver_dac/CMakeFiles/__idf_esp_driver_dac.dir/all
 CMakeFiles/lab02.elf.dir/all: esp-idf/esp_driver_sdspi/CMakeFiles/__idf_esp_driver_sdspi.dir/all
+CMakeFiles/lab02.elf.dir/all: esp-idf/esp_driver_sdmmc/CMakeFiles/__idf_esp_driver_sdmmc.dir/all
+CMakeFiles/lab02.elf.dir/all: esp-idf/esp_driver_dac/CMakeFiles/__idf_esp_driver_dac.dir/all
+CMakeFiles/lab02.elf.dir/all: esp-idf/esp_driver_sdm/CMakeFiles/__idf_esp_driver_sdm.dir/all
 CMakeFiles/lab02.elf.dir/all: esp-idf/esp_driver_rmt/CMakeFiles/__idf_esp_driver_rmt.dir/all
 CMakeFiles/lab02.elf.dir/all: esp-idf/esp_driver_i2c/CMakeFiles/__idf_esp_driver_i2c.dir/all
-CMakeFiles/lab02.elf.dir/all: esp-idf/esp_driver_sdm/CMakeFiles/__idf_esp_driver_sdm.dir/all
-CMakeFiles/lab02.elf.dir/all: esp-idf/esp_driver_ledc/CMakeFiles/__idf_esp_driver_ledc.dir/all
 CMakeFiles/lab02.elf.dir/all: esp-idf/driver/CMakeFiles/__idf_driver.dir/all
+CMakeFiles/lab02.elf.dir/all: esp-idf/esp_driver_ledc/CMakeFiles/__idf_esp_driver_ledc.dir/all
 CMakeFiles/lab02.elf.dir/all: esp-idf/lcd/CMakeFiles/__idf_lcd.dir/all
 CMakeFiles/lab02.elf.dir/all: esp-idf/pin/CMakeFiles/__idf_pin.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab02.elf.dir\build.make CMakeFiles/lab02.elf.dir/depend
@@ -2877,22 +2877,22 @@ esp-idf/esp_system/CMakeFiles/sections.ld.in.dir/clean:
 # All Build rule for target.
 esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/all
 esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/spiffs/CMakeFiles/__idf_spiffs.dir/all
-esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp_driver_spi/CMakeFiles/__idf_esp_driver_spi.dir/all
-esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp_driver_pcnt/CMakeFiles/__idf_esp_driver_pcnt.dir/all
 esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/main/CMakeFiles/__idf_main.dir/all
 esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp_driver_gptimer/CMakeFiles/__idf_esp_driver_gptimer.dir/all
+esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp_driver_pcnt/CMakeFiles/__idf_esp_driver_pcnt.dir/all
+esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp_driver_spi/CMakeFiles/__idf_esp_driver_spi.dir/all
 esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp_driver_mcpwm/CMakeFiles/__idf_esp_driver_mcpwm.dir/all
 esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp_driver_i2s/CMakeFiles/__idf_esp_driver_i2s.dir/all
 esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/sdmmc/CMakeFiles/__idf_sdmmc.dir/all
-esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp_driver_sdmmc/CMakeFiles/__idf_esp_driver_sdmmc.dir/all
 esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp_driver_sdio/CMakeFiles/__idf_esp_driver_sdio.dir/all
-esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp_driver_dac/CMakeFiles/__idf_esp_driver_dac.dir/all
 esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp_driver_sdspi/CMakeFiles/__idf_esp_driver_sdspi.dir/all
+esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp_driver_sdmmc/CMakeFiles/__idf_esp_driver_sdmmc.dir/all
+esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp_driver_dac/CMakeFiles/__idf_esp_driver_dac.dir/all
+esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp_driver_sdm/CMakeFiles/__idf_esp_driver_sdm.dir/all
 esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp_driver_rmt/CMakeFiles/__idf_esp_driver_rmt.dir/all
 esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp_driver_i2c/CMakeFiles/__idf_esp_driver_i2c.dir/all
-esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp_driver_sdm/CMakeFiles/__idf_esp_driver_sdm.dir/all
-esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp_driver_ledc/CMakeFiles/__idf_esp_driver_ledc.dir/all
 esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/driver/CMakeFiles/__idf_driver.dir/all
+esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp_driver_ledc/CMakeFiles/__idf_esp_driver_ledc.dir/all
 esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/lcd/CMakeFiles/__idf_lcd.dir/all
 esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/pin/CMakeFiles/__idf_pin.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf\esp_system\CMakeFiles\__ldgen_output_sections.ld.dir\build.make esp-idf/esp_system/CMakeFiles/__ldgen_output_sections.ld.dir/depend
@@ -3310,9 +3310,9 @@ esp-idf/esp_vfs_console/CMakeFiles/__idf_esp_vfs_console.dir/clean:
 # Target rules for target esp-idf/vfs/CMakeFiles/__idf_vfs.dir
 
 # All Build rule for target.
+esp-idf/vfs/CMakeFiles/__idf_vfs.dir/all: esp-idf/mbedtls/CMakeFiles/custom_bundle.dir/all
 esp-idf/vfs/CMakeFiles/__idf_vfs.dir/all: esp-idf/esp_system/CMakeFiles/memory.ld.dir/all
 esp-idf/vfs/CMakeFiles/__idf_vfs.dir/all: esp-idf/esp_system/CMakeFiles/sections.ld.in.dir/all
-esp-idf/vfs/CMakeFiles/__idf_vfs.dir/all: esp-idf/mbedtls/CMakeFiles/custom_bundle.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf\vfs\CMakeFiles\__idf_vfs.dir\build.make esp-idf/vfs/CMakeFiles/__idf_vfs.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf\vfs\CMakeFiles\__idf_vfs.dir\build.make esp-idf/vfs/CMakeFiles/__idf_vfs.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\eddie\CLionProjects\ecen330_gc\lab02\cmake-build-debug\CMakeFiles --progress-num=71 "Built target __idf_vfs"
@@ -3366,21 +3366,21 @@ esp-idf/spiffs/CMakeFiles/__idf_spiffs.dir/clean:
 # All Build rule for target.
 esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/all
 esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/spiffs/CMakeFiles/__idf_spiffs.dir/all
-esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/esp_driver_spi/CMakeFiles/__idf_esp_driver_spi.dir/all
-esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/esp_driver_pcnt/CMakeFiles/__idf_esp_driver_pcnt.dir/all
 esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/esp_driver_gptimer/CMakeFiles/__idf_esp_driver_gptimer.dir/all
+esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/esp_driver_pcnt/CMakeFiles/__idf_esp_driver_pcnt.dir/all
+esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/esp_driver_spi/CMakeFiles/__idf_esp_driver_spi.dir/all
 esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/esp_driver_mcpwm/CMakeFiles/__idf_esp_driver_mcpwm.dir/all
 esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/esp_driver_i2s/CMakeFiles/__idf_esp_driver_i2s.dir/all
 esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/sdmmc/CMakeFiles/__idf_sdmmc.dir/all
-esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/esp_driver_sdmmc/CMakeFiles/__idf_esp_driver_sdmmc.dir/all
 esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/esp_driver_sdio/CMakeFiles/__idf_esp_driver_sdio.dir/all
-esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/esp_driver_dac/CMakeFiles/__idf_esp_driver_dac.dir/all
 esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/esp_driver_sdspi/CMakeFiles/__idf_esp_driver_sdspi.dir/all
+esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/esp_driver_sdmmc/CMakeFiles/__idf_esp_driver_sdmmc.dir/all
+esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/esp_driver_dac/CMakeFiles/__idf_esp_driver_dac.dir/all
+esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/esp_driver_sdm/CMakeFiles/__idf_esp_driver_sdm.dir/all
 esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/esp_driver_rmt/CMakeFiles/__idf_esp_driver_rmt.dir/all
 esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/esp_driver_i2c/CMakeFiles/__idf_esp_driver_i2c.dir/all
-esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/esp_driver_sdm/CMakeFiles/__idf_esp_driver_sdm.dir/all
-esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/esp_driver_ledc/CMakeFiles/__idf_esp_driver_ledc.dir/all
 esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/driver/CMakeFiles/__idf_driver.dir/all
+esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/esp_driver_ledc/CMakeFiles/__idf_esp_driver_ledc.dir/all
 esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/lcd/CMakeFiles/__idf_lcd.dir/all
 esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/pin/CMakeFiles/__idf_pin.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf\main\CMakeFiles\__idf_main.dir\build.make esp-idf/main/CMakeFiles/__idf_main.dir/depend
@@ -3777,19 +3777,19 @@ esp-idf/esp_driver_ledc/CMakeFiles/__idf_esp_driver_ledc.dir/clean:
 
 # All Build rule for target.
 esp-idf/driver/CMakeFiles/__idf_driver.dir/all: esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/all
-esp-idf/driver/CMakeFiles/__idf_driver.dir/all: esp-idf/esp_driver_spi/CMakeFiles/__idf_esp_driver_spi.dir/all
-esp-idf/driver/CMakeFiles/__idf_driver.dir/all: esp-idf/esp_driver_pcnt/CMakeFiles/__idf_esp_driver_pcnt.dir/all
 esp-idf/driver/CMakeFiles/__idf_driver.dir/all: esp-idf/esp_driver_gptimer/CMakeFiles/__idf_esp_driver_gptimer.dir/all
+esp-idf/driver/CMakeFiles/__idf_driver.dir/all: esp-idf/esp_driver_pcnt/CMakeFiles/__idf_esp_driver_pcnt.dir/all
+esp-idf/driver/CMakeFiles/__idf_driver.dir/all: esp-idf/esp_driver_spi/CMakeFiles/__idf_esp_driver_spi.dir/all
 esp-idf/driver/CMakeFiles/__idf_driver.dir/all: esp-idf/esp_driver_mcpwm/CMakeFiles/__idf_esp_driver_mcpwm.dir/all
 esp-idf/driver/CMakeFiles/__idf_driver.dir/all: esp-idf/esp_driver_i2s/CMakeFiles/__idf_esp_driver_i2s.dir/all
 esp-idf/driver/CMakeFiles/__idf_driver.dir/all: esp-idf/sdmmc/CMakeFiles/__idf_sdmmc.dir/all
-esp-idf/driver/CMakeFiles/__idf_driver.dir/all: esp-idf/esp_driver_sdmmc/CMakeFiles/__idf_esp_driver_sdmmc.dir/all
 esp-idf/driver/CMakeFiles/__idf_driver.dir/all: esp-idf/esp_driver_sdio/CMakeFiles/__idf_esp_driver_sdio.dir/all
-esp-idf/driver/CMakeFiles/__idf_driver.dir/all: esp-idf/esp_driver_dac/CMakeFiles/__idf_esp_driver_dac.dir/all
 esp-idf/driver/CMakeFiles/__idf_driver.dir/all: esp-idf/esp_driver_sdspi/CMakeFiles/__idf_esp_driver_sdspi.dir/all
+esp-idf/driver/CMakeFiles/__idf_driver.dir/all: esp-idf/esp_driver_sdmmc/CMakeFiles/__idf_esp_driver_sdmmc.dir/all
+esp-idf/driver/CMakeFiles/__idf_driver.dir/all: esp-idf/esp_driver_dac/CMakeFiles/__idf_esp_driver_dac.dir/all
+esp-idf/driver/CMakeFiles/__idf_driver.dir/all: esp-idf/esp_driver_sdm/CMakeFiles/__idf_esp_driver_sdm.dir/all
 esp-idf/driver/CMakeFiles/__idf_driver.dir/all: esp-idf/esp_driver_rmt/CMakeFiles/__idf_esp_driver_rmt.dir/all
 esp-idf/driver/CMakeFiles/__idf_driver.dir/all: esp-idf/esp_driver_i2c/CMakeFiles/__idf_esp_driver_i2c.dir/all
-esp-idf/driver/CMakeFiles/__idf_driver.dir/all: esp-idf/esp_driver_sdm/CMakeFiles/__idf_esp_driver_sdm.dir/all
 esp-idf/driver/CMakeFiles/__idf_driver.dir/all: esp-idf/esp_driver_ledc/CMakeFiles/__idf_esp_driver_ledc.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf\driver\CMakeFiles\__idf_driver.dir\build.make esp-idf/driver/CMakeFiles/__idf_driver.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf\driver\CMakeFiles\__idf_driver.dir\build.make esp-idf/driver/CMakeFiles/__idf_driver.dir/build
@@ -3817,21 +3817,21 @@ esp-idf/driver/CMakeFiles/__idf_driver.dir/clean:
 
 # All Build rule for target.
 esp-idf/lcd/CMakeFiles/__idf_lcd.dir/all: esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/all
-esp-idf/lcd/CMakeFiles/__idf_lcd.dir/all: esp-idf/esp_driver_spi/CMakeFiles/__idf_esp_driver_spi.dir/all
-esp-idf/lcd/CMakeFiles/__idf_lcd.dir/all: esp-idf/esp_driver_pcnt/CMakeFiles/__idf_esp_driver_pcnt.dir/all
 esp-idf/lcd/CMakeFiles/__idf_lcd.dir/all: esp-idf/esp_driver_gptimer/CMakeFiles/__idf_esp_driver_gptimer.dir/all
+esp-idf/lcd/CMakeFiles/__idf_lcd.dir/all: esp-idf/esp_driver_pcnt/CMakeFiles/__idf_esp_driver_pcnt.dir/all
+esp-idf/lcd/CMakeFiles/__idf_lcd.dir/all: esp-idf/esp_driver_spi/CMakeFiles/__idf_esp_driver_spi.dir/all
 esp-idf/lcd/CMakeFiles/__idf_lcd.dir/all: esp-idf/esp_driver_mcpwm/CMakeFiles/__idf_esp_driver_mcpwm.dir/all
 esp-idf/lcd/CMakeFiles/__idf_lcd.dir/all: esp-idf/esp_driver_i2s/CMakeFiles/__idf_esp_driver_i2s.dir/all
 esp-idf/lcd/CMakeFiles/__idf_lcd.dir/all: esp-idf/sdmmc/CMakeFiles/__idf_sdmmc.dir/all
-esp-idf/lcd/CMakeFiles/__idf_lcd.dir/all: esp-idf/esp_driver_sdmmc/CMakeFiles/__idf_esp_driver_sdmmc.dir/all
 esp-idf/lcd/CMakeFiles/__idf_lcd.dir/all: esp-idf/esp_driver_sdio/CMakeFiles/__idf_esp_driver_sdio.dir/all
-esp-idf/lcd/CMakeFiles/__idf_lcd.dir/all: esp-idf/esp_driver_dac/CMakeFiles/__idf_esp_driver_dac.dir/all
 esp-idf/lcd/CMakeFiles/__idf_lcd.dir/all: esp-idf/esp_driver_sdspi/CMakeFiles/__idf_esp_driver_sdspi.dir/all
+esp-idf/lcd/CMakeFiles/__idf_lcd.dir/all: esp-idf/esp_driver_sdmmc/CMakeFiles/__idf_esp_driver_sdmmc.dir/all
+esp-idf/lcd/CMakeFiles/__idf_lcd.dir/all: esp-idf/esp_driver_dac/CMakeFiles/__idf_esp_driver_dac.dir/all
+esp-idf/lcd/CMakeFiles/__idf_lcd.dir/all: esp-idf/esp_driver_sdm/CMakeFiles/__idf_esp_driver_sdm.dir/all
 esp-idf/lcd/CMakeFiles/__idf_lcd.dir/all: esp-idf/esp_driver_rmt/CMakeFiles/__idf_esp_driver_rmt.dir/all
 esp-idf/lcd/CMakeFiles/__idf_lcd.dir/all: esp-idf/esp_driver_i2c/CMakeFiles/__idf_esp_driver_i2c.dir/all
-esp-idf/lcd/CMakeFiles/__idf_lcd.dir/all: esp-idf/esp_driver_sdm/CMakeFiles/__idf_esp_driver_sdm.dir/all
-esp-idf/lcd/CMakeFiles/__idf_lcd.dir/all: esp-idf/esp_driver_ledc/CMakeFiles/__idf_esp_driver_ledc.dir/all
 esp-idf/lcd/CMakeFiles/__idf_lcd.dir/all: esp-idf/driver/CMakeFiles/__idf_driver.dir/all
+esp-idf/lcd/CMakeFiles/__idf_lcd.dir/all: esp-idf/esp_driver_ledc/CMakeFiles/__idf_esp_driver_ledc.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf\lcd\CMakeFiles\__idf_lcd.dir\build.make esp-idf/lcd/CMakeFiles/__idf_lcd.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf\lcd\CMakeFiles\__idf_lcd.dir\build.make esp-idf/lcd/CMakeFiles/__idf_lcd.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\eddie\CLionProjects\ecen330_gc\lab02\cmake-build-debug\CMakeFiles --progress-num=52 "Built target __idf_lcd"
@@ -3858,21 +3858,21 @@ esp-idf/lcd/CMakeFiles/__idf_lcd.dir/clean:
 
 # All Build rule for target.
 esp-idf/pin/CMakeFiles/__idf_pin.dir/all: esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/all
-esp-idf/pin/CMakeFiles/__idf_pin.dir/all: esp-idf/esp_driver_spi/CMakeFiles/__idf_esp_driver_spi.dir/all
-esp-idf/pin/CMakeFiles/__idf_pin.dir/all: esp-idf/esp_driver_pcnt/CMakeFiles/__idf_esp_driver_pcnt.dir/all
 esp-idf/pin/CMakeFiles/__idf_pin.dir/all: esp-idf/esp_driver_gptimer/CMakeFiles/__idf_esp_driver_gptimer.dir/all
+esp-idf/pin/CMakeFiles/__idf_pin.dir/all: esp-idf/esp_driver_pcnt/CMakeFiles/__idf_esp_driver_pcnt.dir/all
+esp-idf/pin/CMakeFiles/__idf_pin.dir/all: esp-idf/esp_driver_spi/CMakeFiles/__idf_esp_driver_spi.dir/all
 esp-idf/pin/CMakeFiles/__idf_pin.dir/all: esp-idf/esp_driver_mcpwm/CMakeFiles/__idf_esp_driver_mcpwm.dir/all
 esp-idf/pin/CMakeFiles/__idf_pin.dir/all: esp-idf/esp_driver_i2s/CMakeFiles/__idf_esp_driver_i2s.dir/all
 esp-idf/pin/CMakeFiles/__idf_pin.dir/all: esp-idf/sdmmc/CMakeFiles/__idf_sdmmc.dir/all
-esp-idf/pin/CMakeFiles/__idf_pin.dir/all: esp-idf/esp_driver_sdmmc/CMakeFiles/__idf_esp_driver_sdmmc.dir/all
 esp-idf/pin/CMakeFiles/__idf_pin.dir/all: esp-idf/esp_driver_sdio/CMakeFiles/__idf_esp_driver_sdio.dir/all
-esp-idf/pin/CMakeFiles/__idf_pin.dir/all: esp-idf/esp_driver_dac/CMakeFiles/__idf_esp_driver_dac.dir/all
 esp-idf/pin/CMakeFiles/__idf_pin.dir/all: esp-idf/esp_driver_sdspi/CMakeFiles/__idf_esp_driver_sdspi.dir/all
+esp-idf/pin/CMakeFiles/__idf_pin.dir/all: esp-idf/esp_driver_sdmmc/CMakeFiles/__idf_esp_driver_sdmmc.dir/all
+esp-idf/pin/CMakeFiles/__idf_pin.dir/all: esp-idf/esp_driver_dac/CMakeFiles/__idf_esp_driver_dac.dir/all
+esp-idf/pin/CMakeFiles/__idf_pin.dir/all: esp-idf/esp_driver_sdm/CMakeFiles/__idf_esp_driver_sdm.dir/all
 esp-idf/pin/CMakeFiles/__idf_pin.dir/all: esp-idf/esp_driver_rmt/CMakeFiles/__idf_esp_driver_rmt.dir/all
 esp-idf/pin/CMakeFiles/__idf_pin.dir/all: esp-idf/esp_driver_i2c/CMakeFiles/__idf_esp_driver_i2c.dir/all
-esp-idf/pin/CMakeFiles/__idf_pin.dir/all: esp-idf/esp_driver_sdm/CMakeFiles/__idf_esp_driver_sdm.dir/all
-esp-idf/pin/CMakeFiles/__idf_pin.dir/all: esp-idf/esp_driver_ledc/CMakeFiles/__idf_esp_driver_ledc.dir/all
 esp-idf/pin/CMakeFiles/__idf_pin.dir/all: esp-idf/driver/CMakeFiles/__idf_driver.dir/all
+esp-idf/pin/CMakeFiles/__idf_pin.dir/all: esp-idf/esp_driver_ledc/CMakeFiles/__idf_esp_driver_ledc.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf\pin\CMakeFiles\__idf_pin.dir\build.make esp-idf/pin/CMakeFiles/__idf_pin.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf\pin\CMakeFiles\__idf_pin.dir\build.make esp-idf/pin/CMakeFiles/__idf_pin.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=C:\Users\eddie\CLionProjects\ecen330_gc\lab02\cmake-build-debug\CMakeFiles --progress-num=58 "Built target __idf_pin"
