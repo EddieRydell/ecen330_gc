@@ -590,6 +590,10 @@
 		},
 		{
 			"backtrace" : 5,
+			"id" : "__idf_esp_driver_spi::@a108b58494cdd93e678c"
+		},
+		{
+			"backtrace" : 5,
 			"id" : "__idf_esp_driver_pcnt::@7f5d6483ec7c43d22871"
 		},
 		{
@@ -598,19 +602,7 @@
 		},
 		{
 			"backtrace" : 5,
-			"id" : "__idf_esp_driver_spi::@a108b58494cdd93e678c"
-		},
-		{
-			"backtrace" : 5,
 			"id" : "__idf_esp_driver_mcpwm::@48ac72772582b222889a"
-		},
-		{
-			"backtrace" : 5,
-			"id" : "__idf_esp_driver_i2s::@5dbaceb9cb1526e2b88d"
-		},
-		{
-			"backtrace" : 5,
-			"id" : "__idf_esp_driver_sdspi::@c293af58c49fe790ac32"
 		},
 		{
 			"backtrace" : 5,
@@ -622,15 +614,23 @@
 		},
 		{
 			"backtrace" : 5,
+			"id" : "__idf_esp_driver_i2s::@5dbaceb9cb1526e2b88d"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "__idf_esp_driver_sdspi::@c293af58c49fe790ac32"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "__idf_esp_driver_rmt::@0efb206e593213c2b54a"
+		},
+		{
+			"backtrace" : 5,
 			"id" : "__idf_esp_driver_dac::@6bab4bf0460dba6b3d1f"
 		},
 		{
 			"backtrace" : 5,
 			"id" : "__idf_esp_driver_sdio::@c3c0139becf4e3b2a9c1"
-		},
-		{
-			"backtrace" : 5,
-			"id" : "__idf_esp_driver_rmt::@0efb206e593213c2b54a"
 		},
 		{
 			"backtrace" : 5,
@@ -650,11 +650,11 @@
 		},
 		{
 			"backtrace" : 5,
-			"id" : "__idf_pin::@4d3589c69a514f2b5cf1"
+			"id" : "__idf_lcd::@80ddf80ac9bf7d7a54fc"
 		},
 		{
 			"backtrace" : 5,
-			"id" : "__idf_lcd::@80ddf80ac9bf7d7a54fc"
+			"id" : "__idf_pin::@4d3589c69a514f2b5cf1"
 		}
 	],
 	"id" : "__idf_main::@7368607ed66887415643",

@@ -1348,7 +1348,7 @@
 				{
 					"directoryIndex" : 65,
 					"id" : "__idf_driver::@76403182dd99a02c203e",
-					"jsonFile" : "target-__idf_driver-Debug-230b37db13a299db3717.json",
+					"jsonFile" : "target-__idf_driver-Debug-00633ed52c06d8b353cc.json",
 					"name" : "__idf_driver",
 					"projectIndex" : 1
 				},
@@ -1362,7 +1362,7 @@
 				{
 					"directoryIndex" : 13,
 					"id" : "__idf_esp_app_format::@08c2bdce7fd85cdbea06",
-					"jsonFile" : "target-__idf_esp_app_format-Debug-2d6cbda79a9fe985636e.json",
+					"jsonFile" : "target-__idf_esp_app_format-Debug-2f2c320d839b0168d732.json",
 					"name" : "__idf_esp_app_format",
 					"projectIndex" : 1
 				},
@@ -1572,7 +1572,7 @@
 				{
 					"directoryIndex" : 66,
 					"id" : "__idf_lcd::@80ddf80ac9bf7d7a54fc",
-					"jsonFile" : "target-__idf_lcd-Debug-5d5506d5ab05a09ef735.json",
+					"jsonFile" : "target-__idf_lcd-Debug-76618f48ee520897529f.json",
 					"name" : "__idf_lcd",
 					"projectIndex" : 1
 				},
@@ -1586,7 +1586,7 @@
 				{
 					"directoryIndex" : 47,
 					"id" : "__idf_main::@7368607ed66887415643",
-					"jsonFile" : "target-__idf_main-Debug-2974ebdb0dc442d0f538.json",
+					"jsonFile" : "target-__idf_main-Debug-a236eb803d7c7c20240c.json",
 					"name" : "__idf_main",
 					"projectIndex" : 1
 				},
@@ -1607,7 +1607,7 @@
 				{
 					"directoryIndex" : 67,
 					"id" : "__idf_pin::@4d3589c69a514f2b5cf1",
-					"jsonFile" : "target-__idf_pin-Debug-ce1b2fd793a74cebdee8.json",
+					"jsonFile" : "target-__idf_pin-Debug-9774a762dd01535537ef.json",
 					"name" : "__idf_pin",
 					"projectIndex" : 1
 				},
@@ -1663,7 +1663,7 @@
 				{
 					"directoryIndex" : 23,
 					"id" : "__ldgen_output_sections.ld::@874df54e61e20112dfd4",
-					"jsonFile" : "target-__ldgen_output_sections.ld-Debug-c58099ffd65a16331cd7.json",
+					"jsonFile" : "target-__ldgen_output_sections.ld-Debug-106fb55bdbab5ffe6186.json",
 					"name" : "__ldgen_output_sections.ld",
 					"projectIndex" : 1
 				},
@@ -1824,7 +1824,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "lab02.elf::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-lab02.elf-Debug-f6c5f051fbf0687a8a30.json",
+					"jsonFile" : "target-lab02.elf-Debug-bf09e37638929c94916b.json",
 					"name" : "lab02.elf",
 					"projectIndex" : 0
 				},
