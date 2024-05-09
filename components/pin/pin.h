@@ -45,4 +45,4 @@ uint64_t pin_get_in_reg(void);
 // The two 32-bit output registers are concatenated into a uint64_t.
 uint64_t pin_get_out_reg(void);
 
-#endif /* PIN_H_ */
+#endif // PIN_H_
