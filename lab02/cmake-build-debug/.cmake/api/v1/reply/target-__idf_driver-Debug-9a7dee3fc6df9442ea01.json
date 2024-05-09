@@ -3,7 +3,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "esp-idf/lcd/liblcd.a"
+			"path" : "esp-idf/driver/libdriver.a"
 		}
 	],
 	"backtrace" : 2,
@@ -18,7 +18,6 @@
 			"__component_set_all_dependencies",
 			"add_compile_options",
 			"add_c_compile_options",
-			"target_compile_options",
 			"add_compile_definitions",
 			"include_directories",
 			"target_include_directories",
@@ -27,7 +26,7 @@
 		"files" : 
 		[
 			"C:/Users/eddie/esp/esp-idf/tools/cmake/component.cmake",
-			"C:/Users/eddie/CLionProjects/ecen330_gc/components/lcd/CMakeLists.txt",
+			"C:/Users/eddie/esp/esp-idf/components/driver/CMakeLists.txt",
 			"C:/Users/eddie/esp/esp-idf/tools/cmake/utilities.cmake"
 		],
 		"nodes" : 
@@ -38,7 +37,7 @@
 			{
 				"command" : 1,
 				"file" : 1,
-				"line" : 1,
+				"line" : 100,
 				"parent" : 0
 			},
 			{
@@ -66,6 +65,78 @@
 				"parent" : 4
 			},
 			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 340,
+				"parent" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 340,
+				"parent" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 340,
+				"parent" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 340,
+				"parent" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 340,
+				"parent" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 340,
+				"parent" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 340,
+				"parent" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 340,
+				"parent" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 340,
+				"parent" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 340,
+				"parent" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 340,
+				"parent" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 340,
+				"parent" : 4
+			},
+			{
 				"command" : 5,
 				"file" : 0,
 				"line" : 465,
@@ -81,37 +152,127 @@
 				"command" : 5,
 				"file" : 2,
 				"line" : 281,
-				"parent" : 7
+				"parent" : 19
 			},
 			{
 				"command" : 7,
-				"file" : 1,
-				"line" : 4,
-				"parent" : 0
-			},
-			{
-				"command" : 8,
 				"file" : 0,
 				"line" : 466,
 				"parent" : 1
 			},
 			{
-				"command" : 9,
+				"command" : 8,
 				"file" : 0,
 				"line" : 464,
 				"parent" : 1
 			},
 			{
-				"command" : 11,
+				"command" : 10,
 				"file" : 0,
 				"line" : 482,
 				"parent" : 1
 			},
 			{
-				"command" : 10,
+				"command" : 9,
 				"file" : 0,
 				"line" : 316,
-				"parent" : 12
+				"parent" : 23
+			},
+			{
+				"command" : 9,
+				"file" : 0,
+				"line" : 316,
+				"parent" : 23
+			},
+			{
+				"command" : 9,
+				"file" : 0,
+				"line" : 316,
+				"parent" : 23
+			},
+			{
+				"command" : 9,
+				"file" : 0,
+				"line" : 316,
+				"parent" : 23
+			},
+			{
+				"command" : 9,
+				"file" : 0,
+				"line" : 316,
+				"parent" : 23
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 340,
+				"parent" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 340,
+				"parent" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 340,
+				"parent" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 340,
+				"parent" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 340,
+				"parent" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 340,
+				"parent" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 340,
+				"parent" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 340,
+				"parent" : 4
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 358,
+				"parent" : 3
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 337,
+				"parent" : 37
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 337,
+				"parent" : 37
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 337,
+				"parent" : 37
 			}
 		]
 	},
@@ -124,106 +285,102 @@
 					"fragment" : "-mlongcalls -Wno-frame-address  -fno-builtin-memcpy -fno-builtin-memset -fno-builtin-bzero -fno-builtin-stpcpy -fno-builtin-strncpy -fdiagnostics-color=always"
 				},
 				{
-					"backtrace" : 6,
+					"backtrace" : 18,
 					"fragment" : "-ffunction-sections"
 				},
 				{
-					"backtrace" : 6,
+					"backtrace" : 18,
 					"fragment" : "-fdata-sections"
 				},
 				{
-					"backtrace" : 6,
+					"backtrace" : 18,
 					"fragment" : "-Wall"
 				},
 				{
-					"backtrace" : 6,
+					"backtrace" : 18,
 					"fragment" : "-Werror=all"
 				},
 				{
-					"backtrace" : 6,
+					"backtrace" : 18,
 					"fragment" : "-Wno-error=unused-function"
 				},
 				{
-					"backtrace" : 6,
+					"backtrace" : 18,
 					"fragment" : "-Wno-error=unused-variable"
 				},
 				{
-					"backtrace" : 6,
+					"backtrace" : 18,
 					"fragment" : "-Wno-error=unused-but-set-variable"
 				},
 				{
-					"backtrace" : 6,
+					"backtrace" : 18,
 					"fragment" : "-Wno-error=deprecated-declarations"
 				},
 				{
-					"backtrace" : 6,
+					"backtrace" : 18,
 					"fragment" : "-Wextra"
 				},
 				{
-					"backtrace" : 6,
+					"backtrace" : 18,
 					"fragment" : "-Wno-unused-parameter"
 				},
 				{
-					"backtrace" : 6,
+					"backtrace" : 18,
 					"fragment" : "-Wno-sign-compare"
 				},
 				{
-					"backtrace" : 6,
+					"backtrace" : 18,
 					"fragment" : "-Wno-enum-conversion"
 				},
 				{
-					"backtrace" : 6,
+					"backtrace" : 18,
 					"fragment" : "-gdwarf-4"
 				},
 				{
-					"backtrace" : 6,
+					"backtrace" : 18,
 					"fragment" : "-ggdb"
 				},
 				{
-					"backtrace" : 6,
+					"backtrace" : 18,
 					"fragment" : "-O2"
 				},
 				{
-					"backtrace" : 6,
+					"backtrace" : 18,
 					"fragment" : "-fmacro-prefix-map=C:/Users/eddie/CLionProjects/ecen330_gc/lab02=."
 				},
 				{
-					"backtrace" : 6,
+					"backtrace" : 18,
 					"fragment" : "-fmacro-prefix-map=C:/Users/eddie/esp/esp-idf=/IDF"
 				},
 				{
-					"backtrace" : 6,
+					"backtrace" : 18,
 					"fragment" : "-fstrict-volatile-bitfields"
 				},
 				{
-					"backtrace" : 6,
+					"backtrace" : 18,
 					"fragment" : "-fno-jump-tables"
 				},
 				{
-					"backtrace" : 6,
+					"backtrace" : 18,
 					"fragment" : "-fno-tree-switch-conversion"
 				},
 				{
-					"backtrace" : 8,
+					"backtrace" : 20,
 					"fragment" : "-std=gnu17"
 				},
 				{
-					"backtrace" : 8,
+					"backtrace" : 20,
 					"fragment" : "-Wno-old-style-declaration"
-				},
-				{
-					"backtrace" : 9,
-					"fragment" : "-O3"
 				}
 			],
 			"defines" : 
 			[
 				{
-					"backtrace" : 10,
+					"backtrace" : 21,
 					"define" : "ESP_PLATFORM"
 				},
 				{
-					"backtrace" : 10,
+					"backtrace" : 21,
 					"define" : "IDF_VER=\"v5.4-dev-79-gefa15dbd45\""
 				},
 				{
@@ -235,31 +392,47 @@
 					"define" : "SOC_XTAL_FREQ_MHZ=CONFIG_XTAL_FREQ"
 				},
 				{
-					"backtrace" : 10,
+					"backtrace" : 21,
 					"define" : "_GLIBCXX_HAVE_POSIX_SEMAPHORE"
 				},
 				{
-					"backtrace" : 10,
+					"backtrace" : 21,
 					"define" : "_GLIBCXX_USE_POSIX_SEMAPHORE"
 				},
 				{
-					"backtrace" : 10,
+					"backtrace" : 21,
 					"define" : "_GNU_SOURCE"
 				},
 				{
-					"backtrace" : 10,
+					"backtrace" : 21,
 					"define" : "_POSIX_READER_WRITER_LOCKS"
 				}
 			],
 			"includes" : 
 			[
 				{
-					"backtrace" : 11,
+					"backtrace" : 22,
 					"path" : "C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/config"
 				},
 				{
-					"backtrace" : 13,
-					"path" : "C:/Users/eddie/CLionProjects/ecen330_gc/components/lcd"
+					"backtrace" : 24,
+					"path" : "C:/Users/eddie/esp/esp-idf/components/driver/deprecated"
+				},
+				{
+					"backtrace" : 25,
+					"path" : "C:/Users/eddie/esp/esp-idf/components/driver/i2c/include"
+				},
+				{
+					"backtrace" : 26,
+					"path" : "C:/Users/eddie/esp/esp-idf/components/driver/touch_sensor/include"
+				},
+				{
+					"backtrace" : 27,
+					"path" : "C:/Users/eddie/esp/esp-idf/components/driver/twai/include"
+				},
+				{
+					"backtrace" : 28,
+					"path" : "C:/Users/eddie/esp/esp-idf/components/driver/touch_sensor/esp32/include"
 				},
 				{
 					"backtrace" : 2,
@@ -394,39 +567,19 @@
 					"path" : "C:/Users/eddie/esp/esp-idf/components/xtensa/deprecated_include"
 				},
 				{
-					"backtrace" : 5,
-					"path" : "C:/Users/eddie/esp/esp-idf/components/driver/deprecated"
-				},
-				{
-					"backtrace" : 5,
-					"path" : "C:/Users/eddie/esp/esp-idf/components/driver/i2c/include"
-				},
-				{
-					"backtrace" : 5,
-					"path" : "C:/Users/eddie/esp/esp-idf/components/driver/touch_sensor/include"
-				},
-				{
-					"backtrace" : 5,
-					"path" : "C:/Users/eddie/esp/esp-idf/components/driver/twai/include"
-				},
-				{
-					"backtrace" : 5,
-					"path" : "C:/Users/eddie/esp/esp-idf/components/driver/touch_sensor/esp32/include"
-				},
-				{
-					"backtrace" : 5,
+					"backtrace" : 29,
 					"path" : "C:/Users/eddie/esp/esp-idf/components/esp_pm/include"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 30,
 					"path" : "C:/Users/eddie/esp/esp-idf/components/esp_ringbuf/include"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 31,
 					"path" : "C:/Users/eddie/esp/esp-idf/components/esp_driver_gpio/include"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 6,
 					"path" : "C:/Users/eddie/esp/esp-idf/components/esp_driver_pcnt/include"
 				},
 				{
@@ -434,76 +587,92 @@
 					"path" : "C:/Users/eddie/esp/esp-idf/components/esp_driver_gptimer/include"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 7,
 					"path" : "C:/Users/eddie/esp/esp-idf/components/esp_driver_spi/include"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 8,
 					"path" : "C:/Users/eddie/esp/esp-idf/components/esp_driver_mcpwm/include"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 32,
 					"path" : "C:/Users/eddie/esp/esp-idf/components/esp_driver_ana_cmpr/include"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 9,
 					"path" : "C:/Users/eddie/esp/esp-idf/components/esp_driver_i2s/include"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 10,
 					"path" : "C:/Users/eddie/esp/esp-idf/components/esp_driver_sdmmc/include"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 10,
 					"path" : "C:/Users/eddie/esp/esp-idf/components/sdmmc/include"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 11,
 					"path" : "C:/Users/eddie/esp/esp-idf/components/esp_driver_sdspi/include"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 13,
 					"path" : "C:/Users/eddie/esp/esp-idf/components/esp_driver_sdio/include"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 14,
 					"path" : "C:/Users/eddie/esp/esp-idf/components/esp_driver_dac/include"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 12,
 					"path" : "C:/Users/eddie/esp/esp-idf/components/esp_driver_rmt/include"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 33,
 					"path" : "C:/Users/eddie/esp/esp-idf/components/esp_driver_tsens/include"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 16,
 					"path" : "C:/Users/eddie/esp/esp-idf/components/esp_driver_sdm/include"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 17,
 					"path" : "C:/Users/eddie/esp/esp-idf/components/esp_driver_i2c/include"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 34,
 					"path" : "C:/Users/eddie/esp/esp-idf/components/esp_driver_uart/include"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 34,
 					"path" : "C:/Users/eddie/esp/esp-idf/components/vfs/include"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 15,
 					"path" : "C:/Users/eddie/esp/esp-idf/components/esp_driver_ledc/include"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 35,
 					"path" : "C:/Users/eddie/esp/esp-idf/components/esp_driver_parlio/include"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 36,
 					"path" : "C:/Users/eddie/esp/esp-idf/components/esp_driver_usb_serial_jtag/include"
+				},
+				{
+					"backtrace" : 38,
+					"path" : "C:/Users/eddie/esp/esp-idf/components/efuse/include"
+				},
+				{
+					"backtrace" : 38,
+					"path" : "C:/Users/eddie/esp/esp-idf/components/efuse/esp32/include"
+				},
+				{
+					"backtrace" : 39,
+					"path" : "C:/Users/eddie/esp/esp-idf/components/esp_timer/include"
+				},
+				{
+					"backtrace" : 40,
+					"path" : "C:/Users/eddie/esp/esp-idf/components/esp_mm/include"
 				}
 			],
 			"language" : "C",
@@ -511,7 +680,19 @@
 			[
 				0,
 				1,
-				2
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14
 			]
 		}
 	],
@@ -523,72 +704,68 @@
 		},
 		{
 			"backtrace" : 5,
-			"id" : "__idf_esp_driver_spi::@a108b58494cdd93e678c"
-		},
-		{
-			"backtrace" : 5,
-			"id" : "__idf_esp_driver_pcnt::@7f5d6483ec7c43d22871"
-		},
-		{
-			"backtrace" : 5,
 			"id" : "__idf_esp_driver_gptimer::@b8628cd9d7b32710339f"
 		},
 		{
-			"backtrace" : 5,
+			"backtrace" : 6,
+			"id" : "__idf_esp_driver_pcnt::@7f5d6483ec7c43d22871"
+		},
+		{
+			"backtrace" : 7,
+			"id" : "__idf_esp_driver_spi::@a108b58494cdd93e678c"
+		},
+		{
+			"backtrace" : 8,
 			"id" : "__idf_esp_driver_mcpwm::@48ac72772582b222889a"
 		},
 		{
-			"backtrace" : 5,
-			"id" : "__idf_sdmmc::@89ed5bca1750ffbc7db6"
-		},
-		{
-			"backtrace" : 5,
-			"id" : "__idf_esp_driver_sdmmc::@6ccb6c8602dfb90db4d7"
-		},
-		{
-			"backtrace" : 5,
+			"backtrace" : 9,
 			"id" : "__idf_esp_driver_i2s::@5dbaceb9cb1526e2b88d"
 		},
 		{
-			"backtrace" : 5,
+			"backtrace" : 10,
+			"id" : "__idf_sdmmc::@89ed5bca1750ffbc7db6"
+		},
+		{
+			"backtrace" : 10,
+			"id" : "__idf_esp_driver_sdmmc::@6ccb6c8602dfb90db4d7"
+		},
+		{
+			"backtrace" : 11,
 			"id" : "__idf_esp_driver_sdspi::@c293af58c49fe790ac32"
 		},
 		{
-			"backtrace" : 5,
+			"backtrace" : 12,
 			"id" : "__idf_esp_driver_rmt::@0efb206e593213c2b54a"
 		},
 		{
-			"backtrace" : 5,
-			"id" : "__idf_esp_driver_dac::@6bab4bf0460dba6b3d1f"
-		},
-		{
-			"backtrace" : 5,
+			"backtrace" : 13,
 			"id" : "__idf_esp_driver_sdio::@c3c0139becf4e3b2a9c1"
 		},
 		{
-			"backtrace" : 5,
-			"id" : "__idf_esp_driver_sdm::@601b6ef28d63f823a7b4"
+			"backtrace" : 14,
+			"id" : "__idf_esp_driver_dac::@6bab4bf0460dba6b3d1f"
 		},
 		{
-			"backtrace" : 5,
+			"backtrace" : 15,
 			"id" : "__idf_esp_driver_ledc::@9a01f21f38f01238ca77"
 		},
 		{
-			"backtrace" : 5,
-			"id" : "__idf_esp_driver_i2c::@823c83e66a2d740aac64"
+			"backtrace" : 16,
+			"id" : "__idf_esp_driver_sdm::@601b6ef28d63f823a7b4"
 		},
 		{
-			"backtrace" : 5,
-			"id" : "__idf_driver::@76403182dd99a02c203e"
+			"backtrace" : 17,
+			"id" : "__idf_esp_driver_i2c::@823c83e66a2d740aac64"
 		}
 	],
-	"id" : "__idf_lcd::@80ddf80ac9bf7d7a54fc",
-	"name" : "__idf_lcd",
-	"nameOnDisk" : "liblcd.a",
+	"id" : "__idf_driver::@76403182dd99a02c203e",
+	"name" : "__idf_driver",
+	"nameOnDisk" : "libdriver.a",
 	"paths" : 
 	{
-		"build" : "esp-idf/lcd",
-		"source" : "C:/Users/eddie/CLionProjects/ecen330_gc/components/lcd"
+		"build" : "esp-idf/driver",
+		"source" : "C:/Users/eddie/esp/esp-idf/components/driver"
 	},
 	"sourceGroups" : 
 	[
@@ -598,7 +775,19 @@
 			[
 				0,
 				1,
-				2
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14
 			]
 		}
 	],
@@ -607,19 +796,91 @@
 		{
 			"backtrace" : 2,
 			"compileGroupIndex" : 0,
-			"path" : "C:/Users/eddie/CLionProjects/ecen330_gc/components/lcd/lcd.c",
+			"path" : "C:/Users/eddie/esp/esp-idf/components/driver/deprecated/adc_legacy.c",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 2,
 			"compileGroupIndex" : 0,
-			"path" : "C:/Users/eddie/CLionProjects/ecen330_gc/components/lcd/fontx.c",
+			"path" : "C:/Users/eddie/esp/esp-idf/components/driver/deprecated/adc_dma_legacy.c",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 2,
 			"compileGroupIndex" : 0,
-			"path" : "C:/Users/eddie/CLionProjects/ecen330_gc/components/lcd/lcd_test.c",
+			"path" : "C:/Users/eddie/esp/esp-idf/components/driver/deprecated/dac_common_legacy.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "C:/Users/eddie/esp/esp-idf/components/driver/deprecated/esp32/dac_legacy.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "C:/Users/eddie/esp/esp-idf/components/driver/deprecated/timer_legacy.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "C:/Users/eddie/esp/esp-idf/components/driver/i2c/i2c.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "C:/Users/eddie/esp/esp-idf/components/driver/deprecated/i2s_legacy.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "C:/Users/eddie/esp/esp-idf/components/driver/deprecated/mcpwm_legacy.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "C:/Users/eddie/esp/esp-idf/components/driver/deprecated/pcnt_legacy.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "C:/Users/eddie/esp/esp-idf/components/driver/deprecated/rmt_legacy.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "C:/Users/eddie/esp/esp-idf/components/driver/deprecated/sigma_delta_legacy.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "C:/Users/eddie/esp/esp-idf/components/driver/touch_sensor/touch_sensor_common.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "C:/Users/eddie/esp/esp-idf/components/driver/touch_sensor/esp32/touch_sensor.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "C:/Users/eddie/esp/esp-idf/components/driver/twai/twai.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "C:/Users/eddie/esp/esp-idf/components/driver/deprecated/adc_i2s_deprecated.c",
 			"sourceGroupIndex" : 0
 		}
 	],
