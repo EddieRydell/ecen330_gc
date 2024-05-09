@@ -1,8 +1,7 @@
-/* https://github.com/nopnop2002/esp-idf-st7789 */
+/* Modified from: https://github.com/nopnop2002/esp-idf-st7789 */
 
-#include <string.h>
-#include <inttypes.h>
-#include <math.h>
+#include <string.h> // strlen
+#include <math.h> // cosf, sinf
 
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
@@ -13,7 +12,7 @@
 
 #include "lcd.h"
 
-#define TAG "LCD"
+#define TAG "lcd"
 #define	_DEBUG_ 0
 
 #ifndef CONFIG_WIDTH
@@ -70,7 +69,9 @@
 static const int32_t SPI_Command_Mode = 0;
 static const int32_t SPI_Data_Mode = 1;
 
-int32_t clock_speed_hz = SPI_DEFAULT_FREQUENCY;
+static int32_t clock_speed_hz = SPI_DEFAULT_FREQUENCY;
+
+#include "glcdfont.c" // unsigned char font[];
 
 
 static void delayMS(int32_t ms) {
@@ -217,7 +218,7 @@ static bool spi_master_write_addr(TFT_t *dev, uint16_t addr1, uint16_t addr2)
 	return spi_master_write_byte( dev->_SPIHandle, Byte, 4);
 }
 
-static bool spi_master_write_color(TFT_t *dev, uint16_t color, uint16_t size)
+inline static bool spi_master_write_color(TFT_t *dev, uint16_t color, uint16_t size)
 {
 	uint16_t temp = SPI_SWAP_DATA_TX(color, 16);
 	static uint16_t buffer[512];
@@ -288,8 +289,9 @@ void lcdInit(TFT_t *dev)
 	dev->_offsetx = CONFIG_OFFSETX;
 	dev->_offsety = CONFIG_OFFSETY;
 	dev->_font_direction = DIRECTION0;
-	dev->_font_fill = false;
-	dev->_font_underline = false;
+	dev->_font_size = 1;
+	dev->_font_back_en = false;
+	dev->_font_back_color = BLACK;
 
 	spi_master_write_command(dev, 0x01);	// Software Reset
 	delayMS(150);
@@ -572,7 +574,7 @@ void lcdDrawLine(TFT_t *dev, int32_t x1, int32_t y1, int32_t x2, int32_t y2, uin
 // x2:End	X coordinate
 // y2:End	Y coordinate
 // color:color
-// Bresenham's algorithm - thx wikipedia
+// Bresenham's algorithm - thx Wikipedia
 void lcdDrawLine(TFT_t *dev, int32_t x0, int32_t y0, int32_t x1, int32_t y1, uint16_t color) {
   bool steep = abs(y1 - y0) > abs(x1 - x0);
 
@@ -618,7 +620,7 @@ void lcdDrawLine(TFT_t *dev, int32_t x0, int32_t y0, int32_t x1, int32_t y1, uin
 ** Function name:           lcdDrawLine
 ** Description:             draw a line between 2 arbitrary points
 ***************************************************************************************/
-// Bresenham's algorithm - thx wikipedia - speed enhanced by Bodmer to use
+// Bresenham's algorithm - thx Wikipedia - speed enhanced by Bodmer to use
 // efficient H/V Line draw routines for line segments of 2 pixels or more.
 void lcdDrawLine(TFT_t *dev, int32_t x0, int32_t y0, int32_t x1, int32_t y1, uint16_t color)
 {
@@ -909,11 +911,11 @@ void lcdDrawRoundRect(TFT_t *dev, int32_t x1, int32_t y1, int32_t x2, int32_t y2
 	lcdDrawVLine(dev, x2  ,y1+r, h, color);
 #else
 	ESP_LOGD(TAG, "x1+r=%ld x2-r=%ld",x1+r, x2-r);
-	lcdDrawHLine(dev, x1+r,y1  ,x2-r,y1	, color);
-	lcdDrawHLine(dev, x1+r,y2  ,x2-r,y2	, color);
+	lcdDrawLine(dev, x1+r,y1  ,x2-r,y1	, color);
+	lcdDrawLine(dev, x1+r,y2  ,x2-r,y2	, color);
 	ESP_LOGD(TAG, "y1+r=%ld y2-r=%ld",y1+r, y2-r);
-	lcdDrawVLine(dev, x1  ,y1+r,x1  ,y2-r, color);
-	lcdDrawVLine(dev, x2  ,y1+r,x2  ,y2-r, color);
+	lcdDrawLine(dev, x1  ,y1+r,x1  ,y2-r, color);
+	lcdDrawLine(dev, x2  ,y1+r,x2  ,y2-r, color);
 #endif
 }
 
@@ -994,7 +996,8 @@ void lcdFillArrow(TFT_t *dev, int32_t x0, int32_t y0, int32_t x1, int32_t y1, in
 // angle:Angle of rectangle
 // color:color
 
-//When the origin is (0, 0), the point (x1, y1) after rotating the point (x, y) by the angle is obtained by the following calculation.
+// When the origin is (0, 0), the point (x1, y1) after rotating the point (x, y)
+// by the angle is obtained by the following calculation.
 // x1 = x * cos(angle) - y * sin(angle)
 // y1 = x * sin(angle) + y * cos(angle)
 void lcdDrawRectangle(TFT_t *dev, int32_t xc, int32_t yc, int32_t w, int32_t h, int32_t angle, uint16_t color) {
@@ -1036,7 +1039,8 @@ void lcdDrawRectangle(TFT_t *dev, int32_t xc, int32_t yc, int32_t w, int32_t h, 
 // angle:Angle of triangle
 // color:color
 
-//When the origin is (0, 0), the point (x1, y1) after rotating the point (x, y) by the angle is obtained by the following calculation.
+// When the origin is (0, 0), the point (x1, y1) after rotating the point (x, y)
+// by the angle is obtained by the following calculation.
 // x1 = x * cos(angle) - y * sin(angle)
 // y1 = x * sin(angle) + y * cos(angle)
 void lcdDrawTriangle(TFT_t *dev, int32_t xc, int32_t yc, int32_t w, int32_t h, int32_t angle, uint16_t color) {
@@ -1100,223 +1104,64 @@ void lcdDrawRegularPolygon(TFT_t *dev, int32_t xc, int32_t yc, int32_t n, int32_
 // y:Y coordinate
 // ascii: ascii code
 // color:color
-int32_t lcdDrawChar(TFT_t *dev, FontxFile *fx, int32_t x, int32_t y, uint8_t ascii, uint16_t color) {
-	int32_t xx,yy,bit,ofs;
-	unsigned char fonts[128]; // font pattern
-	unsigned char pw, ph;
-	int32_t h,w;
-	uint16_t mask;
-	bool rc;
-
-	if(_DEBUG_)printf("_font_direction=%hhd\n",dev->_font_direction);
-	rc = GetFontx(fx, ascii, fonts, &pw, &ph);
-	if(_DEBUG_)printf("GetFontx rc=%hhd pw=%hhd ph=%hhd\n",rc,pw,ph);
-	if (!rc) return 0;
-
-	int32_t xd1 = 0;
-	int32_t yd1 = 0;
-	int32_t xd2 = 0;
-	int32_t yd2 = 0;
-	int32_t xss = 0;
-	int32_t yss = 0;
-	int32_t xsd = 0;
-	int32_t ysd = 0;
-	int32_t next = 0;
-	int32_t x0  = 0;
-	int32_t x1  = 0;
-	int32_t y0  = 0;
-	int32_t y1  = 0;
-	if (dev->_font_direction == 0) {
-		xd1 = +1;
-		yd1 = +1; //-1;
-		xd2 =  0;
-		yd2 =  0;
-		xss =  x;
-		yss =  y - (ph - 1);
-		xsd =  1;
-		ysd =  0;
-		next = x + pw;
-
-		x0	= x;
-		y0	= y - (ph-1);
-		x1	= x + (pw-1);
-		y1	= y;
-	} else if (dev->_font_direction == 2) {
-		xd1 = -1;
-		yd1 = -1; //+1;
-		xd2 =  0;
-		yd2 =  0;
-		xss =  x;
-		yss =  y + ph + 1;
-		xsd =  1;
-		ysd =  0;
-		next = x - pw;
-
-		x0	= x - (pw-1);
-		y0	= y;
-		x1	= x;
-		y1	= y + (ph-1);
-	} else if (dev->_font_direction == 1) {
-		xd1 =  0;
-		yd1 =  0;
-		xd2 = -1;
-		yd2 = +1; //-1;
-		xss =  x + ph;
-		yss =  y;
-		xsd =  0;
-		ysd =  1;
-		next = y + pw; //y - pw;
-
-		x0	= x;
-		y0	= y;
-		x1	= x + (ph-1);
-		y1	= y + (pw-1);
-	} else if (dev->_font_direction == 3) {
-		xd1 =  0;
-		yd1 =  0;
-		xd2 = +1;
-		yd2 = -1; //+1;
-		xss =  x - (ph - 1);
-		yss =  y;
-		xsd =  0;
-		ysd =  1;
-		next = y - pw; //y + pw;
-
-		x0	= x - (ph-1);
-		y0	= y - (pw-1);
-		x1	= x;
-		y1	= y;
-	}
-
-	if (dev->_font_fill) lcdFillRect(dev, x0, y0, x1, y1, dev->_font_fill_color);
-
-	int32_t bits;
-	if(_DEBUG_)printf("xss=%ld yss=%ld\n",xss,yss);
-	ofs = 0;
-	yy = yss;
-	xx = xss;
-	for(h=0;h<ph;h++) {
-		if(xsd) xx = xss;
-		if(ysd) yy = yss;
-		//for(w=0;w<(pw/8);w++) {
-		bits = pw;
-		for(w=0;w<((pw+4)/8);w++) {
-			mask = 0x80;
-			for(bit=0;bit<8;bit++) {
-				bits--;
-				if (bits < 0) continue;
-				//if(_DEBUG_)printf("xx=%ld yy=%ld mask=%02hx fonts[%ld]=%02hhx\n",xx,yy,mask,ofs,fonts[ofs]);
-				if (fonts[ofs] & mask) {
-					lcdDrawPixel(dev, xx, yy, color);
-				} else {
-					//if (dev->_font_fill) lcdDrawPixel(dev, xx, yy, dev->_font_fill_color);
-				}
-				if (h == (ph-2) && dev->_font_underline)
-					lcdDrawPixel(dev, xx, yy, dev->_font_underline_color);
-				if (h == (ph-1) && dev->_font_underline)
-					lcdDrawPixel(dev, xx, yy, dev->_font_underline_color);
-				xx = xx + xd1;
-				yy = yy + yd2;
-				mask = mask >> 1;
-			}
-			ofs++;
-		}
-		yy = yy + yd1;
-		xx = xx + xd2;
-	}
-
-	if (next < 0) next = 0;
-	return next;
-}
-
-int32_t lcdDrawString(TFT_t *dev, FontxFile *fx, int32_t x, int32_t y, uint8_t *ascii, uint16_t color) {
-	size_t length = strlen((char *)ascii);
-	if(_DEBUG_)printf("lcdDrawString length=%zd\n", length);
-	for(size_t i=0;i<length;i++) {
-		if(_DEBUG_)printf("ascii[%zd]=%hhx x=%ld y=%ld\n",i,ascii[i],x,y);
-		if (dev->_font_direction == 0)
-			x = lcdDrawChar(dev, fx, x, y, ascii[i], color);
-		if (dev->_font_direction == 1)
-			y = lcdDrawChar(dev, fx, x, y, ascii[i], color);
-		if (dev->_font_direction == 2)
-			x = lcdDrawChar(dev, fx, x, y, ascii[i], color);
-		if (dev->_font_direction == 3)
-			y = lcdDrawChar(dev, fx, x, y, ascii[i], color);
-	}
-	if (dev->_font_direction == 0) return x;
-	if (dev->_font_direction == 2) return x;
-	if (dev->_font_direction == 1) return y;
-	if (dev->_font_direction == 3) return y;
-	return 0;
-}
-
-
-// Draw Non-Alphanumeric character
-// x:X coordinate
-// y:Y coordinate
-// code:character code
-// color:color
-int32_t lcdDrawCode(TFT_t *dev, FontxFile *fx, int32_t x, int32_t y, uint8_t code, uint16_t color) {
-	if(_DEBUG_)printf("code=%hhx x=%ld y=%ld\n",code,x,y);
-	if (dev->_font_direction == 0)
-		x = lcdDrawChar(dev, fx, x, y, code, color);
-	if (dev->_font_direction == 1)
-		y = lcdDrawChar(dev, fx, x, y, code, color);
-	if (dev->_font_direction == 2)
-		x = lcdDrawChar(dev, fx, x, y, code, color);
-	if (dev->_font_direction == 3)
-		y = lcdDrawChar(dev, fx, x, y, code, color);
-	if (dev->_font_direction == 0) return x;
-	if (dev->_font_direction == 2) return x;
-	if (dev->_font_direction == 1) return y;
-	if (dev->_font_direction == 3) return y;
-	return 0;
-}
-
+int32_t lcdDrawChar(TFT_t *dev, int32_t x, int32_t y, char ascii, uint16_t color) {
 #if 0
-// Draw UTF8 character
-// x:X coordinate
-// y:Y coordinate
-// utf8:UTF8 code
-// color:color
-int32_t lcdDrawUTF8Char(TFT_t *dev, FontxFile *fx, int32_t x, int32_t y, uint8_t *utf8, uint16_t color) {
-	uint16_t sjis[1];
-
-	sjis[0] = UTF2SJIS(utf8);
-	if(_DEBUG_)printf("sjis=%04x\n",sjis[0]);
-	return lcdDrawSJISChar(dev, fx, x, y, sjis[0], color);
-}
-
-// Draw UTF8 string
-// x:X coordinate
-// y:Y coordinate
-// utfs:UTF8 string
-// color:color
-int32_t lcdDrawUTF8String(TFT_t *dev, FontxFile *fx, int32_t x, int32_t y, uint8_t *utfs, uint16_t color) {
-
-	int32_t i;
-	int32_t spos;
-	uint16_t sjis[64];
-	spos = String2SJIS(utfs, strlen((char *)utfs), sjis, 64);
-	if(_DEBUG_)printf("spos=%d\n",(int)spos);
-	for(i=0;i<spos;i++) {
-		if(_DEBUG_)printf("sjis[%d]=%hx y=%ld\n",(int)i,sjis[i],y);
-		if (dev->_font_direction == 0)
-			x = lcdDrawSJISChar(dev, fx, x, y, sjis[i], color);
-		if (dev->_font_direction == 1)
-			y = lcdDrawSJISChar(dev, fx, x, y, sjis[i], color);
-		if (dev->_font_direction == 2)
-			x = lcdDrawSJISChar(dev, fx, x, y, sjis[i], color);
-		if (dev->_font_direction == 3)
-			y = lcdDrawSJISChar(dev, fx, x, y, sjis[i], color);
-	}
-	if (dev->_font_direction == 0) return x;
-	if (dev->_font_direction == 2) return x;
-	if (dev->_font_direction == 1) return y;
-	if (dev->_font_direction == 3) return y;
-	return 0;
-}
+  if ((x >= dev->_width) ||                           // Clip right
+      (y >= dev->_height) ||                          // Clip bottom
+      ((x + LCD_CHAR_W * dev->_font_size - 1) < 0) || // Clip left
+      ((y + LCD_CHAR_H * dev->_font_size - 1) < 0))   // Clip top
+    return;
 #endif
+
+  if (dev->_font_back_en) {
+    lcdFillRect(dev, x, y,
+      x+LCD_CHAR_W*dev->_font_size-1,
+      y+LCD_CHAR_H*dev->_font_size-1,
+      dev->_font_back_color);
+  }
+  for (int8_t i = 0; i < LCD_CHAR_W; i++) {
+    uint8_t line;
+    if (i == LCD_CHAR_W-1)
+      line = 0x0;
+    else
+      line = font[((uint8_t)ascii * (LCD_CHAR_W-1)) + i];
+    for (int8_t j = 0; j < LCD_CHAR_H; j++) {
+      if (line & 0x1) {
+        if (dev->_font_size == 1) // default size
+          lcdDrawPixel(dev, x + i, y + j, color);
+        else { // big size
+          int32_t x1 = x + (i * dev->_font_size), y1 = y + (j * dev->_font_size);		
+          lcdFillRect(dev, x1, y1, x1+dev->_font_size-1, y1+dev->_font_size-1, color);
+        }
+      }
+#if 0
+      else if (dev->_font_back_en) {
+        if (dev->_font_size == 1) // default size
+          lcdDrawPixel(dev, x + i, y + j, dev->_font_back_color);
+        else { // big size
+          int32_t x1 = x + (i * dev->_font_size), y1 = y + (j * dev->_font_size);		
+          lcdFillRect(dev, x1, y1, x1+dev->_font_size-1, y1+dev->_font_size-1, dev->_font_back_color);
+        }
+      }
+#endif
+      line >>= 1;
+    }
+  }
+  return x+LCD_CHAR_W*dev->_font_size;
+}
+
+// Draw ASCII string
+// x:X coordinate
+// y:Y coordinate
+// ascii: ascii string, zero terminated
+// color:color
+int32_t lcdDrawString(TFT_t *dev, int32_t x, int32_t y, char *ascii, uint16_t color) {
+	int32_t length = strlen(ascii);
+	for (int32_t i=0; i<length; i++) {
+		x = lcdDrawChar(dev, x, y, ascii[i], color);
+	}
+	return x;
+}
 
 // Set font direction
 // dir:Direction
@@ -1324,28 +1169,22 @@ void lcdSetFontDirection(TFT_t *dev, direction_t dir) {
 	dev->_font_direction = dir;
 }
 
-// Set font filling
-// color:fill color
-void lcdSetFontFill(TFT_t *dev, uint16_t color) {
-	dev->_font_fill = true;
-	dev->_font_fill_color = color;
+// Set font size
+// size: font size
+void lcdSetFontSize(TFT_t *dev, uint8_t size) {
+	dev->_font_size = size;
 }
 
-// UnSet font filling
-void lcdUnsetFontFill(TFT_t *dev) {
-	dev->_font_fill = false;
+// Set font background
+// color:background color
+void lcdSetFontBackground(TFT_t *dev, uint16_t color) {
+	dev->_font_back_en = true;
+	dev->_font_back_color = color;
 }
 
-// Set font underline
-// color:frame color
-void lcdSetFontUnderLine(TFT_t *dev, uint16_t color) {
-	dev->_font_underline = true;
-	dev->_font_underline_color = color;
-}
-
-// UnSet font underline
-void lcdUnsetFontUnderLine(TFT_t *dev) {
-	dev->_font_underline = false;
+// No font background
+void lcdNoFontBackground(TFT_t *dev) {
+	dev->_font_back_en = false;
 }
 
 // Set display SPI clock

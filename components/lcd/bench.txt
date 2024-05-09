@@ -1,4 +1,34 @@
 
+########## run 2024-05-07 ##########
+I (42470) FillTest: elapsed time[ms]:1090
+I (44500) ColorBarTest: elapsed time[ms]:30
+I (46570) ColorBandTest: elapsed time[ms]:70
+I (48660) ArrowTest: elapsed time[ms]:90
+I (50700) LineTestHV: elapsed time[ms]:40
+I (53100) LineTest: elapsed time[ms]:400
+I (55680) CircleTest: elapsed time[ms]:580
+I (57800) RoundRectTest: elapsed time[ms]:120
+I (59920) FillRectTest: elapsed time[ms]:120
+I (63030) FillTriTest: elapsed time[ms]:1110
+I (65710) FillCircleTest: elapsed time[ms]:680
+I (68710) RectangleTest: elapsed time[ms]:1000
+I (71830) TriangleTest: elapsed time[ms]:1120
+I (73880) TextDirTest: elapsed time[ms]:50
+I (76000) TextParamTest: elapsed time[ms]:120
+I (79630) TextTest: elapsed time[ms]:1630
+
+########## background done in one block per char ##########
+I (1127) ArrowTest: elapsed time[ms]:90
+I (6167) TextDirTest: elapsed time[ms]:40
+I (11287) TextParamTest: elapsed time[ms]:120
+I (17917) TextTest: elapsed time[ms]:1630
+
+########## background done in sub-blocks (pixels) ##########
+I (1127) ArrowTest: elapsed time[ms]:90
+I (6167) TextDirTest: elapsed time[ms]:40
+I (11427) TextParamTest: elapsed time[ms]:260
+I (21217) TextTest: elapsed time[ms]:4790
+
 ########## use spi_device_polling_transmit ##########
 I (2307) FillTest: elapsed time[ms]:1090
 I (4337) ColorBarTest: elapsed time[ms]:30

@@ -4,5 +4,5 @@ set(EXTRA_COMPONENT_DIRS "../components")
 set(COMPONENTS "main" "lcd" "pin")
 
 include($ENV{IDF_PATH}/tools/cmake/project.cmake)
-project(lab02)
+project(lab03)
 # idf_build_set_property(COMPILE_OPTIONS "-Wno-error" APPEND)
