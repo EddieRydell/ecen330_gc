@@ -89,8 +89,6 @@ esp-idf/esp_system/ld/sections.ld: C:/Users/eddie/esp/esp-idf/components/freerto
 esp-idf/esp_system/ld/sections.ld: C:/Users/eddie/esp/esp-idf/components/newlib/newlib.lf
 esp-idf/esp_system/ld/sections.ld: C:/Users/eddie/esp/esp-idf/components/newlib/system_libs.lf
 esp-idf/esp_system/ld/sections.ld: C:/Users/eddie/esp/esp-idf/components/esp_ringbuf/linker.lf
-esp-idf/esp_system/ld/sections.ld: C:/Users/eddie/esp/esp-idf/components/esp_driver_uart/linker.lf
-esp-idf/esp_system/ld/sections.ld: C:/Users/eddie/esp/esp-idf/components/vfs/linker.lf
 esp-idf/esp_system/ld/sections.ld: C:/Users/eddie/esp/esp-idf/components/esp_driver_pcnt/linker.lf
 esp-idf/esp_system/ld/sections.ld: C:/Users/eddie/esp/esp-idf/components/esp_driver_gptimer/linker.lf
 esp-idf/esp_system/ld/sections.ld: C:/Users/eddie/esp/esp-idf/components/esp_driver_spi/linker.lf
@@ -100,6 +98,7 @@ esp-idf/esp_system/ld/sections.ld: C:/Users/eddie/esp/esp-idf/components/esp_dri
 esp-idf/esp_system/ld/sections.ld: C:/Users/eddie/esp/esp-idf/components/esp_driver_rmt/linker.lf
 esp-idf/esp_system/ld/sections.ld: C:/Users/eddie/esp/esp-idf/components/esp_driver_sdm/linker.lf
 esp-idf/esp_system/ld/sections.ld: C:/Users/eddie/esp/esp-idf/components/esp_driver_i2c/linker.lf
+esp-idf/esp_system/ld/sections.ld: C:/Users/eddie/esp/esp-idf/components/esp_driver_uart/linker.lf
 esp-idf/esp_system/ld/sections.ld: C:/Users/eddie/esp/esp-idf/components/esp_driver_ledc/linker.lf
 esp-idf/esp_system/ld/sections.ld: C:/Users/eddie/esp/esp-idf/components/driver/twai/linker.lf
 esp-idf/esp_system/ld/sections.ld: esp-idf/xtensa/libxtensa.a
@@ -108,10 +107,11 @@ esp-idf/esp_system/ld/sections.ld: esp-idf/esp_timer/libesp_timer.a
 esp-idf/esp_system/ld/sections.ld: esp-idf/esp_pm/libesp_pm.a
 esp-idf/esp_system/ld/sections.ld: esp-idf/mbedtls/libmbedtls.a
 esp-idf/esp_system/ld/sections.ld: esp-idf/esp_app_format/libesp_app_format.a
-esp-idf/esp_system/ld/sections.ld: esp-idf/efuse/libefuse.a
 esp-idf/esp_system/ld/sections.ld: esp-idf/esp_bootloader_format/libesp_bootloader_format.a
-esp-idf/esp_system/ld/sections.ld: esp-idf/bootloader_support/libbootloader_support.a
 esp-idf/esp_system/ld/sections.ld: esp-idf/app_update/libapp_update.a
+esp-idf/esp_system/ld/sections.ld: esp-idf/esp_partition/libesp_partition.a
+esp-idf/esp_system/ld/sections.ld: esp-idf/efuse/libefuse.a
+esp-idf/esp_system/ld/sections.ld: esp-idf/bootloader_support/libbootloader_support.a
 esp-idf/esp_system/ld/sections.ld: esp-idf/esp_mm/libesp_mm.a
 esp-idf/esp_system/ld/sections.ld: esp-idf/spi_flash/libspi_flash.a
 esp-idf/esp_system/ld/sections.ld: esp-idf/esp_system/libesp_system.a
@@ -126,13 +126,8 @@ esp-idf/esp_system/ld/sections.ld: esp-idf/freertos/libfreertos.a
 esp-idf/esp_system/ld/sections.ld: esp-idf/newlib/libnewlib.a
 esp-idf/esp_system/ld/sections.ld: esp-idf/pthread/libpthread.a
 esp-idf/esp_system/ld/sections.ld: esp-idf/cxx/libcxx.a
-esp-idf/esp_system/ld/sections.ld: esp-idf/esp_partition/libesp_partition.a
-esp-idf/esp_system/ld/sections.ld: esp-idf/esp_ringbuf/libesp_ringbuf.a
-esp-idf/esp_system/ld/sections.ld: esp-idf/esp_driver_uart/libesp_driver_uart.a
-esp-idf/esp_system/ld/sections.ld: esp-idf/esp_vfs_console/libesp_vfs_console.a
-esp-idf/esp_system/ld/sections.ld: esp-idf/vfs/libvfs.a
-esp-idf/esp_system/ld/sections.ld: esp-idf/spiffs/libspiffs.a
 esp-idf/esp_system/ld/sections.ld: esp-idf/main/libmain.a
+esp-idf/esp_system/ld/sections.ld: esp-idf/esp_ringbuf/libesp_ringbuf.a
 esp-idf/esp_system/ld/sections.ld: esp-idf/esp_driver_pcnt/libesp_driver_pcnt.a
 esp-idf/esp_system/ld/sections.ld: esp-idf/esp_driver_gptimer/libesp_driver_gptimer.a
 esp-idf/esp_system/ld/sections.ld: esp-idf/esp_driver_spi/libesp_driver_spi.a
@@ -146,13 +141,14 @@ esp-idf/esp_system/ld/sections.ld: esp-idf/esp_driver_dac/libesp_driver_dac.a
 esp-idf/esp_system/ld/sections.ld: esp-idf/esp_driver_rmt/libesp_driver_rmt.a
 esp-idf/esp_system/ld/sections.ld: esp-idf/esp_driver_sdm/libesp_driver_sdm.a
 esp-idf/esp_system/ld/sections.ld: esp-idf/esp_driver_i2c/libesp_driver_i2c.a
+esp-idf/esp_system/ld/sections.ld: esp-idf/esp_driver_uart/libesp_driver_uart.a
 esp-idf/esp_system/ld/sections.ld: esp-idf/esp_driver_ledc/libesp_driver_ledc.a
 esp-idf/esp_system/ld/sections.ld: esp-idf/driver/libdriver.a
 esp-idf/esp_system/ld/sections.ld: esp-idf/lcd/liblcd.a
 esp-idf/esp_system/ld/sections.ld: esp-idf/pin/libpin.a
 esp-idf/esp_system/ld/sections.ld: C:/Users/eddie/CLionProjects/ecen330_gc/lab02/sdkconfig
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=C:\Users\eddie\CLionProjects\ecen330_gc\lab02\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating ld/sections.ld"
-	cd /d C:\Users\eddie\CLionProjects\ecen330_gc\lab02\cmake-build-debug\esp-idf\esp_system && python C:/Users/eddie/esp/esp-idf/tools/ldgen/ldgen.py --config C:/Users/eddie/CLionProjects/ecen330_gc/lab02/sdkconfig --fragments-list C:/Users/eddie/esp/esp-idf/components/xtensa/linker.lf;C:/Users/eddie/esp/esp-idf/components/esp_driver_gpio/linker.lf;C:/Users/eddie/esp/esp-idf/components/esp_pm/linker.lf;C:/Users/eddie/esp/esp-idf/components/esp_mm/linker.lf;C:/Users/eddie/esp/esp-idf/components/spi_flash/linker.lf;C:/Users/eddie/esp/esp-idf/components/esp_system/linker.lf;C:/Users/eddie/esp/esp-idf/components/esp_system/app.lf;C:/Users/eddie/esp/esp-idf/components/esp_common/common.lf;C:/Users/eddie/esp/esp-idf/components/esp_common/soc.lf;C:/Users/eddie/esp/esp-idf/components/esp_rom/linker.lf;C:/Users/eddie/esp/esp-idf/components/hal/linker.lf;C:/Users/eddie/esp/esp-idf/components/log/linker.lf;C:/Users/eddie/esp/esp-idf/components/heap/linker.lf;C:/Users/eddie/esp/esp-idf/components/soc/linker.lf;C:/Users/eddie/esp/esp-idf/components/esp_hw_support/linker.lf;C:/Users/eddie/esp/esp-idf/components/esp_hw_support/dma/linker.lf;C:/Users/eddie/esp/esp-idf/components/freertos/linker_common.lf;C:/Users/eddie/esp/esp-idf/components/freertos/linker.lf;C:/Users/eddie/esp/esp-idf/components/newlib/newlib.lf;C:/Users/eddie/esp/esp-idf/components/newlib/system_libs.lf;C:/Users/eddie/esp/esp-idf/components/esp_ringbuf/linker.lf;C:/Users/eddie/esp/esp-idf/components/esp_driver_uart/linker.lf;C:/Users/eddie/esp/esp-idf/components/vfs/linker.lf;C:/Users/eddie/esp/esp-idf/components/esp_driver_pcnt/linker.lf;C:/Users/eddie/esp/esp-idf/components/esp_driver_gptimer/linker.lf;C:/Users/eddie/esp/esp-idf/components/esp_driver_spi/linker.lf;C:/Users/eddie/esp/esp-idf/components/esp_driver_mcpwm/linker.lf;C:/Users/eddie/esp/esp-idf/components/esp_driver_ana_cmpr/linker.lf;C:/Users/eddie/esp/esp-idf/components/esp_driver_dac/linker.lf;C:/Users/eddie/esp/esp-idf/components/esp_driver_rmt/linker.lf;C:/Users/eddie/esp/esp-idf/components/esp_driver_sdm/linker.lf;C:/Users/eddie/esp/esp-idf/components/esp_driver_i2c/linker.lf;C:/Users/eddie/esp/esp-idf/components/esp_driver_ledc/linker.lf;C:/Users/eddie/esp/esp-idf/components/driver/twai/linker.lf --input C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/esp_system/ld/sections.ld.in --output C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/esp_system/ld/sections.ld --kconfig C:/Users/eddie/esp/esp-idf/Kconfig --env-file C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/config.env --libraries-file C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/ldgen_libraries --objdump "C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/bin/objdump.exe"
+	cd /d C:\Users\eddie\CLionProjects\ecen330_gc\lab02\cmake-build-debug\esp-idf\esp_system && python C:/Users/eddie/esp/esp-idf/tools/ldgen/ldgen.py --config C:/Users/eddie/CLionProjects/ecen330_gc/lab02/sdkconfig --fragments-list C:/Users/eddie/esp/esp-idf/components/xtensa/linker.lf;C:/Users/eddie/esp/esp-idf/components/esp_driver_gpio/linker.lf;C:/Users/eddie/esp/esp-idf/components/esp_pm/linker.lf;C:/Users/eddie/esp/esp-idf/components/esp_mm/linker.lf;C:/Users/eddie/esp/esp-idf/components/spi_flash/linker.lf;C:/Users/eddie/esp/esp-idf/components/esp_system/linker.lf;C:/Users/eddie/esp/esp-idf/components/esp_system/app.lf;C:/Users/eddie/esp/esp-idf/components/esp_common/common.lf;C:/Users/eddie/esp/esp-idf/components/esp_common/soc.lf;C:/Users/eddie/esp/esp-idf/components/esp_rom/linker.lf;C:/Users/eddie/esp/esp-idf/components/hal/linker.lf;C:/Users/eddie/esp/esp-idf/components/log/linker.lf;C:/Users/eddie/esp/esp-idf/components/heap/linker.lf;C:/Users/eddie/esp/esp-idf/components/soc/linker.lf;C:/Users/eddie/esp/esp-idf/components/esp_hw_support/linker.lf;C:/Users/eddie/esp/esp-idf/components/esp_hw_support/dma/linker.lf;C:/Users/eddie/esp/esp-idf/components/freertos/linker_common.lf;C:/Users/eddie/esp/esp-idf/components/freertos/linker.lf;C:/Users/eddie/esp/esp-idf/components/newlib/newlib.lf;C:/Users/eddie/esp/esp-idf/components/newlib/system_libs.lf;C:/Users/eddie/esp/esp-idf/components/esp_ringbuf/linker.lf;C:/Users/eddie/esp/esp-idf/components/esp_driver_pcnt/linker.lf;C:/Users/eddie/esp/esp-idf/components/esp_driver_gptimer/linker.lf;C:/Users/eddie/esp/esp-idf/components/esp_driver_spi/linker.lf;C:/Users/eddie/esp/esp-idf/components/esp_driver_mcpwm/linker.lf;C:/Users/eddie/esp/esp-idf/components/esp_driver_ana_cmpr/linker.lf;C:/Users/eddie/esp/esp-idf/components/esp_driver_dac/linker.lf;C:/Users/eddie/esp/esp-idf/components/esp_driver_rmt/linker.lf;C:/Users/eddie/esp/esp-idf/components/esp_driver_sdm/linker.lf;C:/Users/eddie/esp/esp-idf/components/esp_driver_i2c/linker.lf;C:/Users/eddie/esp/esp-idf/components/esp_driver_uart/linker.lf;C:/Users/eddie/esp/esp-idf/components/esp_driver_ledc/linker.lf;C:/Users/eddie/esp/esp-idf/components/driver/twai/linker.lf --input C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/esp_system/ld/sections.ld.in --output C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/esp_system/ld/sections.ld --kconfig C:/Users/eddie/esp/esp-idf/Kconfig --env-file C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/config.env --libraries-file C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/ldgen_libraries --objdump "C:/Program Files/JetBrains/CLion 2023.3.4/bin/mingw/bin/objdump.exe"
 
 esp-idf/esp_system/ld/sections.ld.in: C:/Users/eddie/esp/esp-idf/components/esp_system/ld/esp32/sections.ld.in
 esp-idf/esp_system/ld/sections.ld.in: config/sdkconfig.h

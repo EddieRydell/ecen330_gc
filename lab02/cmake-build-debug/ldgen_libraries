@@ -4,10 +4,11 @@ C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/esp_time
 C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/esp_pm/libesp_pm.a
 C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/mbedtls/libmbedtls.a
 C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/esp_app_format/libesp_app_format.a
-C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/efuse/libefuse.a
 C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/esp_bootloader_format/libesp_bootloader_format.a
-C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/bootloader_support/libbootloader_support.a
 C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/app_update/libapp_update.a
+C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/esp_partition/libesp_partition.a
+C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/efuse/libefuse.a
+C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/bootloader_support/libbootloader_support.a
 C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/esp_mm/libesp_mm.a
 C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/spi_flash/libspi_flash.a
 C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/esp_system/libesp_system.a
@@ -22,13 +23,8 @@ C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/freertos
 C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/newlib/libnewlib.a
 C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/pthread/libpthread.a
 C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/cxx/libcxx.a
-C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/esp_partition/libesp_partition.a
-C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/esp_ringbuf/libesp_ringbuf.a
-C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/esp_driver_uart/libesp_driver_uart.a
-C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/esp_vfs_console/libesp_vfs_console.a
-C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/vfs/libvfs.a
-C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/spiffs/libspiffs.a
 C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/main/libmain.a
+C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/esp_ringbuf/libesp_ringbuf.a
 C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/esp_driver_pcnt/libesp_driver_pcnt.a
 C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/esp_driver_gptimer/libesp_driver_gptimer.a
 C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/esp_driver_spi/libesp_driver_spi.a
@@ -42,6 +38,7 @@ C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/esp_driv
 C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/esp_driver_rmt/libesp_driver_rmt.a
 C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/esp_driver_sdm/libesp_driver_sdm.a
 C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/esp_driver_i2c/libesp_driver_i2c.a
+C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/esp_driver_uart/libesp_driver_uart.a
 C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/esp_driver_ledc/libesp_driver_ledc.a
 C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/driver/libdriver.a
 C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/lcd/liblcd.a

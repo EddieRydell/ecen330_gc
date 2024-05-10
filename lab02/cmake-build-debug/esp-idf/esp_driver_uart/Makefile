@@ -198,30 +198,6 @@ src/uart.c.s:
 	cd /d C:\Users\eddie\CLionProjects\ecen330_gc\lab02\cmake-build-debug && $(MAKE) $(MAKESILENT) -f esp-idf\esp_driver_uart\CMakeFiles\__idf_esp_driver_uart.dir\build.make esp-idf/esp_driver_uart/CMakeFiles/__idf_esp_driver_uart.dir/src/uart.c.s
 .PHONY : src/uart.c.s
 
-src/uart_vfs.obj: src/uart_vfs.c.obj
-.PHONY : src/uart_vfs.obj
-
-# target to build an object file
-src/uart_vfs.c.obj:
-	cd /d C:\Users\eddie\CLionProjects\ecen330_gc\lab02\cmake-build-debug && $(MAKE) $(MAKESILENT) -f esp-idf\esp_driver_uart\CMakeFiles\__idf_esp_driver_uart.dir\build.make esp-idf/esp_driver_uart/CMakeFiles/__idf_esp_driver_uart.dir/src/uart_vfs.c.obj
-.PHONY : src/uart_vfs.c.obj
-
-src/uart_vfs.i: src/uart_vfs.c.i
-.PHONY : src/uart_vfs.i
-
-# target to preprocess a source file
-src/uart_vfs.c.i:
-	cd /d C:\Users\eddie\CLionProjects\ecen330_gc\lab02\cmake-build-debug && $(MAKE) $(MAKESILENT) -f esp-idf\esp_driver_uart\CMakeFiles\__idf_esp_driver_uart.dir\build.make esp-idf/esp_driver_uart/CMakeFiles/__idf_esp_driver_uart.dir/src/uart_vfs.c.i
-.PHONY : src/uart_vfs.c.i
-
-src/uart_vfs.s: src/uart_vfs.c.s
-.PHONY : src/uart_vfs.s
-
-# target to generate assembly for a file
-src/uart_vfs.c.s:
-	cd /d C:\Users\eddie\CLionProjects\ecen330_gc\lab02\cmake-build-debug && $(MAKE) $(MAKESILENT) -f esp-idf\esp_driver_uart\CMakeFiles\__idf_esp_driver_uart.dir\build.make esp-idf/esp_driver_uart/CMakeFiles/__idf_esp_driver_uart.dir/src/uart_vfs.c.s
-.PHONY : src/uart_vfs.c.s
-
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -238,9 +214,6 @@ help:
 	@echo ... src/uart.obj
 	@echo ... src/uart.i
 	@echo ... src/uart.s
-	@echo ... src/uart_vfs.obj
-	@echo ... src/uart_vfs.i
-	@echo ... src/uart_vfs.s
 .PHONY : help
 
 

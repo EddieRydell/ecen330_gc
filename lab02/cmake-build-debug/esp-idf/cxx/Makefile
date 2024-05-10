@@ -259,6 +259,7 @@ help:
 	@echo ... list_install_components
 	@echo ... rebuild_cache
 	@echo ... __idf_cxx
+	@echo ... libgcc_cxx
 	@echo ... cxx_exception_stubs.obj
 	@echo ... cxx_exception_stubs.i
 	@echo ... cxx_exception_stubs.s

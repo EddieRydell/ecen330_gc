@@ -82,33 +82,17 @@ esp-idf/esp_driver_uart/CMakeFiles/__idf_esp_driver_uart.dir/src/uart.c.s: cmake
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/__idf_esp_driver_uart.dir/src/uart.c.s"
 	cd /d C:\Users\eddie\CLionProjects\ecen330_gc\lab02\cmake-build-debug\esp-idf\esp_driver_uart && C:\Users\eddie\.espressif\tools\xtensa-esp-elf\esp-13.2.0_20240305\xtensa-esp-elf\bin\xtensa-esp32-elf-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\eddie\esp\esp-idf\components\esp_driver_uart\src\uart.c -o CMakeFiles\__idf_esp_driver_uart.dir\src\uart.c.s
 
-esp-idf/esp_driver_uart/CMakeFiles/__idf_esp_driver_uart.dir/src/uart_vfs.c.obj: esp-idf/esp_driver_uart/CMakeFiles/__idf_esp_driver_uart.dir/flags.make
-esp-idf/esp_driver_uart/CMakeFiles/__idf_esp_driver_uart.dir/src/uart_vfs.c.obj: C:/Users/eddie/esp/esp-idf/components/esp_driver_uart/src/uart_vfs.c
-esp-idf/esp_driver_uart/CMakeFiles/__idf_esp_driver_uart.dir/src/uart_vfs.c.obj: esp-idf/esp_driver_uart/CMakeFiles/__idf_esp_driver_uart.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\eddie\CLionProjects\ecen330_gc\lab02\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object esp-idf/esp_driver_uart/CMakeFiles/__idf_esp_driver_uart.dir/src/uart_vfs.c.obj"
-	cd /d C:\Users\eddie\CLionProjects\ecen330_gc\lab02\cmake-build-debug\esp-idf\esp_driver_uart && C:\Users\eddie\.espressif\tools\xtensa-esp-elf\esp-13.2.0_20240305\xtensa-esp-elf\bin\xtensa-esp32-elf-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT esp-idf/esp_driver_uart/CMakeFiles/__idf_esp_driver_uart.dir/src/uart_vfs.c.obj -MF CMakeFiles\__idf_esp_driver_uart.dir\src\uart_vfs.c.obj.d -o CMakeFiles\__idf_esp_driver_uart.dir\src\uart_vfs.c.obj -c C:\Users\eddie\esp\esp-idf\components\esp_driver_uart\src\uart_vfs.c
-
-esp-idf/esp_driver_uart/CMakeFiles/__idf_esp_driver_uart.dir/src/uart_vfs.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/__idf_esp_driver_uart.dir/src/uart_vfs.c.i"
-	cd /d C:\Users\eddie\CLionProjects\ecen330_gc\lab02\cmake-build-debug\esp-idf\esp_driver_uart && C:\Users\eddie\.espressif\tools\xtensa-esp-elf\esp-13.2.0_20240305\xtensa-esp-elf\bin\xtensa-esp32-elf-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\eddie\esp\esp-idf\components\esp_driver_uart\src\uart_vfs.c > CMakeFiles\__idf_esp_driver_uart.dir\src\uart_vfs.c.i
-
-esp-idf/esp_driver_uart/CMakeFiles/__idf_esp_driver_uart.dir/src/uart_vfs.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/__idf_esp_driver_uart.dir/src/uart_vfs.c.s"
-	cd /d C:\Users\eddie\CLionProjects\ecen330_gc\lab02\cmake-build-debug\esp-idf\esp_driver_uart && C:\Users\eddie\.espressif\tools\xtensa-esp-elf\esp-13.2.0_20240305\xtensa-esp-elf\bin\xtensa-esp32-elf-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\eddie\esp\esp-idf\components\esp_driver_uart\src\uart_vfs.c -o CMakeFiles\__idf_esp_driver_uart.dir\src\uart_vfs.c.s
-
 # Object files for target __idf_esp_driver_uart
 __idf_esp_driver_uart_OBJECTS = \
-"CMakeFiles/__idf_esp_driver_uart.dir/src/uart.c.obj" \
-"CMakeFiles/__idf_esp_driver_uart.dir/src/uart_vfs.c.obj"
+"CMakeFiles/__idf_esp_driver_uart.dir/src/uart.c.obj"
 
 # External object files for target __idf_esp_driver_uart
 __idf_esp_driver_uart_EXTERNAL_OBJECTS =
 
 esp-idf/esp_driver_uart/libesp_driver_uart.a: esp-idf/esp_driver_uart/CMakeFiles/__idf_esp_driver_uart.dir/src/uart.c.obj
-esp-idf/esp_driver_uart/libesp_driver_uart.a: esp-idf/esp_driver_uart/CMakeFiles/__idf_esp_driver_uart.dir/src/uart_vfs.c.obj
 esp-idf/esp_driver_uart/libesp_driver_uart.a: esp-idf/esp_driver_uart/CMakeFiles/__idf_esp_driver_uart.dir/build.make
 esp-idf/esp_driver_uart/libesp_driver_uart.a: esp-idf/esp_driver_uart/CMakeFiles/__idf_esp_driver_uart.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\eddie\CLionProjects\ecen330_gc\lab02\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C static library libesp_driver_uart.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\eddie\CLionProjects\ecen330_gc\lab02\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C static library libesp_driver_uart.a"
 	cd /d C:\Users\eddie\CLionProjects\ecen330_gc\lab02\cmake-build-debug\esp-idf\esp_driver_uart && $(CMAKE_COMMAND) -P CMakeFiles\__idf_esp_driver_uart.dir\cmake_clean_target.cmake
 	cd /d C:\Users\eddie\CLionProjects\ecen330_gc\lab02\cmake-build-debug\esp-idf\esp_driver_uart && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\__idf_esp_driver_uart.dir\link.txt --verbose=$(VERBOSE)
 

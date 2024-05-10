@@ -82,24 +82,10 @@ esp-idf/lcd/CMakeFiles/__idf_lcd.dir/lcd.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/__idf_lcd.dir/lcd.c.s"
 	cd /d C:\Users\eddie\CLionProjects\ecen330_gc\lab02\cmake-build-debug\esp-idf\lcd && C:\Users\eddie\.espressif\tools\xtensa-esp-elf\esp-13.2.0_20240305\xtensa-esp-elf\bin\xtensa-esp32-elf-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\eddie\CLionProjects\ecen330_gc\components\lcd\lcd.c -o CMakeFiles\__idf_lcd.dir\lcd.c.s
 
-esp-idf/lcd/CMakeFiles/__idf_lcd.dir/fontx.c.obj: esp-idf/lcd/CMakeFiles/__idf_lcd.dir/flags.make
-esp-idf/lcd/CMakeFiles/__idf_lcd.dir/fontx.c.obj: C:/Users/eddie/CLionProjects/ecen330_gc/components/lcd/fontx.c
-esp-idf/lcd/CMakeFiles/__idf_lcd.dir/fontx.c.obj: esp-idf/lcd/CMakeFiles/__idf_lcd.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\eddie\CLionProjects\ecen330_gc\lab02\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object esp-idf/lcd/CMakeFiles/__idf_lcd.dir/fontx.c.obj"
-	cd /d C:\Users\eddie\CLionProjects\ecen330_gc\lab02\cmake-build-debug\esp-idf\lcd && C:\Users\eddie\.espressif\tools\xtensa-esp-elf\esp-13.2.0_20240305\xtensa-esp-elf\bin\xtensa-esp32-elf-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT esp-idf/lcd/CMakeFiles/__idf_lcd.dir/fontx.c.obj -MF CMakeFiles\__idf_lcd.dir\fontx.c.obj.d -o CMakeFiles\__idf_lcd.dir\fontx.c.obj -c C:\Users\eddie\CLionProjects\ecen330_gc\components\lcd\fontx.c
-
-esp-idf/lcd/CMakeFiles/__idf_lcd.dir/fontx.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/__idf_lcd.dir/fontx.c.i"
-	cd /d C:\Users\eddie\CLionProjects\ecen330_gc\lab02\cmake-build-debug\esp-idf\lcd && C:\Users\eddie\.espressif\tools\xtensa-esp-elf\esp-13.2.0_20240305\xtensa-esp-elf\bin\xtensa-esp32-elf-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\eddie\CLionProjects\ecen330_gc\components\lcd\fontx.c > CMakeFiles\__idf_lcd.dir\fontx.c.i
-
-esp-idf/lcd/CMakeFiles/__idf_lcd.dir/fontx.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/__idf_lcd.dir/fontx.c.s"
-	cd /d C:\Users\eddie\CLionProjects\ecen330_gc\lab02\cmake-build-debug\esp-idf\lcd && C:\Users\eddie\.espressif\tools\xtensa-esp-elf\esp-13.2.0_20240305\xtensa-esp-elf\bin\xtensa-esp32-elf-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\eddie\CLionProjects\ecen330_gc\components\lcd\fontx.c -o CMakeFiles\__idf_lcd.dir\fontx.c.s
-
 esp-idf/lcd/CMakeFiles/__idf_lcd.dir/lcd_test.c.obj: esp-idf/lcd/CMakeFiles/__idf_lcd.dir/flags.make
 esp-idf/lcd/CMakeFiles/__idf_lcd.dir/lcd_test.c.obj: C:/Users/eddie/CLionProjects/ecen330_gc/components/lcd/lcd_test.c
 esp-idf/lcd/CMakeFiles/__idf_lcd.dir/lcd_test.c.obj: esp-idf/lcd/CMakeFiles/__idf_lcd.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\eddie\CLionProjects\ecen330_gc\lab02\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object esp-idf/lcd/CMakeFiles/__idf_lcd.dir/lcd_test.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\eddie\CLionProjects\ecen330_gc\lab02\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object esp-idf/lcd/CMakeFiles/__idf_lcd.dir/lcd_test.c.obj"
 	cd /d C:\Users\eddie\CLionProjects\ecen330_gc\lab02\cmake-build-debug\esp-idf\lcd && C:\Users\eddie\.espressif\tools\xtensa-esp-elf\esp-13.2.0_20240305\xtensa-esp-elf\bin\xtensa-esp32-elf-gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT esp-idf/lcd/CMakeFiles/__idf_lcd.dir/lcd_test.c.obj -MF CMakeFiles\__idf_lcd.dir\lcd_test.c.obj.d -o CMakeFiles\__idf_lcd.dir\lcd_test.c.obj -c C:\Users\eddie\CLionProjects\ecen330_gc\components\lcd\lcd_test.c
 
 esp-idf/lcd/CMakeFiles/__idf_lcd.dir/lcd_test.c.i: cmake_force
@@ -113,18 +99,16 @@ esp-idf/lcd/CMakeFiles/__idf_lcd.dir/lcd_test.c.s: cmake_force
 # Object files for target __idf_lcd
 __idf_lcd_OBJECTS = \
 "CMakeFiles/__idf_lcd.dir/lcd.c.obj" \
-"CMakeFiles/__idf_lcd.dir/fontx.c.obj" \
 "CMakeFiles/__idf_lcd.dir/lcd_test.c.obj"
 
 # External object files for target __idf_lcd
 __idf_lcd_EXTERNAL_OBJECTS =
 
 esp-idf/lcd/liblcd.a: esp-idf/lcd/CMakeFiles/__idf_lcd.dir/lcd.c.obj
-esp-idf/lcd/liblcd.a: esp-idf/lcd/CMakeFiles/__idf_lcd.dir/fontx.c.obj
 esp-idf/lcd/liblcd.a: esp-idf/lcd/CMakeFiles/__idf_lcd.dir/lcd_test.c.obj
 esp-idf/lcd/liblcd.a: esp-idf/lcd/CMakeFiles/__idf_lcd.dir/build.make
 esp-idf/lcd/liblcd.a: esp-idf/lcd/CMakeFiles/__idf_lcd.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\eddie\CLionProjects\ecen330_gc\lab02\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C static library liblcd.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\eddie\CLionProjects\ecen330_gc\lab02\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C static library liblcd.a"
 	cd /d C:\Users\eddie\CLionProjects\ecen330_gc\lab02\cmake-build-debug\esp-idf\lcd && $(CMAKE_COMMAND) -P CMakeFiles\__idf_lcd.dir\cmake_clean_target.cmake
 	cd /d C:\Users\eddie\CLionProjects\ecen330_gc\lab02\cmake-build-debug\esp-idf\lcd && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\__idf_lcd.dir\link.txt --verbose=$(VERBOSE)
 

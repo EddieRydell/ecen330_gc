@@ -174,30 +174,6 @@ __idf_lcd/fast:
 	cd /d C:\Users\eddie\CLionProjects\ecen330_gc\lab02\cmake-build-debug && $(MAKE) $(MAKESILENT) -f esp-idf\lcd\CMakeFiles\__idf_lcd.dir\build.make esp-idf/lcd/CMakeFiles/__idf_lcd.dir/build
 .PHONY : __idf_lcd/fast
 
-fontx.obj: fontx.c.obj
-.PHONY : fontx.obj
-
-# target to build an object file
-fontx.c.obj:
-	cd /d C:\Users\eddie\CLionProjects\ecen330_gc\lab02\cmake-build-debug && $(MAKE) $(MAKESILENT) -f esp-idf\lcd\CMakeFiles\__idf_lcd.dir\build.make esp-idf/lcd/CMakeFiles/__idf_lcd.dir/fontx.c.obj
-.PHONY : fontx.c.obj
-
-fontx.i: fontx.c.i
-.PHONY : fontx.i
-
-# target to preprocess a source file
-fontx.c.i:
-	cd /d C:\Users\eddie\CLionProjects\ecen330_gc\lab02\cmake-build-debug && $(MAKE) $(MAKESILENT) -f esp-idf\lcd\CMakeFiles\__idf_lcd.dir\build.make esp-idf/lcd/CMakeFiles/__idf_lcd.dir/fontx.c.i
-.PHONY : fontx.c.i
-
-fontx.s: fontx.c.s
-.PHONY : fontx.s
-
-# target to generate assembly for a file
-fontx.c.s:
-	cd /d C:\Users\eddie\CLionProjects\ecen330_gc\lab02\cmake-build-debug && $(MAKE) $(MAKESILENT) -f esp-idf\lcd\CMakeFiles\__idf_lcd.dir\build.make esp-idf/lcd/CMakeFiles/__idf_lcd.dir/fontx.c.s
-.PHONY : fontx.c.s
-
 lcd.obj: lcd.c.obj
 .PHONY : lcd.obj
 
@@ -259,9 +235,6 @@ help:
 	@echo ... list_install_components
 	@echo ... rebuild_cache
 	@echo ... __idf_lcd
-	@echo ... fontx.obj
-	@echo ... fontx.i
-	@echo ... fontx.s
 	@echo ... lcd.obj
 	@echo ... lcd.i
 	@echo ... lcd.s

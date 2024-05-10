@@ -20,7 +20,7 @@ set(CMAKE_ASM_COMPILER_ID "GNU")
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_ASM
   "ESP_PLATFORM"
-  "IDF_VER=\"v5.4-dev-79-gefa15dbd45\""
+  "IDF_VER=\"v5.4-dev-79-gefa15dbd45-dirty\""
   "SOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"
   "SOC_XTAL_FREQ_MHZ=CONFIG_XTAL_FREQ"
   "_GLIBCXX_HAVE_POSIX_SEMAPHORE"
@@ -74,7 +74,6 @@ set(CMAKE_ASM_TARGET_INCLUDE_PATH
   "C:/Users/eddie/esp/esp-idf/components/bootloader_support/bootloader_flash/include"
   "C:/Users/eddie/esp/esp-idf/components/esp_pm/include"
   "C:/Users/eddie/esp/esp-idf/components/esp_app_format/include"
-  "C:/Users/eddie/esp/esp-idf/components/vfs/include"
   )
 
 # The set of dependency files which are needed:
