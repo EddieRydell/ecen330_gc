@@ -227,12 +227,12 @@ int32_t pin_get_level(pin_num_t pin)
 // The two 32-bit input registers are concatenated into a uint64_t.
 uint64_t pin_get_in_reg(void)
 {
-    return ((uint64_t)GPIO_IN1_REG << REGISTER_SIZE) | GPIO_IN_REG;
+    return (((uint64_t)REG(GPIO_IN1_REG)) << REGISTER_SIZE) | REG(GPIO_IN_REG);
 }
 
 // Get the value of the output registers, one pin per bit.
 // The two 32-bit output registers are concatenated into a uint64_t.
 uint64_t pin_get_out_reg(void)
 {
-    return ((uint64_t)GPIO_OUT1_REG << REGISTER_SIZE) | GPIO_OUT_REG;
+    return (((uint64_t)REG(GPIO_OUT1_REG)) << REGISTER_SIZE) | REG(GPIO_OUT_REG);
 }
