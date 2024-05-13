@@ -6,6 +6,10 @@
 
 typedef int8_t pin_num_t;
 
+// Each of the functions below with a pin argument operate on a single pin.
+// The exceptions are pin_get_in_reg() and pin_get_out_reg which return
+// the state of all the I/O pins.
+
 /***** I/O pin configuration *****/
 
 // Reset the configuration of a pin to not be an input or an output.
