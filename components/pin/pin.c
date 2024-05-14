@@ -88,40 +88,40 @@ int32_t pin_reset(pin_num_t pin)
     REG_SET_FIELD(IO_MUX_REG(pin), FUN_DRV_FIELD, FUN_DRV_DEFAULT);
     REG_SET_BIT(IO_MUX_REG(pin), FUN_WPU_BIT);
 
-	// Now that the pin is reset, set the output level to zero
-	return pin_set_level(pin, 0);
+    // Now that the pin is reset, set the output level to zero
+    return pin_set_level(pin, 0);
 }
 
 // Enable or disable a pull-up on the pin.
 int32_t pin_pullup(pin_num_t pin, bool enable)
 {
-	if (rtc_gpio_is_valid_gpio(pin)) { // hand-off work to RTC subsystem
-		if (enable) return rtc_gpio_pullup_en(pin);
-		else return rtc_gpio_pullup_dis(pin);
-	}
+    if (rtc_gpio_is_valid_gpio(pin)) { // hand-off work to RTC subsystem
+        if (enable) return rtc_gpio_pullup_en(pin);
+        else return rtc_gpio_pullup_dis(pin);
+    }
     if (enable) {
         REG_SET_BIT(IO_MUX_REG(pin), FUN_WPU_BIT);
     }
     else {
         REG_CLR_BIT(IO_MUX_REG(pin), FUN_WPU_BIT);
     }
-	return 0;
+    return 0;
 }
 
 // Enable or disable a pull-down on the pin.
 int32_t pin_pulldown(pin_num_t pin, bool enable)
 {
-	if (rtc_gpio_is_valid_gpio(pin)) { // hand-off work to RTC subsystem
-		if (enable) return rtc_gpio_pulldown_en(pin);
-		else return rtc_gpio_pulldown_dis(pin);
-	}
+    if (rtc_gpio_is_valid_gpio(pin)) { // hand-off work to RTC subsystem
+        if (enable) return rtc_gpio_pulldown_en(pin);
+        else return rtc_gpio_pulldown_dis(pin);
+    }
     if (enable) {
         REG_SET_BIT(IO_MUX_REG(pin), FUN_WPD_BIT);
     }
     else {
         REG_CLR_BIT(IO_MUX_REG(pin), FUN_WPD_BIT);
     }
-	return 0;
+    return 0;
 }
 
 // Enable or disable the pin as an input signal.
@@ -136,7 +136,7 @@ int32_t pin_input(pin_num_t pin, bool enable)
     else {
         REG_CLR_BIT(IO_MUX_REG(pin), FUN_IE_BIT);
     }
-	return 0;
+    return 0;
 }
 
 // Enable or disable the pin as an output signal.
@@ -163,7 +163,7 @@ int32_t pin_output(pin_num_t pin, bool enable)
             REG_SET_BIT(GPIO_ENABLE1_W1TC_REG, pin);
         }
     }
-	return 0;
+    return 0;
 }
 
 // Enable or disable the pin as an open-drain signal.
@@ -178,7 +178,7 @@ int32_t pin_odrain(pin_num_t pin, bool enable)
     else {
         REG_CLR_BIT(GPIO_PIN_REG(pin), PAD_DRIVER_BIT);
     }
-	return 0;
+    return 0;
 }
 
 // Sets the output signal level if the pin is configured as an output.
@@ -205,7 +205,7 @@ int32_t pin_set_level(pin_num_t pin, int32_t level)
             REG_SET_BIT(GPIO_OUT1_W1TC_REG, pin);
         }
     }
-	return 0;
+    return 0;
 }
 
 // Gets the input signal level if the pin is configured as an input.
