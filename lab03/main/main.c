@@ -43,6 +43,7 @@ bool IRAM_ATTR timer_callback(gptimer_handle_t timer, const gptimer_alarm_event_
     return true;
 }
 
+// Main function containing timer setup and execution
 void app_main(void)
 {
     ESP_LOGI(TAG, "Start up");
