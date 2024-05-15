@@ -56,21 +56,21 @@ void app_main(void)
 
     gptimer_handle_t timer = NULL;
     gptimer_config_t timer_config = {
-            .clk_src = GPTIMER_CLK_SRC_DEFAULT,
-            .direction = GPTIMER_COUNT_UP,
-            .resolution_hz = DEFAULT_TIMER_RESOLUTION
+        .clk_src = GPTIMER_CLK_SRC_DEFAULT,
+        .direction = GPTIMER_COUNT_UP,
+        .resolution_hz = DEFAULT_TIMER_RESOLUTION
     };
     ESP_ERROR_CHECK(gptimer_new_timer(&timer_config, &timer));
 
     gptimer_event_callbacks_t cbs = {
-            .on_alarm = timer_callback // link callback function to my own timer_callback()
+        .on_alarm = timer_callback // link callback function to my own timer_callback()
     };
     ESP_ERROR_CHECK(gptimer_register_event_callbacks(timer, &cbs, NULL));
 
     gptimer_alarm_config_t alarm_config = {
-            .reload_count = 0, // counter will reload with 0 on alarm event
-            .alarm_count = DEFAULT_ALARM_COUNT,
-            .flags.auto_reload_on_alarm = true, // enable auto-reload
+        .reload_count = 0, // counter will reload with 0 on alarm event
+        .alarm_count = DEFAULT_ALARM_COUNT,
+        .flags.auto_reload_on_alarm = true, // enable auto-reload
     };
     ESP_ERROR_CHECK(gptimer_set_alarm_action(timer, &alarm_config));
 

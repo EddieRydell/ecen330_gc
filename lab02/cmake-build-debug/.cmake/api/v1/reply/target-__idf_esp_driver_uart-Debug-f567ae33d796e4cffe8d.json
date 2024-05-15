@@ -3,7 +3,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "esp-idf/esp_driver_dac/libesp_driver_dac.a"
+			"path" : "esp-idf/esp_driver_uart/libesp_driver_uart.a"
 		}
 	],
 	"backtrace" : 2,
@@ -26,7 +26,7 @@
 		"files" : 
 		[
 			"C:/Users/eddie/esp/esp-idf/tools/cmake/component.cmake",
-			"C:/Users/eddie/esp/esp-idf/components/esp_driver_dac/CMakeLists.txt",
+			"C:/Users/eddie/esp/esp-idf/components/esp_driver_uart/CMakeLists.txt",
 			"C:/Users/eddie/esp/esp-idf/tools/cmake/utilities.cmake"
 		],
 		"nodes" : 
@@ -37,7 +37,7 @@
 			{
 				"command" : 1,
 				"file" : 1,
-				"line" : 28,
+				"line" : 7,
 				"parent" : 0
 			},
 			{
@@ -260,7 +260,7 @@
 				},
 				{
 					"backtrace" : 12,
-					"path" : "C:/Users/eddie/esp/esp-idf/components/esp_driver_dac/include"
+					"path" : "C:/Users/eddie/esp/esp-idf/components/esp_driver_uart/include"
 				},
 				{
 					"backtrace" : 2,
@@ -404,17 +404,13 @@
 				},
 				{
 					"backtrace" : 5,
-					"path" : "C:/Users/eddie/esp/esp-idf/components/esp_driver_i2s/include"
+					"path" : "C:/Users/eddie/esp/esp-idf/components/esp_ringbuf/include"
 				}
 			],
 			"language" : "C",
 			"sourceIndexes" : 
 			[
-				0,
-				1,
-				2,
-				3,
-				4
+				0
 			]
 		}
 	],
@@ -425,21 +421,21 @@
 			"id" : "__idf_xtensa::@1daaaad7abe597e030f9"
 		},
 		{
-			"backtrace" : 2,
-			"id" : "libgcc_cxx::@fc68b7334ac9a9392d41"
+			"backtrace" : 5,
+			"id" : "__idf_esp_ringbuf::@ad62994b1ce98b81017d"
 		},
 		{
-			"backtrace" : 5,
-			"id" : "__idf_esp_driver_i2s::@5dbaceb9cb1526e2b88d"
+			"backtrace" : 2,
+			"id" : "libgcc_cxx::@fc68b7334ac9a9392d41"
 		}
 	],
-	"id" : "__idf_esp_driver_dac::@6bab4bf0460dba6b3d1f",
-	"name" : "__idf_esp_driver_dac",
-	"nameOnDisk" : "libesp_driver_dac.a",
+	"id" : "__idf_esp_driver_uart::@7494562dd0db45cfd3ba",
+	"name" : "__idf_esp_driver_uart",
+	"nameOnDisk" : "libesp_driver_uart.a",
 	"paths" : 
 	{
-		"build" : "esp-idf/esp_driver_dac",
-		"source" : "C:/Users/eddie/esp/esp-idf/components/esp_driver_dac"
+		"build" : "esp-idf/esp_driver_uart",
+		"source" : "C:/Users/eddie/esp/esp-idf/components/esp_driver_uart"
 	},
 	"sourceGroups" : 
 	[
@@ -447,11 +443,7 @@
 			"name" : "Source Files",
 			"sourceIndexes" : 
 			[
-				0,
-				1,
-				2,
-				3,
-				4
+				0
 			]
 		}
 	],
@@ -460,31 +452,7 @@
 		{
 			"backtrace" : 2,
 			"compileGroupIndex" : 0,
-			"path" : "C:/Users/eddie/esp/esp-idf/components/esp_driver_dac/dac_oneshot.c",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 2,
-			"compileGroupIndex" : 0,
-			"path" : "C:/Users/eddie/esp/esp-idf/components/esp_driver_dac/dac_cosine.c",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 2,
-			"compileGroupIndex" : 0,
-			"path" : "C:/Users/eddie/esp/esp-idf/components/esp_driver_dac/dac_continuous.c",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 2,
-			"compileGroupIndex" : 0,
-			"path" : "C:/Users/eddie/esp/esp-idf/components/esp_driver_dac/dac_common.c",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 2,
-			"compileGroupIndex" : 0,
-			"path" : "C:/Users/eddie/esp/esp-idf/components/esp_driver_dac/esp32/dac_dma.c",
+			"path" : "C:/Users/eddie/esp/esp-idf/components/esp_driver_uart/src/uart.c",
 			"sourceGroupIndex" : 0
 		}
 	],
