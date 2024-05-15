@@ -95,7 +95,7 @@ def get_files_to_copy_and_zip(lab):
     if lab == "lab02":
         files.append((src_libs_path / "pin/pin.c", dest_libs_path / "pin", True))
     elif lab == "lab03":
-        None
+        files.append((src_lab_path / "main/main.c", dest_lab_path / "main", True))
     elif lab == "lab04":
         None
     elif lab == "lab05":
