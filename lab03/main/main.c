@@ -14,8 +14,8 @@
 #define BTN_SELECT 27
 #define BTN_START 39
 
-#define DEFAULT_TIMER_RESOLUTION 1000000
-#define DEFAULT_ALARM_COUNT 10000
+#define DEFAULT_TIMER_RESOLUTION 1000000 // Set default resolution to 1000000 ticks per second (1 MHz)
+#define DEFAULT_ALARM_COUNT 10000 // Alarm will be triggered every 0.01 seconds. 0.01s * 1MHz = 10000 ticks
 
 volatile bool running = true;
 volatile uint32_t timer_ticks;
