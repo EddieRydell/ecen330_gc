@@ -1,3 +1,4 @@
+#include <sys/cdefs.h>
 #include <stdlib.h>
 
 #include "esp_log.h"
@@ -44,7 +45,7 @@ bool IRAM_ATTR timer_callback(gptimer_handle_t timer, const gptimer_alarm_event_
 }
 
 // Main function containing timer setup and execution
-void app_main(void)
+_Noreturn void app_main(void)
 {
     ESP_LOGI(TAG, "Start up");
     pin_reset(BTN_A);

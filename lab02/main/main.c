@@ -1,3 +1,4 @@
+#include <sys/cdefs.h>
 #include <stdio.h>
 #include <stdint.h>
 
@@ -104,7 +105,7 @@ void update_panel(TFT_t *dev)
 	}
 }
 
-void app_main(void)
+_Noreturn void app_main(void)
 {
 	TFT_t dev;
 	uint64_t crs;
