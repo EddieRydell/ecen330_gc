@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "esp-idf/sound",
+		"source" : "C:/Users/eddie/CLionProjects/ecen330_gc/components/sound"
+	}
+}

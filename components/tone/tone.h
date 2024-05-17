@@ -9,6 +9,10 @@
 // Macros are provided for tone functions that are aliases
 // of sound functions.
 
+#define ERR_MALLOC_FAILURE (-1)
+#define ERR_SAMPLE_RATE_TOO_LOW 1
+#define ERR_TONE_BUFFER_NULL 2
+
 #define LOWEST_FREQ 20U // Hz
 
 #define tone_stop() sound_stop()
