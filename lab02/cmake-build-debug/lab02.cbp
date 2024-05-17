@@ -222,6 +222,7 @@
 					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_mm/include"/>
 					<Add directory="C:/Users/eddie/esp/esp-idf/components/spi_flash/include"/>
 					<Add directory="C:/Users/eddie/esp/esp-idf/components/pthread/include"/>
+					<Add directory="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/main"/>
 					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_ringbuf/include"/>
 					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_driver_pcnt/include"/>
 					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_driver_gptimer/include"/>
@@ -328,6 +329,7 @@
 					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_mm/include"/>
 					<Add directory="C:/Users/eddie/esp/esp-idf/components/spi_flash/include"/>
 					<Add directory="C:/Users/eddie/esp/esp-idf/components/pthread/include"/>
+					<Add directory="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/main"/>
 					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_ringbuf/include"/>
 					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_driver_pcnt/include"/>
 					<Add directory="C:/Users/eddie/esp/esp-idf/components/esp_driver_gptimer/include"/>
@@ -469,7 +471,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -532,7 +534,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -595,7 +597,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -660,7 +662,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -725,7 +727,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -790,7 +792,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -855,7 +857,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -921,7 +923,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -987,7 +989,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -1059,7 +1061,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -1152,7 +1154,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -1222,7 +1224,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -1292,7 +1294,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -1361,7 +1363,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -1430,7 +1432,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -1502,7 +1504,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -1574,7 +1576,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -1645,7 +1647,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -1716,7 +1718,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -1787,7 +1789,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -1977,7 +1979,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -2041,7 +2043,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -2105,7 +2107,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -2169,7 +2171,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -2233,7 +2235,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -2305,7 +2307,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -2377,7 +2379,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -2447,7 +2449,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -2517,7 +2519,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -2589,7 +2591,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -2731,7 +2733,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -2810,7 +2812,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -2889,7 +2891,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -2954,7 +2956,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -3019,7 +3021,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -3092,7 +3094,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -3165,7 +3167,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -3237,7 +3239,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -3339,7 +3341,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -3411,7 +3413,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -3483,7 +3485,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -3546,7 +3548,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -3609,7 +3611,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -3672,7 +3674,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -3735,7 +3737,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -3798,7 +3800,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -3861,7 +3863,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -3925,7 +3927,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -3989,7 +3991,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -4052,7 +4054,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -4115,7 +4117,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -4189,7 +4191,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -4263,7 +4265,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -4329,7 +4331,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -4395,7 +4397,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -4460,7 +4462,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -4525,7 +4527,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -4589,7 +4591,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -4653,7 +4655,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -4717,7 +4719,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -4781,13 +4783,14 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
 					<Add option="-DSOC_XTAL_FREQ_MHZ=CONFIG_XTAL_FREQ"/>
 					<Add option="-DMBEDTLS_CONFIG_FILE=&quot;mbedtls/esp_config.h&quot;"/>
 					<Add directory="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/config"/>
+					<Add directory="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/main"/>
 					<Add directory="C:/Users/eddie/esp/esp-idf/components/newlib/platform_include"/>
 					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/config/include"/>
 					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/config/include/freertos"/>
@@ -4893,13 +4896,14 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
 					<Add option="-DSOC_XTAL_FREQ_MHZ=CONFIG_XTAL_FREQ"/>
 					<Add option="-DMBEDTLS_CONFIG_FILE=&quot;mbedtls/esp_config.h&quot;"/>
 					<Add directory="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/config"/>
+					<Add directory="C:/Users/eddie/CLionProjects/ecen330_gc/lab02/main"/>
 					<Add directory="C:/Users/eddie/esp/esp-idf/components/newlib/platform_include"/>
 					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/config/include"/>
 					<Add directory="C:/Users/eddie/esp/esp-idf/components/freertos/config/include/freertos"/>
@@ -5005,7 +5009,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -5069,7 +5073,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -5133,7 +5137,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -5199,7 +5203,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -5265,7 +5269,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -5330,7 +5334,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -5395,7 +5399,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -5464,7 +5468,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -5533,7 +5537,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -5599,7 +5603,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -5665,7 +5669,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -5732,7 +5736,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -5799,7 +5803,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -5865,7 +5869,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -5931,7 +5935,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -6000,7 +6004,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -6069,7 +6073,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -6138,7 +6142,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -6207,7 +6211,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -6273,7 +6277,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -6339,7 +6343,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -6406,7 +6410,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -6473,7 +6477,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -6540,7 +6544,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -6607,7 +6611,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -6673,7 +6677,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -6739,7 +6743,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -6806,7 +6810,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -6873,7 +6877,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -6940,7 +6944,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -7007,7 +7011,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -7073,7 +7077,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -7139,7 +7143,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -7233,7 +7237,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -7327,7 +7331,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -7418,7 +7422,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -7509,7 +7513,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>
@@ -7600,7 +7604,7 @@
 					<Add option="-D_GLIBCXX_USE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GLIBCXX_HAVE_POSIX_SEMAPHORE"/>
 					<Add option="-D_GNU_SOURCE"/>
-					<Add option="-DIDF_VER=&quot;v5.4-dev-80-g1f7ce334dc-dirty&quot;"/>
+					<Add option="-DIDF_VER=&quot;v5.4-dev-81-g77827aa76b&quot;"/>
 					<Add option="-DESP_PLATFORM"/>
 					<Add option="-D_POSIX_READER_WRITER_LOCKS"/>
 					<Add option="-DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"/>

@@ -1,7 +1,7 @@
 {
     "version":            "1.1",
     "project_name":       "lab02",
-    "project_version":    "5f8867f-dirty",
+    "project_version":    "3a34193-dirty",
     "project_path":       "C:/Users/eddie/CLionProjects/ecen330_gc/lab02",
     "idf_path":           "C:/Users/eddie/esp/esp-idf",
     "build_dir":          "C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug",
@@ -11,7 +11,7 @@
     "app_elf":            "lab02.elf",
     "app_bin":            "lab02.bin",
     "build_type":         "flash_app",
-    "git_revision":       "v5.4-dev-80-g1f7ce334dc-dirty",
+    "git_revision":       "v5.4-dev-81-g77827aa76b",
     "target":             "esp32",
     "rev":                "0",
     "min_rev":            "0",
@@ -671,7 +671,7 @@
             "managed_priv_reqs": [],
             "file": "C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/main/libmain.a",
             "sources": [ "C:/Users/eddie/CLionProjects/ecen330_gc/lab02/main/main.c" ],
-            "include_dirs": []
+            "include_dirs": [ "." ]
         },
         "mbedtls": {
             "alias": "idf::mbedtls",
@@ -725,8 +725,8 @@
             "dir": "C:/Users/eddie/CLionProjects/ecen330_gc/components/pin",
             "type": "LIBRARY",
             "lib": "__idf_pin",
-            "reqs": [ "driver" ],
-            "priv_reqs": [],
+            "reqs": [],
+            "priv_reqs": [ "driver" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
             "file": "C:/Users/eddie/CLionProjects/ecen330_gc/lab02/cmake-build-debug/esp-idf/pin/libpin.a",
@@ -2032,7 +2032,19 @@
             "priv_reqs": [],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "include_dirs": []
+            "include_dirs": [ "." ]
+        },
+        "joy": {
+            "alias": "idf::joy",
+            "target": "___idf_joy",
+            "prefix": "idf",
+            "dir": "C:/Users/eddie/CLionProjects/ecen330_gc/components/joy",
+            "lib": "__idf_joy",
+            "reqs": [],
+            "priv_reqs": [ "esp_adc" ],
+            "managed_reqs": [],
+            "managed_priv_reqs": [],
+            "include_dirs": [ "." ]
         },
         "lcd": {
             "alias": "idf::lcd",
@@ -2052,7 +2064,31 @@
             "prefix": "idf",
             "dir": "C:/Users/eddie/CLionProjects/ecen330_gc/components/pin",
             "lib": "__idf_pin",
-            "reqs": [ "driver" ],
+            "reqs": [],
+            "priv_reqs": [ "driver" ],
+            "managed_reqs": [],
+            "managed_priv_reqs": [],
+            "include_dirs": [ "." ]
+        },
+        "sound": {
+            "alias": "idf::sound",
+            "target": "___idf_sound",
+            "prefix": "idf",
+            "dir": "C:/Users/eddie/CLionProjects/ecen330_gc/components/sound",
+            "lib": "__idf_sound",
+            "reqs": [],
+            "priv_reqs": [ "driver" ],
+            "managed_reqs": [],
+            "managed_priv_reqs": [],
+            "include_dirs": [ "." ]
+        },
+        "tone": {
+            "alias": "idf::tone",
+            "target": "___idf_tone",
+            "prefix": "idf",
+            "dir": "C:/Users/eddie/CLionProjects/ecen330_gc/components/tone",
+            "lib": "__idf_tone",
+            "reqs": [ "sound" ],
             "priv_reqs": [],
             "managed_reqs": [],
             "managed_priv_reqs": [],

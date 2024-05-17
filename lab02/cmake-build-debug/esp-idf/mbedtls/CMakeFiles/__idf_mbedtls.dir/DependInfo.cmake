@@ -15,7 +15,7 @@ set(CMAKE_ASM_COMPILER_ID "GNU")
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_ASM
   "ESP_PLATFORM"
-  "IDF_VER=\"v5.4-dev-80-g1f7ce334dc-dirty\""
+  "IDF_VER=\"v5.4-dev-81-g77827aa76b\""
   "MBEDTLS_CONFIG_FILE=\"mbedtls/esp_config.h\""
   "SOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE"
   "SOC_XTAL_FREQ_MHZ=CONFIG_XTAL_FREQ"
