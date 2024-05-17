@@ -1,4 +1,4 @@
-idf_component_register(SRCS "lcd.c" "lcd_test.c"
+idf_component_register(SRCS "sound.c"
                        INCLUDE_DIRS "."
-                       REQUIRES driver)
+                       PRIV_REQUIRES driver)
 # target_compile_options(${COMPONENT_LIB} PRIVATE "-Wno-format")
