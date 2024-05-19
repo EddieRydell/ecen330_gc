@@ -7,13 +7,14 @@
 
 #include "pin.h"
 
-#define DATA_OUT_PIN 18
+#define DATA_OUT_PIN 12
+#define SD_CARD_CS_PIN 13
 
 #define DEFAULT_TIMER_RESOLUTION 1000000 // 1MHz, 1 tick = 1us
 #define FRAMES_PER_SECOND 200
 #define TICKS_PER_FRAME (DEFAULT_TIMER_RESOLUTION / FRAMES_PER_SECOND)
 #define RMT_CLOCK_DIVIDER 4 // ABP clock speed is 80MHz. We want a period of 50ns for WS2812 protocol. 50ns * 80MHz = 4
-#define NUM_LEDS 150
+#define NUM_LEDS 100
 #define BITS_PER_LED 24
 #define BYTE_SIZE_BITS 8
 #define BYTES_PER_LED (BITS_PER_LED / BYTE_SIZE_BITS)
@@ -29,13 +30,43 @@
 static const char* TAG = "lab06_WS2812";
 
 volatile uint8_t led_data[NUM_LEDS * BYTES_PER_LED]; // this possibly is able to not be volatile but I need to look into it more
+volatile uint32_t frame_count;
 
+// Initialize RMT subsystem
 void init_rmt() {
     rmt_config_t config = RMT_DEFAULT_CONFIG_TX(DATA_OUT_PIN, RMT_CHANNEL_0);
     config.clk_div = RMT_CLOCK_DIVIDER;
     ESP_ERROR_CHECK(rmt_config(&config));
     ESP_ERROR_CHECK(rmt_driver_install(RMT_CHANNEL_0, 0, 0));
 }
+
+/*// Initialize SD card
+esp_err_t init_sd_card() {
+    esp_err_t ret;
+    sdmmc_host_t host = SDSPI_HOST_DEFAULT();
+    sdspi_slot_config_t slot_config = SDSPI_SLOT_CONFIG_DEFAULT();
+    slot_config.gpio_cs = SD_CARD_CS_PIN;
+
+    esp_vfs_fat_sdmmc_mount_config_t mount_config = {
+            .format_if_mount_failed = false,
+            .max_files = 5,
+            .allocation_unit_size = 16 * 1024
+    };
+
+    sdmmc_card_t *card;
+    ret = esp_vfs_fat_sdspi_mount("/sdcard", &host, &slot_config, &mount_config, &card);
+    if (ret != ESP_OK) {
+        if (ret == ESP_FAIL) {
+            ESP_LOGE(TAG, "Failed to mount filesystem. If you want the card to be formatted, set format_if_mount_failed = true.");
+        } else {
+            ESP_LOGE(TAG, "Failed to initialize the card (%s). Make sure SD card lines have pull-up resistors in place.", esp_err_to_name(ret));
+        }
+        return ret;
+    }
+
+    sdmmc_card_print_info(stdout, card);
+    return ESP_OK;
+}*/
 
 void IRAM_ATTR send_led_data() {
     rmt_item32_t items[NUM_LEDS * BITS_PER_LED];  // 24 bits per LED
@@ -61,12 +92,27 @@ void IRAM_ATTR send_led_data() {
 }
 
 void IRAM_ATTR load_next_frame_buffer() {
+    uint32_t count  = frame_count;
+    count /= 1000;
+    for (uint32_t i = 0; i < NUM_LEDS; i++) {
+        led_data[i * BYTES_PER_LED] = (count + i) % 0xFF;
+        led_data[i * BYTES_PER_LED + 1] = (count + i + 0x55) % 0xFF;
+        led_data[i * BYTES_PER_LED + 2] = (count + i + 0xAA) % 0xFF;
+    }
 
+    for (uint32_t i = 0; i < NUM_LEDS; i++) {
+        uint8_t value = (count + i) % 0xFF;
+        led_data[i * BYTES_PER_LED] = value;
+        led_data[i * BYTES_PER_LED + 1] = value;
+        led_data[i * BYTES_PER_LED + 2] = value;
+    }
 }
 
+// Timer callback function to handle sending the data to the LEDs and loading the next buffer of data to send
 bool IRAM_ATTR advance_frame(gptimer_handle_t timer, const gptimer_alarm_event_data_t* edata, void* user_ctx) {
     send_led_data();
     load_next_frame_buffer();
+    frame_count++;
     return true;
 }
 
@@ -85,9 +131,9 @@ _Noreturn void app_main(void)
     };
     ESP_ERROR_CHECK(gptimer_new_timer(&timer_config, &gptimer));
     gptimer_alarm_config_t alarm_config = {
-            .reload_count = 0, // counter will reload with 0 on alarm event
+            .reload_count = 0,
             .alarm_count = TICKS_PER_FRAME,
-            .flags.auto_reload_on_alarm = true, // enable auto-reload
+            .flags.auto_reload_on_alarm = true,
     };
     ESP_ERROR_CHECK(gptimer_set_alarm_action(gptimer, &alarm_config));
 
