@@ -3,17 +3,17 @@
 
 #include "esp_log.h"
 #include "driver/gptimer.h"
-#include "driver/rmt.h"
+#include "driver/rmt_tx.h"
+#include "sd_protocol_types.h"
 
 #include "pin.h"
 
-#define DATA_OUT_PIN 12
-#define SD_CARD_CS_PIN 13
+#define DATA_OUT_PIN 18
 
 #define DEFAULT_TIMER_RESOLUTION 1000000 // 1MHz, 1 tick = 1us
 #define FRAMES_PER_SECOND 200
 #define TICKS_PER_FRAME (DEFAULT_TIMER_RESOLUTION / FRAMES_PER_SECOND)
-#define RMT_CLOCK_DIVIDER 4 // ABP clock speed is 80MHz. We want a period of 50ns for WS2812 protocol. 50ns * 80MHz = 4
+#define RMT_RESOLUTION 20000000
 #define NUM_LEDS 100
 #define BITS_PER_LED 24
 #define BYTE_SIZE_BITS 8
@@ -25,87 +25,71 @@
 #define WS2812_0_HIGH_TIME 8    // 400ns
 #define WS2812_0_LOW_TIME 17    // 850ns
 
-#define GET_BIT_FROM_BYTE(byte,bit) ((byte) & (0x80 >> (bit)))
+#define RED_CHANNEL 0
+#define GREEN_CHANNEL 1
+#define BLUE_CHANNEL 2
 
 static const char* TAG = "lab06_WS2812";
 
 volatile uint8_t led_data[NUM_LEDS * BYTES_PER_LED]; // this possibly is able to not be volatile but I need to look into it more
 volatile uint32_t frame_count;
 
+rmt_channel_handle_t tx_channel;
+rmt_encoder_handle_t encoder;
+
 // Initialize RMT subsystem
 void init_rmt() {
-    rmt_config_t config = RMT_DEFAULT_CONFIG_TX(DATA_OUT_PIN, RMT_CHANNEL_0);
-    config.clk_div = RMT_CLOCK_DIVIDER;
-    ESP_ERROR_CHECK(rmt_config(&config));
-    ESP_ERROR_CHECK(rmt_driver_install(RMT_CHANNEL_0, 0, 0));
-}
-
-/*// Initialize SD card
-esp_err_t init_sd_card() {
-    esp_err_t ret;
-    sdmmc_host_t host = SDSPI_HOST_DEFAULT();
-    sdspi_slot_config_t slot_config = SDSPI_SLOT_CONFIG_DEFAULT();
-    slot_config.gpio_cs = SD_CARD_CS_PIN;
-
-    esp_vfs_fat_sdmmc_mount_config_t mount_config = {
-            .format_if_mount_failed = false,
-            .max_files = 5,
-            .allocation_unit_size = 16 * 1024
+    tx_channel = NULL;
+    rmt_tx_channel_config_t tx_channel_config = {
+            .gpio_num = DATA_OUT_PIN,
+            .clk_src = RMT_CLK_SRC_DEFAULT,
+            .resolution_hz = RMT_RESOLUTION,
+            .mem_block_symbols = 64, // Memory block size
     };
+    ESP_ERROR_CHECK(rmt_new_tx_channel(&tx_channel_config, &tx_channel));
+    ESP_ERROR_CHECK(rmt_enable(tx_channel));
 
-    sdmmc_card_t *card;
-    ret = esp_vfs_fat_sdspi_mount("/sdcard", &host, &slot_config, &mount_config, &card);
-    if (ret != ESP_OK) {
-        if (ret == ESP_FAIL) {
-            ESP_LOGE(TAG, "Failed to mount filesystem. If you want the card to be formatted, set format_if_mount_failed = true.");
-        } else {
-            ESP_LOGE(TAG, "Failed to initialize the card (%s). Make sure SD card lines have pull-up resistors in place.", esp_err_to_name(ret));
-        }
-        return ret;
-    }
-
-    sdmmc_card_print_info(stdout, card);
-    return ESP_OK;
-}*/
-
-void IRAM_ATTR send_led_data() {
-    rmt_item32_t items[NUM_LEDS * BITS_PER_LED];  // 24 bits per LED
-    for (uint_fast16_t i = 0; i < NUM_LEDS * BYTES_PER_LED; i++) {
-        uint8_t byte = led_data[i];
-        for (uint_fast8_t bit = 0; bit < BYTE_SIZE_BITS; bit++) {
-            if (GET_BIT_FROM_BYTE(byte, bit)) {
-                items[i * BYTE_SIZE_BITS + bit].duration0 = WS2812_1_HIGH_TIME;
-                items[i * BYTE_SIZE_BITS + bit].level0 = 1;
-                items[i * BYTE_SIZE_BITS + bit].duration1 = WS2812_1_LOW_TIME;
-                items[i * BYTE_SIZE_BITS + bit].level1 = 0;
-            }
-            else {
-                items[i * BYTE_SIZE_BITS + bit].duration0 = WS2812_0_HIGH_TIME;
-                items[i * BYTE_SIZE_BITS + bit].level0 = 1;
-                items[i * BYTE_SIZE_BITS + bit].duration1 = WS2812_0_LOW_TIME;
-                items[i * BYTE_SIZE_BITS + bit].level1 = 0;
-            }
-        }
-    }
-    rmt_write_items(RMT_CHANNEL_0, items, NUM_LEDS * BITS_PER_LED, true);
-    rmt_wait_tx_done(RMT_CHANNEL_0, portMAX_DELAY);
+    rmt_bytes_encoder_config_t encoder_config = {
+            .bit0 = {
+                    .level0 = 1,
+                    .duration0 = WS2812_0_HIGH_TIME,
+                    .level1 = 0,
+                    .duration1 = WS2812_0_LOW_TIME,
+            },
+            .bit1 = {
+                    .level0 = 1,
+                    .duration0 = WS2812_1_HIGH_TIME,
+                    .level1 = 0,
+                    .duration1 = WS2812_1_LOW_TIME,
+            },
+    };
+    ESP_ERROR_CHECK(rmt_new_bytes_encoder(&encoder_config, &encoder));
 }
 
+// Use RMT system to transmit LED data out from DATA_OUT_PIN
+void IRAM_ATTR send_led_data() {
+    rmt_transmit_config_t tx_config = {
+            .loop_count = 0, // No looping
+    };
+    ESP_ERROR_CHECK(rmt_transmit(tx_channel, encoder, (const void*)led_data, sizeof(led_data), &tx_config));
+}
+
+// Function to load data into the led_data buffer for next frame
 void IRAM_ATTR load_next_frame_buffer() {
     uint32_t count  = frame_count;
     count /= 1000;
     for (uint32_t i = 0; i < NUM_LEDS; i++) {
-        led_data[i * BYTES_PER_LED] = (count + i) % 0xFF;
-        led_data[i * BYTES_PER_LED + 1] = (count + i + 0x55) % 0xFF;
-        led_data[i * BYTES_PER_LED + 2] = (count + i + 0xAA) % 0xFF;
+        led_data[i * BYTES_PER_LED + RED_CHANNEL] = (count + i) % 0xFF;
+        led_data[i * BYTES_PER_LED + GREEN_CHANNEL] = (count + i + 0x55) % 0xFF;
+        led_data[i * BYTES_PER_LED + BLUE_CHANNEL] = (count + i + 0xAA) % 0xFF;
     }
 
-    for (uint32_t i = 0; i < NUM_LEDS; i++) {
+    /*for (uint32_t i = 0; i < NUM_LEDS; i++) {
         uint8_t value = (count + i) % 0xFF;
-        led_data[i * BYTES_PER_LED] = value;
-        led_data[i * BYTES_PER_LED + 1] = value;
-        led_data[i * BYTES_PER_LED + 2] = value;
-    }
+        led_data[i * BYTES_PER_LED + RED_CHANNEL] = value;
+        led_data[i * BYTES_PER_LED + GREEN_CHANNEL] = value;
+        led_data[i * BYTES_PER_LED + BLUE_CHANNEL] = value;
+    }*/
 }
 
 // Timer callback function to handle sending the data to the LEDs and loading the next buffer of data to send
