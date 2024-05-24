@@ -7,7 +7,7 @@
 #include <stdbool.h>
 #include "driver/spi_master.h"
 
-#define rgb565(r, g, b) (((r & 0xF8) << 8) | ((g & 0xFC) << 3) | (b >> 3))
+#define rgb565(r, g, b) ((((r) & 0xF8) << 8) | (((g) & 0xFC) << 3) | ((b) >> 3))
 
 #define RED    rgb565(255,   0,   0) // 0xf800
 #define GREEN  rgb565(  0, 255,   0) // 0x07e0
@@ -101,6 +101,8 @@ void lcdBacklightOff(TFT_t *dev);
 void lcdBacklightOn(TFT_t *dev);
 void lcdInversionOff(TFT_t *dev);
 void lcdInversionOn(TFT_t *dev);
+void lcdFrameEnable(TFT_t *dev);
+void lcdFrameDisable(TFT_t *dev);
 void lcdWrapArround(TFT_t *dev, scroll_t scroll, int32_t start, int32_t end);
 void lcdWriteFrame(TFT_t *dev);
 

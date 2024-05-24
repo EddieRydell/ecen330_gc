@@ -1,4 +1,23 @@
 
+########## run 2024-05-21 ##########
+lcdFillScreen us:212   # _use_frame_buffer = true; memset(dev->_frame_buffer, 0, dev->_width*dev->_height*sizeof(uint16_t));
+lcdFillScreen us:419   # _use_frame_buffer = true; while (len) memcpy(ptr, dev->_frame_buffer, n*sizeof(uint16_t));
+lcdFillScreen us:656   # _use_frame_buffer = true; while (len--) *ptr++ = color;
+lcdFillScreen us:694   # _use_frame_buffer = true; for... for... dev->_frame_buffer[j*dev->_width+i] = color;
+
+lcdFillScreen us:32449 # _use_frame_buffer = false; spi_master_write_color(dev, color, size); // no limit, direct
+lcdFillScreen us:32469 # _use_frame_buffer = false; spi_master_write_color(dev, color, size); // no limit, call lcdFillRect
+lcdFillScreen us:34237 # _use_frame_buffer = false; for... spi_master_write_color(dev, color, size); // 512 limit
+-
+lcdWriteFrame us:32421 # without swap
+lcdWriteFrame us:35022 # swap using (colors[i] << 8) | (colors[i] >> 8) # SWAP16()
+lcdWriteFrame us:35022 # swap using {register uint16_t c = colors[i]; buffer[i] = (c << 8) | (c >> 8);}
+lcdWriteFrame us:35375 # Byte[index++] = (colors[i] >> 8) & 0xFF; Byte[index++] = colors[i] & 0xFF;
+lcdWriteFrame us:35980 # swap using SPI_SWAP_DATA_TX(colors[i], 16);
+
+WCET us:35953 # with SWAP16 macro, half missiles updated each tick into frame buffer
+WCET us:35994 # with SWAP16 macro, all missiles updated each tick into frame buffer
+
 ########## run 2024-05-07 ##########
 I (42470) FillTest: elapsed time[ms]:1090
 I (44500) ColorBarTest: elapsed time[ms]:30

@@ -100,7 +100,9 @@ def get_files_to_copy_and_zip(lab):
         files.append((src_libs_path / "joy/joy.c", dest_libs_path / "joy", True))
         files.append((src_libs_path / "tone/tone.c", dest_libs_path / "tone", True))
     elif lab == "lab05":
-        None
+        files.append((src_lab_path / "main/gameControl.c", dest_lab_path / "main", True))
+        files.append((src_lab_path / "main/missile.c", dest_lab_path / "main", True))
+        files.append((src_lab_path / "main/plane.c", dest_lab_path / "main", True))
     elif lab == "lab06":
         None
 
