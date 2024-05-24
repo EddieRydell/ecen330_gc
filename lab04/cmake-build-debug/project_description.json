@@ -1,7 +1,7 @@
 {
     "version":            "1.1",
     "project_name":       "lab04",
-    "project_version":    "b39c250-dirty",
+    "project_version":    "7407f3a-dirty",
     "project_path":       "C:/Users/eddie/CLionProjects/ecen330_gc/lab04",
     "idf_path":           "C:/Users/eddie/esp/esp-idf",
     "build_dir":          "C:/Users/eddie/CLionProjects/ecen330_gc/lab04/cmake-build-debug",

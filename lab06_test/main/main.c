@@ -8,7 +8,7 @@
 
 #include "pin.h"
 
-#define DATA_OUT_PIN 18
+#define DATA_OUT_PIN 12
 
 #define DEFAULT_TIMER_RESOLUTION 1000000 // 1MHz, 1 tick = 1us
 #define FRAMES_PER_SECOND 200
@@ -31,8 +31,9 @@
 
 static const char* TAG = "lab06_WS2812";
 
-volatile uint8_t led_data[NUM_LEDS * BYTES_PER_LED]; // this possibly is able to not be volatile but I need to look into it more
-volatile uint32_t frame_count;
+// Globals here aren't marked as volatile as they're only accessed from inside the advance_frame ISR
+uint8_t led_data[NUM_LEDS * BYTES_PER_LED];
+uint32_t frame_count;
 
 rmt_channel_handle_t tx_channel;
 rmt_encoder_handle_t encoder;
@@ -92,7 +93,7 @@ void IRAM_ATTR load_next_frame_buffer() {
     }*/
 }
 
-// Timer callback function to handle sending the data to the LEDs and loading the next buffer of data to send
+// ISR function to handle sending the data to the LEDs and loading the next buffer of data to send
 bool IRAM_ATTR advance_frame(gptimer_handle_t timer, const gptimer_alarm_event_data_t* edata, void* user_ctx) {
     send_led_data();
     load_next_frame_buffer();
@@ -103,9 +104,11 @@ bool IRAM_ATTR advance_frame(gptimer_handle_t timer, const gptimer_alarm_event_d
 // Main function containing timer setup and execution
 _Noreturn void app_main(void)
 {
-    ESP_LOGI(TAG, "Startup - init data out pin and setup frame timer");
+    ESP_LOGI(TAG, "Startup - initialize data out pin, frame timer, and RMT subsystem");
     pin_reset(DATA_OUT_PIN);
     pin_output(DATA_OUT_PIN, true);
+
+    init_rmt();
 
     gptimer_handle_t gptimer = NULL;
     gptimer_config_t timer_config = {
