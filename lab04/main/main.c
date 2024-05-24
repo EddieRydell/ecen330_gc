@@ -45,7 +45,7 @@
 
 #define CUR_SZ 7 // Cursor size
 #define CUR_CL WHITE // Cursor color
-#define COO_CL GREEN // Coordinates color
+#define STB_CL GREEN // Status bar color
 #define SBG_CL BLACK // Screen background color
 
 #define OV 30 // Over scale by a margin
@@ -84,7 +84,7 @@ void draw_status(void)
 	char str[28];
 	static char *ttab[] = {"sin", "squ", "tri", "saw"};
 	sprintf(str, "x:%5ld y:%5ld v:%3lu t:%s", dcx, dcy, vol, ttab[tone]);
-	lcdDrawString(&dev, 0, 0, str, COO_CL);
+	lcdDrawString(&dev, 0, 0, str, STB_CL);
 }
 
 void update(TimerHandle_t pxTimer)
