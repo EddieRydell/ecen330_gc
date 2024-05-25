@@ -6,9 +6,17 @@
 #define BIAS 0x80
 #define AMPLITUDE 0x7F
 
+#define ERR_MALLOC_FAILURE (-1)
+#define ERR_SAMPLE_RATE_TOO_LOW 1
+#define ERR_TONE_BUFFER_NULL 2
+
 static uint8_t* tone_buffer;
 static uint32_t sample_rate;
 
+// Initialize the tone driver. Must be called before using.
+// May be called again to change sample rate.
+// sample_hz: sample rate in Hz to playback tone.
+// Return zero if successful, or non-zero otherwise.
 int32_t tone_init(uint32_t sample_hz) {
     if (sample_hz < 2 * LOWEST_FREQ) {
         return ERR_SAMPLE_RATE_TOO_LOW;
@@ -22,7 +30,10 @@ int32_t tone_init(uint32_t sample_hz) {
     return 0;
 }
 
+// Free resources used for tone generation (DAC, DMA hardware, buffers, etc.).
+// Return zero if successful, or non-zero otherwise.
 int32_t tone_deinit(void) {
+    // make sure we don't free a null pointer
     if (tone_buffer == NULL) {
         return ERR_TONE_BUFFER_NULL;
     }
@@ -31,11 +42,16 @@ int32_t tone_deinit(void) {
     return 0;
 }
 
+// Start playing the specified tone.
+// tone: one of the enumerated tone types.
+// freq: frequency of the tone in Hz.
 void tone_start(tone_t tone, uint32_t freq) {
+    // make sure tone and frequency are within the correct range
     if (tone >= LAST_T || freq < LOWEST_FREQ || freq > sample_rate / 2) {
         return;
     }
     uint32_t num_samples = sample_rate / freq;
+    // generate waveform and store it in tone_buffer based on what kind of wave it should be
     switch (tone) {
         case SINE_T:
             for (uint32_t i = 0; i < num_samples; i++) {

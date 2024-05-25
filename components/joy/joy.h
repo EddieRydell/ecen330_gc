@@ -8,8 +8,6 @@
 // by this maximum, will give a proportion between 0 and +/- 1.
 #define JOY_MAX_DISP 2048
 
-#define ERR_ADC1_HANDLE_NULL (-1)
-
 // Initialize the joystick driver. Must be called before use.
 // May be called multiple times. Return if already initialized.
 // Return zero if successful, or non-zero otherwise.

@@ -4,11 +4,15 @@
 #include "esp_log.h"
 #include "driver/gptimer.h"
 #include "driver/rmt_tx.h"
-#include "sd_protocol_types.h"
+#include "driver/sdmmc_host.h"
 
 #include "pin.h"
 
 #define DATA_OUT_PIN 12
+#define SD_CS_PIN 22
+#define SD_MOSI_PIN 23
+#define SD_MISO_PIN 19
+#define SD_SCLK_PIN 18
 
 #define DEFAULT_TIMER_RESOLUTION 1000000 // 1MHz, 1 tick = 1us
 #define FRAMES_PER_SECOND 200
@@ -91,6 +95,16 @@ void init_rmt() {
     ESP_LOGI(TAG, "RMT and encoder initialized successfully");
 }
 
+void init_sd_card() {
+    sdmmc_host_t host = SDMMC_HOST_DEFAULT();
+    host.max_freq_khz = SDMMC_FREQ_HIGHSPEED;
+
+    sdmmc_slot_config_t slot = SDMMC_SLOT_CONFIG_DEFAULT();
+    slot.width = 1;
+
+
+}
+
 // Use RMT system to transmit LED data out from DATA_OUT_PIN
 void IRAM_ATTR send_led_data() {
     rmt_transmit_config_t tx_config = {
@@ -101,7 +115,7 @@ void IRAM_ATTR send_led_data() {
 
 // Function to load data into the led_data buffer for next frame
 void IRAM_ATTR load_next_frame_buffer() {
-    uint32_t count  = frame_count;
+    uint32_t count = frame_count;
     count /= 100000;
     for (uint32_t i = 0; i < NUM_LEDS; i++) {
         led_data[i * BYTES_PER_LED + RED_CHANNEL] = (count + i) % 0xFF;
@@ -135,7 +149,6 @@ bool IRAM_ATTR advance_frame(gptimer_handle_t timer, const gptimer_alarm_event_d
     load_next_frame_buffer();
     frame_count++;
     pin_set_level(17, (int32_t)frame_count % 2);
-    //ESP_LOGI(TAG, "ISR called, frame count: %lu, level: %lu", frame_count, frame_count % 2);
     return true;
 }
 
