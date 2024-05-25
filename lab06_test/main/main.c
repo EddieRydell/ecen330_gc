@@ -40,16 +40,32 @@ rmt_encoder_handle_t encoder;
 
 // Initialize RMT subsystem
 void init_rmt() {
-    tx_channel = NULL;
+    // Define the RMT TX channel configuration
     rmt_tx_channel_config_t tx_channel_config = {
+            .clk_src = RMT_CLK_SRC_DEFAULT,    // select source clock
             .gpio_num = DATA_OUT_PIN,
-            .clk_src = RMT_CLK_SRC_DEFAULT,
+            .mem_block_symbols = 64,           // memory block size, 64 * 4 = 256 Bytes
             .resolution_hz = RMT_RESOLUTION,
-            .mem_block_symbols = 64, // Memory block size
+            .trans_queue_depth = 4,            // set the number of transactions that can pend in the background
+            .flags.invert_out = false,         // do not invert output signal
+            .flags.with_dma = false,           // do not need DMA backend
     };
-    ESP_ERROR_CHECK(rmt_new_tx_channel(&tx_channel_config, &tx_channel));
-    ESP_ERROR_CHECK(rmt_enable(tx_channel));
 
+    // Create the RMT TX channel
+    esp_err_t ret = rmt_new_tx_channel(&tx_channel_config, &tx_channel);
+    if (ret != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to create TX channel: %s", esp_err_to_name(ret));
+        return;
+    }
+
+    // Enable the RMT TX channel
+    ret = rmt_enable(tx_channel);
+    if (ret != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to enable TX channel: %s", esp_err_to_name(ret));
+        return;
+    }
+
+    // Define the RMT bytes encoder configuration
     rmt_bytes_encoder_config_t encoder_config = {
             .bit0 = {
                     .level0 = 1,
@@ -64,7 +80,15 @@ void init_rmt() {
                     .duration1 = WS2812_1_LOW_TIME,
             },
     };
-    ESP_ERROR_CHECK(rmt_new_bytes_encoder(&encoder_config, &encoder));
+
+    // Create the RMT bytes encoder
+    ret = rmt_new_bytes_encoder(&encoder_config, &encoder);
+    if (ret != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to create bytes encoder: %s", esp_err_to_name(ret));
+        return;
+    }
+
+    ESP_LOGI(TAG, "RMT and encoder initialized successfully");
 }
 
 // Use RMT system to transmit LED data out from DATA_OUT_PIN
@@ -78,7 +102,7 @@ void IRAM_ATTR send_led_data() {
 // Function to load data into the led_data buffer for next frame
 void IRAM_ATTR load_next_frame_buffer() {
     uint32_t count  = frame_count;
-    count /= 1000;
+    count /= 100000;
     for (uint32_t i = 0; i < NUM_LEDS; i++) {
         led_data[i * BYTES_PER_LED + RED_CHANNEL] = (count + i) % 0xFF;
         led_data[i * BYTES_PER_LED + GREEN_CHANNEL] = (count + i + 0x55) % 0xFF;
@@ -86,11 +110,23 @@ void IRAM_ATTR load_next_frame_buffer() {
     }
 
     /*for (uint32_t i = 0; i < NUM_LEDS; i++) {
-        uint8_t value = (count + i) % 0xFF;
-        led_data[i * BYTES_PER_LED + RED_CHANNEL] = value;
-        led_data[i * BYTES_PER_LED + GREEN_CHANNEL] = value;
-        led_data[i * BYTES_PER_LED + BLUE_CHANNEL] = value;
+        uint8_t value = NUM_LEDS
+        if (i % 2 == 0) {
+            led_data[i * BYTES_PER_LED + RED_CHANNEL] = value;
+            led_data[i * BYTES_PER_LED + GREEN_CHANNEL] = value;
+            led_data[i * BYTES_PER_LED + BLUE_CHANNEL] = 0xFF;
+        }
+        else {
+            led_data[i * BYTES_PER_LED + RED_CHANNEL] = 0;
+            led_data[i * BYTES_PER_LED + GREEN_CHANNEL] = 0;
+            led_data[i * BYTES_PER_LED + BLUE_CHANNEL] = 0;
+        }
     }*/
+
+    /*for (int i = 0; i < NUM_LEDS * 3; i++) {
+        led_data[i] = 0;
+    }
+    led_data[(2 * 3) + BLUE_CHANNEL] = 0xFF;*/
 }
 
 // ISR function to handle sending the data to the LEDs and loading the next buffer of data to send
@@ -98,6 +134,8 @@ bool IRAM_ATTR advance_frame(gptimer_handle_t timer, const gptimer_alarm_event_d
     send_led_data();
     load_next_frame_buffer();
     frame_count++;
+    pin_set_level(17, (int32_t)frame_count % 2);
+    //ESP_LOGI(TAG, "ISR called, frame count: %lu, level: %lu", frame_count, frame_count % 2);
     return true;
 }
 
@@ -107,6 +145,8 @@ _Noreturn void app_main(void)
     ESP_LOGI(TAG, "Startup - initialize data out pin, frame timer, and RMT subsystem");
     pin_reset(DATA_OUT_PIN);
     pin_output(DATA_OUT_PIN, true);
+    pin_reset(17);
+    pin_output(17, true);
 
     init_rmt();
 

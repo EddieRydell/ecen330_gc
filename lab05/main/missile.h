@@ -16,7 +16,7 @@ typedef enum {
 	MISSILE_TYPE_PLANE
 } missile_type_t;
 
-// A coord_t for x,y. Needs to be signed to handle plane going off screen.
+// A coord_t for x,y. Needs to be signed to handle plane going off-screen.
 typedef int32_t coord_t;
 
 // This struct contains all information about a missile.
