@@ -5,6 +5,8 @@
 #include "driver/gptimer.h"
 #include "driver/rmt_tx.h"
 #include "driver/sdmmc_host.h"
+#include "sdmmc_cmd.h"
+
 
 #include "pin.h"
 
@@ -12,7 +14,7 @@
 #define SD_CS_PIN 22
 #define SD_MOSI_PIN 23
 #define SD_MISO_PIN 19
-#define SD_SCLK_PIN 18
+#define SD_SCK_PIN 18
 
 #define DEFAULT_TIMER_RESOLUTION 1000000 // 1MHz, 1 tick = 1us
 #define FRAMES_PER_SECOND 200
@@ -42,11 +44,13 @@ uint32_t frame_count;
 rmt_channel_handle_t tx_channel;
 rmt_encoder_handle_t encoder;
 
+sdmmc_card_t sd_card;
+FILE* sequence_file;
+
 // Initialize RMT subsystem
 void init_rmt() {
-    // Define the RMT TX channel configuration
     rmt_tx_channel_config_t tx_channel_config = {
-            .clk_src = RMT_CLK_SRC_DEFAULT,    // select source clock
+            .clk_src = RMT_CLK_SRC_DEFAULT,
             .gpio_num = DATA_OUT_PIN,
             .mem_block_symbols = 64,           // memory block size, 64 * 4 = 256 Bytes
             .resolution_hz = RMT_RESOLUTION,
@@ -96,13 +100,48 @@ void init_rmt() {
 }
 
 void init_sd_card() {
+    esp_err_t ret;
     sdmmc_host_t host = SDMMC_HOST_DEFAULT();
     host.max_freq_khz = SDMMC_FREQ_HIGHSPEED;
 
     sdmmc_slot_config_t slot = SDMMC_SLOT_CONFIG_DEFAULT();
     slot.width = 1;
 
+    pin_reset(SD_CS_PIN);
+    pin_reset(SD_MISO_PIN);
+    pin_reset(SD_MOSI_PIN);
+    pin_reset(SD_SCK_PIN);
 
+    pin_output(SD_CS_PIN, true);
+    pin_input(SD_MISO_PIN, true);
+    pin_output(SD_MOSI_PIN, true);
+    pin_output(SD_SCK_PIN, true);
+
+    ret = sdmmc_host_init();
+    if (ret != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to initialize SDMMC host: %s", esp_err_to_name(ret));
+        return;
+    }
+
+    ret = sdmmc_host_init_slot(SDMMC_HOST_SLOT_1, &slot);
+    if (ret != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to initialize SDMMC slot: %s", esp_err_to_name(ret));
+        return;
+    }
+
+    ret = sdmmc_card_init(&host, &sd_card);
+    if (ret != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to initialize SD card: %s", esp_err_to_name(ret));
+        return;
+    }
+
+    sequence_file = fopen("/sdcard/sequence.txt", "r");
+    if (sequence_file == NULL) {
+        ESP_LOGE(TAG, "Failed to open file for reading");
+        return;
+    }
+
+    ESP_LOGI(TAG, "SD card initialized successfully.");
 }
 
 // Use RMT system to transmit LED data out from DATA_OUT_PIN
@@ -115,13 +154,16 @@ void IRAM_ATTR send_led_data() {
 
 // Function to load data into the led_data buffer for next frame
 void IRAM_ATTR load_next_frame_buffer() {
-    uint32_t count = frame_count;
+    fgets((char*)led_data, sizeof(led_data), sequence_file);
+    ESP_LOGI(TAG, "Read data from SD card");
+
+    /*uint32_t count = frame_count;
     count /= 100000;
     for (uint32_t i = 0; i < NUM_LEDS; i++) {
         led_data[i * BYTES_PER_LED + RED_CHANNEL] = (count + i) % 0xFF;
         led_data[i * BYTES_PER_LED + GREEN_CHANNEL] = (count + i + 0x55) % 0xFF;
         led_data[i * BYTES_PER_LED + BLUE_CHANNEL] = (count + i + 0xAA) % 0xFF;
-    }
+    }*/
 
     /*for (uint32_t i = 0; i < NUM_LEDS; i++) {
         uint8_t value = NUM_LEDS
@@ -162,6 +204,7 @@ _Noreturn void app_main(void)
     pin_output(17, true);
 
     init_rmt();
+    init_sd_card();
 
     gptimer_handle_t gptimer = NULL;
     gptimer_config_t timer_config = {
