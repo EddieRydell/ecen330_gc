@@ -62,6 +62,7 @@ void plane_tick(void) {
             }
             break;
         case IDLE:
+            // once the timer runs out, go back to init
             if (idle_ticks >= CONFIG_PLANE_IDLE_TIME_TICKS) {
                 idle_ticks = 0;
                 plane_state = INIT;
