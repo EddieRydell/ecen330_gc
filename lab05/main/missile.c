@@ -8,6 +8,7 @@
 
 typedef enum {INIT, MOVING, EXPLODING_GROWING, EXPLODING_SHRINKING, IMPACTED, IDLE} missileState;
 #define NUM_FIRING_LOCATIONS 3
+#define CURSOR_EDGE_CORRECTION 3 // value to add to player missile x_dest so it doesn't fire from offscreen
 
 // helper function to initialize default fields in missile
 // (assumes that x_origin, y_origin, x_dest, and y_dest have already been set)
@@ -36,6 +37,11 @@ void missile_init_player(missile_t* missile, coord_t x_dest, coord_t y_dest) {
 
     int32_t segment_width = LCD_W / NUM_FIRING_LOCATIONS;
     int32_t offset = segment_width / 2;
+
+    // make sure the missile won't fire from offscreen,
+    // then have it quantize its x_dest to one of the firing locations
+    if (x_dest <= 0) x_dest = 1;
+    else if (x_dest >= LCD_W - CURSOR_EDGE_CORRECTION) x_dest = LCD_W - CURSOR_EDGE_CORRECTION;
     missile->x_origin = (coord_t)roundf((float)(x_dest - offset) / (float)segment_width) * segment_width + offset;
     missile->y_origin = LCD_H;
     missile->y_dest = y_dest;
@@ -145,7 +151,7 @@ void missile_tick(missile_t* missile) {
                 missile->length += CONFIG_ENEMY_MISSILE_DISTANCE_PER_TICK;
             }
             else if (missile->type == MISSILE_TYPE_PLANE) {
-                // nothing for now
+                missile->length += CONFIG_ENEMY_MISSILE_DISTANCE_PER_TICK;
             }
             float fraction = missile->length / missile->total_length;
             missile->x_current =

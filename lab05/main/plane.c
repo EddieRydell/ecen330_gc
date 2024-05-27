@@ -2,10 +2,11 @@
 
 #include "lcd.h"
 #include "config.h"
+
 #include "esp_random.h"
+#include "esp_log.h"
 
 static enum {INIT, FLYING, IDLE} plane_state;
-static bool plane_missile_fired;
 static bool plane_exploding;
 static coord_t plane_x;
 static coord_t plane_y;
@@ -16,13 +17,24 @@ static uint32_t plane_lifetime_ticks;
 #define DEFAULT_PLANE_HEIGHT (LCD_H / 4)
 #define PLANE_TICKS_TO_CROSS_SCREEN (LCD_W / CONFIG_PLANE_DISTANCE_PER_TICK)
 
+static const char* TAG = "plane";
+
+// helper function to draw the plane to the screen
+void draw_self() {
+    lcdFillTri(&dev,
+               plane_x, DEFAULT_PLANE_HEIGHT + CONFIG_PLANE_HEIGHT / 2,
+               plane_x, DEFAULT_PLANE_HEIGHT - CONFIG_PLANE_HEIGHT / 2,
+               plane_x - CONFIG_PLANE_WIDTH, DEFAULT_PLANE_HEIGHT,
+               CONFIG_COLOR_PLANE);
+}
+
 // Initialize the plane state machine. Pass a pointer to the missile
 // that will be (re)launched by the plane. It will only have one missile.
 void plane_init(missile_t* missile) {
-    plane_missile_fired = false;
+    ESP_LOGI(TAG, "Plane initializing");
     plane_state = INIT;
     plane_exploding = false;
-    plane_x = LCD_W;
+    plane_x = LCD_W + CONFIG_PLANE_WIDTH;
     plane_y = DEFAULT_PLANE_HEIGHT;
     plane_missile = missile;
     missile_launch_time = esp_random() % (uint32_t)PLANE_TICKS_TO_CROSS_SCREEN;
@@ -41,8 +53,8 @@ void plane_tick(void) {
     // plane state transition logic
     switch (plane_state) {
         case INIT:
-            plane_state = FLYING;
             plane_init(plane_missile);
+            plane_state = FLYING;
             break;
         case FLYING:
             if (plane_exploding || plane_x <= 0) {
@@ -50,8 +62,9 @@ void plane_tick(void) {
             }
             break;
         case IDLE:
-            if (idle_ticks == CONFIG_PLANE_IDLE_TIME_TICKS) {
-                plane_state = FLYING;
+            if (idle_ticks >= CONFIG_PLANE_IDLE_TIME_TICKS) {
+                idle_ticks = 0;
+                plane_state = INIT;
             }
             break;
     }
@@ -61,6 +74,7 @@ void plane_tick(void) {
         case INIT:
             break;
         case FLYING:
+            draw_self();
             plane_lifetime_ticks++;
             if (plane_lifetime_ticks == missile_launch_time) {
                 missile_init_plane(plane_missile, plane_x, plane_y);
@@ -68,6 +82,7 @@ void plane_tick(void) {
             plane_x -= (coord_t)CONFIG_PLANE_DISTANCE_PER_TICK;
             break;
         case IDLE:
+            ESP_LOGI(TAG, "Idle ticks: %lu", idle_ticks);
             idle_ticks++;
             break;
     }

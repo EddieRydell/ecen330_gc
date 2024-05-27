@@ -14,6 +14,8 @@
 uint32_t num_player_missiles;
 uint32_t num_impacts;
 
+#define FONT_SIZE 1
+
 // All missiles
 missile_t missiles[CONFIG_MAX_TOTAL_MISSILES];
 
@@ -27,7 +29,7 @@ missile_t *plane_missile = missiles+CONFIG_MAX_ENEMY_MISSILES+
 // This function initializes all missiles, planes, stats, etc.
 void gameControl_init(void)
 {
-    // Initialize missiles
+    // initialize missiles
     for (uint32_t i = 0; i < CONFIG_MAX_ENEMY_MISSILES; i++)
         missile_init_enemy(enemy_missiles+i);
     for (uint32_t i = 0; i < CONFIG_MAX_PLAYER_MISSILES; i++)
@@ -37,7 +39,9 @@ void gameControl_init(void)
     missile_init_idle(plane_missile);
     plane_init(plane_missile);
 
-    // M3: Initialize stats
+    // initialize stats
+    num_player_missiles = 0;
+    num_impacts = 0;
 }
 
 // Update the game control logic.
@@ -69,6 +73,7 @@ void gameControl_tick(void)
         for (uint32_t i = 0; i < CONFIG_MAX_PLAYER_MISSILES; i++) {
             if (missile_is_idle(player_missiles + i)) {
                 missile_init_player(player_missiles + i, x, y);
+                num_player_missiles++;
                 break;
             }
         }
@@ -90,9 +95,26 @@ void gameControl_tick(void)
         }
     }
 
-    // M3: Count non-player impacted missiles
+    // count non-player impacted missiles
+    for (uint32_t i = 0; i < CONFIG_MAX_TOTAL_MISSILES; i++) {
+        if ((missiles + i)->type == MISSILE_TYPE_PLAYER) continue;
+        else if (missile_is_impacted(missiles + i)) num_impacts++;
+    }
 
-    // M3: Tick plane & draw stats
+    // Tick plane & draw stats
+    plane_tick();
+    char string_to_display[100];
+    sprintf(string_to_display, "Missiles Fired: %lu     Impacted: %lu", num_player_missiles, num_impacts);
+    lcdSetFontSize(&dev, FONT_SIZE);
+    lcdDrawString(&dev, 0, 0, string_to_display, WHITE);
 
-    // M3: Check for flying plane collision with an explosion.
+    // Check for flying plane collision with an explosion.
+    for (uint32_t i = 0; i < CONFIG_MAX_TOTAL_MISSILES; i++) {
+        coord_t plane_x, plane_y;
+        plane_get_pos(&plane_x, &plane_y);
+        // if the plane's position is inside an explosion, it should explode as well
+        if (missile_is_colliding(missiles + i, plane_x, plane_y)) {
+            plane_explode();
+        }
+    }
 }
