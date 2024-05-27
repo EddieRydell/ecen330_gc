@@ -83,7 +83,6 @@ void plane_tick(void) {
             plane_x -= (coord_t)CONFIG_PLANE_DISTANCE_PER_TICK;
             break;
         case IDLE:
-            ESP_LOGI(TAG, "Idle ticks: %lu", idle_ticks);
             idle_ticks++;
             break;
     }

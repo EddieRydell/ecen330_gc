@@ -20,17 +20,23 @@
 #define DEFAULT_TIMER_RESOLUTION 1000000 // 1MHz, 1 tick = 1us
 #define FRAMES_PER_SECOND 200
 #define TICKS_PER_FRAME (DEFAULT_TIMER_RESOLUTION / FRAMES_PER_SECOND)
-#define RMT_RESOLUTION 20000000
+#define RMT_RESOLUTION 20000000 // 20MHz
+#define RMT_PERIOD 50 // 1/20MHz = 50ns
 #define NUM_LEDS 100
 #define BITS_PER_LED 24
 #define BYTE_SIZE_BITS 8
 #define BYTES_PER_LED (BITS_PER_LED / BYTE_SIZE_BITS)
 
 // WS2812 protocol data high and low time in ticks for 50ns period
-#define WS2812_1_HIGH_TIME 16   // 800ns
-#define WS2812_1_LOW_TIME 9     // 450ns
-#define WS2812_0_HIGH_TIME 8    // 400ns
-#define WS2812_0_LOW_TIME 17    // 850ns
+#define WS2812_1_HIGH_TIME_NS 800   // 800ns
+#define WS2812_1_LOW_TIME_NS 450     // 450ns
+#define WS2812_0_HIGH_TIME_NS 400    // 400ns
+#define WS2812_0_LOW_TIME_NS 850    // 850ns
+
+#define WS2812_1_HIGH_TIME_TICKS (WS2812_1_HIGH_TIME_NS / RMT_PERIOD)
+#define WS2812_1_LOW_TIME_TICKS (WS2812_1_LOW_TIME_NS / RMT_PERIOD)
+#define WS2812_0_HIGH_TIME_TICKS (WS2812_0_HIGH_TIME_NS / RMT_PERIOD)
+#define WS2812_0_LOW_TIME_TICKS (WS2812_0_LOW_TIME_NS / RMT_PERIOD)
 
 #define RED_CHANNEL 0
 #define GREEN_CHANNEL 1
@@ -80,15 +86,15 @@ void init_rmt() {
     rmt_bytes_encoder_config_t encoder_config = {
             .bit0 = {
                     .level0 = 1,
-                    .duration0 = WS2812_0_HIGH_TIME,
+                    .duration0 = WS2812_0_HIGH_TIME_TICKS,
                     .level1 = 0,
-                    .duration1 = WS2812_0_LOW_TIME,
+                    .duration1 = WS2812_0_LOW_TIME_TICKS,
             },
             .bit1 = {
                     .level0 = 1,
-                    .duration0 = WS2812_1_HIGH_TIME,
+                    .duration0 = WS2812_1_HIGH_TIME_TICKS,
                     .level1 = 0,
-                    .duration1 = WS2812_1_LOW_TIME,
+                    .duration1 = WS2812_1_LOW_TIME_TICKS,
             },
     };
 
@@ -103,7 +109,7 @@ void init_rmt() {
 }
 
 void init_sd_card() {
-    ESP_LOGI(TAG, "initializing SD card");
+    ESP_LOGI(TAG, "Initializing SD card");
 #define MOUNT_POINT "/sdcard"
     esp_vfs_fat_sdmmc_mount_config_t mount_config = {
 #ifdef CONFIG_EXAMPLE_FORMAT_IF_MOUNT_FAILED
@@ -151,11 +157,15 @@ void init_sd_card() {
         return;
     }
     sequence_file = fopen(MOUNT_POINT"/sequence.hex", "r");
+    if (sequence_file == NULL) {
+        ESP_LOGI(TAG, "Null file");
+    }
     ESP_LOGI(TAG, "Filesystem mounted");
 }
 
 // Use RMT system to transmit LED data out from DATA_OUT_PIN
 void IRAM_ATTR send_led_data() {
+    //ESP_EARLY_LOGI(TAG, "Transmitting LED data");
     rmt_transmit_config_t tx_config = {
             .loop_count = 0, // No looping
     };
@@ -164,12 +174,17 @@ void IRAM_ATTR send_led_data() {
 
 // Function to load data into the led_data buffer for next frame
 void IRAM_ATTR load_next_frame_buffer() {
-    fgets((char*)led_data, sizeof(led_data), sequence_file);
-    ESP_LOGI(TAG, "Read data from SD card");
+    //ESP_EARLY_LOGI(TAG, "Reading data from SD card");
+    char* ret = fgets((char*)led_data, sizeof(led_data), sequence_file);
+    if (ret == NULL) {
+        //ESP_EARLY_LOGI(TAG, "fgets failed to read data or encountered EOF");
+    }
+    //ESP_EARLY_LOGI(TAG, "Read data from SD card");
 }
 
 // ISR function to handle sending the data to the LEDs and loading the next buffer of data to send
 bool IRAM_ATTR advance_frame(gptimer_handle_t timer, const gptimer_alarm_event_data_t* edata, void* user_ctx) {
+    //ESP_EARLY_LOGI(TAG, "Start of advance_frame function");
     send_led_data();
     load_next_frame_buffer();
     return true;
