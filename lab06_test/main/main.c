@@ -4,9 +4,10 @@
 #include "esp_log.h"
 #include "driver/gptimer.h"
 #include "driver/rmt_tx.h"
-#include "driver/sdmmc_host.h"
-#include "sdmmc_cmd.h"
 
+#include "driver/sdspi_host.h"
+#include "sdmmc_cmd.h"
+#include "esp_vfs_fat.h"
 
 #include "pin.h"
 
@@ -35,11 +36,13 @@
 #define GREEN_CHANNEL 1
 #define BLUE_CHANNEL 2
 
+#define DEFAULT_MAX_FILES 5
+#define DEFAULT_ALLOCATION_UNIT_SIZE (16 * 1024)
+
 static const char* TAG = "lab06_WS2812";
 
-// Globals here aren't marked as volatile as they're only accessed from inside the advance_frame ISR
+// Globals here aren't marked as volatile as they're only accessed from one task each
 uint8_t led_data[NUM_LEDS * BYTES_PER_LED];
-uint32_t frame_count;
 
 rmt_channel_handle_t tx_channel;
 rmt_encoder_handle_t encoder;
@@ -100,48 +103,55 @@ void init_rmt() {
 }
 
 void init_sd_card() {
+    ESP_LOGI(TAG, "initializing SD card");
+#define MOUNT_POINT "/sdcard"
+    esp_vfs_fat_sdmmc_mount_config_t mount_config = {
+#ifdef CONFIG_EXAMPLE_FORMAT_IF_MOUNT_FAILED
+            .format_if_mount_failed = true,
+#else
+            .format_if_mount_failed = false,
+#endif // CONFIG_EXAMPLE_FORMAT_IF_MOUNT_FAILED
+            .max_files = DEFAULT_MAX_FILES,
+            .allocation_unit_size = DEFAULT_ALLOCATION_UNIT_SIZE
+    };
+
     esp_err_t ret;
-    sdmmc_host_t host = SDMMC_HOST_DEFAULT();
-    host.max_freq_khz = SDMMC_FREQ_HIGHSPEED;
+    sdmmc_card_t *card;
+    sdmmc_host_t host = SDSPI_HOST_DEFAULT();
+    spi_bus_config_t bus_cfg = {
+            .mosi_io_num = SD_MOSI_PIN,
+            .miso_io_num = SD_MISO_PIN,
+            .sclk_io_num = SD_SCK_PIN,
+            .quadwp_io_num = -1,
+            .quadhd_io_num = -1,
+            .max_transfer_sz = 4000,
+    };
 
-    sdmmc_slot_config_t slot = SDMMC_SLOT_CONFIG_DEFAULT();
-    slot.width = 1;
-
-    pin_reset(SD_CS_PIN);
-    pin_reset(SD_MISO_PIN);
-    pin_reset(SD_MOSI_PIN);
-    pin_reset(SD_SCK_PIN);
-
-    pin_output(SD_CS_PIN, true);
-    pin_input(SD_MISO_PIN, true);
-    pin_output(SD_MOSI_PIN, true);
-    pin_output(SD_SCK_PIN, true);
-
-    ret = sdmmc_host_init();
+    ret = spi_bus_initialize(host.slot, &bus_cfg, (spi_dma_chan_t)SDSPI_DEFAULT_DMA);
     if (ret != ESP_OK) {
-        ESP_LOGE(TAG, "Failed to initialize SDMMC host: %s", esp_err_to_name(ret));
+        ESP_LOGE(TAG, "Failed to initialize bus.");
         return;
     }
 
-    ret = sdmmc_host_init_slot(SDMMC_HOST_SLOT_1, &slot);
+    sdspi_device_config_t slot_config = SDSPI_DEVICE_CONFIG_DEFAULT();
+    slot_config.gpio_cs = SD_CS_PIN;
+    slot_config.host_id = host.slot;
+    ESP_LOGI(TAG, "Success initializing SD card");
+
+    ESP_LOGI(TAG, "Mounting filesystem");
+    ret = esp_vfs_fat_sdspi_mount(MOUNT_POINT, &host, &slot_config, &mount_config, &card);
     if (ret != ESP_OK) {
-        ESP_LOGE(TAG, "Failed to initialize SDMMC slot: %s", esp_err_to_name(ret));
+        if (ret == ESP_FAIL) {
+            ESP_LOGE(TAG, "Failed to mount filesystem. "
+                          "If you want the card to be formatted, set the CONFIG_EXAMPLE_FORMAT_IF_MOUNT_FAILED menuconfig option.");
+        } else {
+            ESP_LOGE(TAG, "Failed to initialize the card (%s). "
+                          "Make sure SD card lines have pull-up resistors in place.", esp_err_to_name(ret));
+        }
         return;
     }
-
-    ret = sdmmc_card_init(&host, &sd_card);
-    if (ret != ESP_OK) {
-        ESP_LOGE(TAG, "Failed to initialize SD card: %s", esp_err_to_name(ret));
-        return;
-    }
-
-    sequence_file = fopen("/sdcard/sequence.txt", "r");
-    if (sequence_file == NULL) {
-        ESP_LOGE(TAG, "Failed to open file for reading");
-        return;
-    }
-
-    ESP_LOGI(TAG, "SD card initialized successfully.");
+    sequence_file = fopen(MOUNT_POINT"/sequence.hex", "r");
+    ESP_LOGI(TAG, "Filesystem mounted");
 }
 
 // Use RMT system to transmit LED data out from DATA_OUT_PIN
@@ -156,41 +166,12 @@ void IRAM_ATTR send_led_data() {
 void IRAM_ATTR load_next_frame_buffer() {
     fgets((char*)led_data, sizeof(led_data), sequence_file);
     ESP_LOGI(TAG, "Read data from SD card");
-
-    /*uint32_t count = frame_count;
-    count /= 100000;
-    for (uint32_t i = 0; i < NUM_LEDS; i++) {
-        led_data[i * BYTES_PER_LED + RED_CHANNEL] = (count + i) % 0xFF;
-        led_data[i * BYTES_PER_LED + GREEN_CHANNEL] = (count + i + 0x55) % 0xFF;
-        led_data[i * BYTES_PER_LED + BLUE_CHANNEL] = (count + i + 0xAA) % 0xFF;
-    }*/
-
-    /*for (uint32_t i = 0; i < NUM_LEDS; i++) {
-        uint8_t value = NUM_LEDS
-        if (i % 2 == 0) {
-            led_data[i * BYTES_PER_LED + RED_CHANNEL] = value;
-            led_data[i * BYTES_PER_LED + GREEN_CHANNEL] = value;
-            led_data[i * BYTES_PER_LED + BLUE_CHANNEL] = 0xFF;
-        }
-        else {
-            led_data[i * BYTES_PER_LED + RED_CHANNEL] = 0;
-            led_data[i * BYTES_PER_LED + GREEN_CHANNEL] = 0;
-            led_data[i * BYTES_PER_LED + BLUE_CHANNEL] = 0;
-        }
-    }*/
-
-    /*for (int i = 0; i < NUM_LEDS * 3; i++) {
-        led_data[i] = 0;
-    }
-    led_data[(2 * 3) + BLUE_CHANNEL] = 0xFF;*/
 }
 
 // ISR function to handle sending the data to the LEDs and loading the next buffer of data to send
 bool IRAM_ATTR advance_frame(gptimer_handle_t timer, const gptimer_alarm_event_data_t* edata, void* user_ctx) {
     send_led_data();
     load_next_frame_buffer();
-    frame_count++;
-    pin_set_level(17, (int32_t)frame_count % 2);
     return true;
 }
 
@@ -200,8 +181,6 @@ _Noreturn void app_main(void)
     ESP_LOGI(TAG, "Startup - initialize data out pin, frame timer, and RMT subsystem");
     pin_reset(DATA_OUT_PIN);
     pin_output(DATA_OUT_PIN, true);
-    pin_reset(17);
-    pin_output(17, true);
 
     init_rmt();
     init_sd_card();
