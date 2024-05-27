@@ -7,7 +7,7 @@
 
 // Initialize the plane state machine. Pass a pointer to the missile
 // that will be (re)launched by the plane. It will only have one missile.
-void plane_init(missile_t *plane_missile);
+void plane_init(missile_t* missile);
 
 /******************** Plane Control & Tick Functions ********************/
 

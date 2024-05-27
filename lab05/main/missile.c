@@ -208,7 +208,7 @@ bool missile_is_impacted(missile_t* missile) {
 bool missile_is_colliding(missile_t* missile, coord_t x, coord_t y) {
     float x_distance = (float)(missile->x_current - x);
     float y_distance = (float)(missile->y_current - y);
-    float distance = sqrtf((x_distance * x_distance) + (y_distance * y_distance));
+    float distance = hypotf(x_distance, y_distance);
     if (missile_is_exploding(missile) && distance < missile->radius) {
         return true;
     }
