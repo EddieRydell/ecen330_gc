@@ -1,13 +1,16 @@
 #include <sys/cdefs.h>
 #include <stdlib.h>
+#include <string.h>
 
+// esp headers for RMT, logging, ISRs, and SD card file management
 #include "esp_log.h"
 #include "driver/gptimer.h"
 #include "driver/rmt_tx.h"
-
 #include "driver/sdspi_host.h"
 #include "sdmmc_cmd.h"
 #include "esp_vfs_fat.h"
+#include "freertos/queue.h"
+#include "esp_timer.h"
 
 #include "pin.h"
 
@@ -45,16 +48,31 @@
 #define DEFAULT_MAX_FILES 5
 #define DEFAULT_ALLOCATION_UNIT_SIZE (16 * 1024)
 
+#define NUM_BUFFERS 4
+
 static const char* TAG = "lab06_WS2812";
 
 // Globals here aren't marked as volatile as they're only accessed from one task each
-uint8_t led_data[NUM_LEDS * BYTES_PER_LED];
+static uint8_t led_data[NUM_LEDS * BYTES_PER_LED];
 
-rmt_channel_handle_t tx_channel;
-rmt_encoder_handle_t encoder;
+static uint8_t file_buffer[NUM_BUFFERS][sizeof(led_data)];
+static size_t buffer_offset[NUM_BUFFERS];
+static size_t buffer_fill[NUM_BUFFERS];
+static int active_buffer;
+static int processing_buffer = 1;
+static SemaphoreHandle_t buffer_switch_semaphore;
 
-sdmmc_card_t sd_card;
-FILE* sequence_file;
+static rmt_channel_handle_t tx_channel;
+static rmt_encoder_handle_t encoder;
+
+static QueueHandle_t frame_queue;
+static SemaphoreHandle_t file_access_mutex;
+
+static FILE* sequence_file;
+
+static uint32_t frame_count;
+static uint32_t last_frame;
+static uint32_t frames_skipped;
 
 // Initialize RMT subsystem
 void init_rmt() {
@@ -112,11 +130,7 @@ void init_sd_card() {
     ESP_LOGI(TAG, "Initializing SD card");
 #define MOUNT_POINT "/sdcard"
     esp_vfs_fat_sdmmc_mount_config_t mount_config = {
-#ifdef CONFIG_EXAMPLE_FORMAT_IF_MOUNT_FAILED
-            .format_if_mount_failed = true,
-#else
             .format_if_mount_failed = false,
-#endif // CONFIG_EXAMPLE_FORMAT_IF_MOUNT_FAILED
             .max_files = DEFAULT_MAX_FILES,
             .allocation_unit_size = DEFAULT_ALLOCATION_UNIT_SIZE
     };
@@ -165,29 +179,82 @@ void init_sd_card() {
 
 // Use RMT system to transmit LED data out from DATA_OUT_PIN
 void IRAM_ATTR send_led_data() {
-    //ESP_EARLY_LOGI(TAG, "Transmitting LED data");
     rmt_transmit_config_t tx_config = {
             .loop_count = 0, // No looping
     };
     ESP_ERROR_CHECK(rmt_transmit(tx_channel, encoder, (const void*)led_data, sizeof(led_data), &tx_config));
 }
 
+void refill_file_buffer(int buffer_index) {
+    xSemaphoreTake(file_access_mutex, portMAX_DELAY);
+    size_t bytes_read = fread(file_buffer[buffer_index], 1, sizeof(file_buffer[buffer_index]), sequence_file);
+    xSemaphoreGive(file_access_mutex);
+
+    if (bytes_read == 0) {
+        ESP_LOGE(TAG, "Failed to read from file or reached EOF. Frames skipped: %lu", frames_skipped);
+    } else {
+        buffer_fill[buffer_index] = bytes_read;
+        buffer_offset[buffer_index] = 0;
+    }
+}
+
+void load_next_led_buffer_from_file_buffer() {
+    // if not enough data in the buffer, refill it
+    if (buffer_offset[processing_buffer] + sizeof(led_data) > buffer_fill[processing_buffer]) {
+        xSemaphoreTake(buffer_switch_semaphore, portMAX_DELAY);
+        processing_buffer = (processing_buffer + 1) % NUM_BUFFERS;
+        buffer_offset[processing_buffer] = 0;
+        xSemaphoreGive(buffer_switch_semaphore);
+    }
+    memcpy(led_data, &file_buffer[processing_buffer][buffer_offset[processing_buffer]], sizeof(led_data));
+    buffer_offset[processing_buffer] += sizeof(led_data);
+}
+
 // Function to load data into the led_data buffer for next frame
-void IRAM_ATTR load_next_frame_buffer() {
-    //ESP_EARLY_LOGI(TAG, "Reading data from SD card");
+void IRAM_ATTR load_next_led_buffer() {
     char* ret = fgets((char*)led_data, sizeof(led_data), sequence_file);
     if (ret == NULL) {
-        //ESP_EARLY_LOGI(TAG, "fgets failed to read data or encountered EOF");
+        abort();
     }
-    //ESP_EARLY_LOGI(TAG, "Read data from SD card");
+}
+
+
+// task to refill the file buffer
+_Noreturn void refill_file_buffer_task(void* pvParameters) {
+    int buffer_to_refill = 0;
+    while (1) {
+        buffer_to_refill = (buffer_to_refill + 1) % NUM_BUFFERS;
+        refill_file_buffer(buffer_to_refill);
+        xSemaphoreTake(buffer_switch_semaphore, portMAX_DELAY);
+        active_buffer = buffer_to_refill;
+        xSemaphoreGive(buffer_switch_semaphore);
+    }
+}
+
+// task to load the LED buffer out of the larger file buffer and send it to the lights
+_Noreturn void load_led_buffer_task(void* pvParameters) {
+    gptimer_alarm_event_data_t edata;
+    while (1) {
+        // if we receive an event in the frame queue (triggered by the ISR), load and send the LED data
+        if (xQueueReceive(frame_queue, &edata, portMAX_DELAY)) {
+            int64_t start_time = esp_timer_get_time(); // Record start time
+            load_next_led_buffer_from_file_buffer();
+            send_led_data();
+            int64_t end_time = esp_timer_get_time();
+            int64_t duration = end_time - start_time;
+            frames_skipped += frame_count - last_frame;
+            //ESP_LOGI(TAG, "frame processing time: %lld; frame_count: %lu", duration, frame_count);
+            last_frame = frame_count;
+        }
+    }
 }
 
 // ISR function to handle sending the data to the LEDs and loading the next buffer of data to send
 bool IRAM_ATTR advance_frame(gptimer_handle_t timer, const gptimer_alarm_event_data_t* edata, void* user_ctx) {
-    //ESP_EARLY_LOGI(TAG, "Start of advance_frame function");
-    send_led_data();
-    load_next_frame_buffer();
-    return true;
+    frame_count++;
+    BaseType_t higher_priority_task_woken = pdFALSE;
+    xQueueSendFromISR(frame_queue, &edata, &higher_priority_task_woken);
+    return higher_priority_task_woken == pdTRUE;
 }
 
 // Main function containing timer setup and execution
@@ -199,6 +266,27 @@ _Noreturn void app_main(void)
 
     init_rmt();
     init_sd_card();
+
+    file_access_mutex = xSemaphoreCreateMutex();
+    if (file_access_mutex == NULL) {
+        ESP_LOGE(TAG, "Failed to create file access mutex");
+    }
+
+    buffer_switch_semaphore = xSemaphoreCreateMutex();
+    if (buffer_switch_semaphore == NULL) {
+        ESP_LOGE(TAG, "Failed to create buffer switch semaphore");
+    }
+
+    // Create the queue for frame handling
+    frame_queue = xQueueCreate(10, sizeof(gptimer_alarm_event_data_t));
+    if (frame_queue == NULL) {
+        ESP_LOGE(TAG, "Failed to create frame queue");
+    }
+
+    // Create the frame task
+    xTaskCreate(load_led_buffer_task, "Frame Task", 4096, NULL, 5, NULL);
+    // Create the refill task
+    xTaskCreate(refill_file_buffer_task, "Refill Task", 4096, NULL, 5, NULL);
 
     gptimer_handle_t gptimer = NULL;
     gptimer_config_t timer_config = {
@@ -223,5 +311,7 @@ _Noreturn void app_main(void)
     ESP_ERROR_CHECK(gptimer_start(gptimer));
 
     ESP_LOGI(TAG, "Beginning main loop");
-    while(1) {}
+    while (1) {
+        vTaskDelay(pdMS_TO_TICKS(1000)); // Delay to prevent watchdog reset
+    }
 }
