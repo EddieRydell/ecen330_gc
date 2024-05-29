@@ -77,10 +77,11 @@ void plane_tick(void) {
         case FLYING:
             draw_self();
             plane_lifetime_ticks++;
+            // launch a missile from the plane if we hit the randomly predetermined launch time
             if (plane_lifetime_ticks == missile_launch_time) {
                 missile_init_plane(plane_missile, plane_x, plane_y);
             }
-            plane_x -= (coord_t)CONFIG_PLANE_DISTANCE_PER_TICK;
+            plane_x -= (coord_t)CONFIG_PLANE_DISTANCE_PER_TICK * 2;
             break;
         case IDLE:
             idle_ticks++;
