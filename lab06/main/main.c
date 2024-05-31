@@ -50,26 +50,22 @@
 #define DEFAULT_MAX_FILES 5
 #define DEFAULT_ALLOCATION_UNIT_SIZE (16 * 1024)
 
-#define NUM_BUFFERS 2
-
 static const char* TAG = "lab06_WS2812";
 
 // Globals here aren't marked as volatile as they're only accessed from one task each
-static char led_data[NUM_BUFFERS][NUM_LEDS * BYTES_PER_LED];
-static uint32_t current_buffer;
+static char led_data[NUM_LEDS * BYTES_PER_LED];
 
 static rmt_channel_handle_t tx_channel;
 static rmt_encoder_handle_t encoder;
 
-static SemaphoreHandle_t file_access_mutex;
 static TaskHandle_t led_task_handle;
-static TaskHandle_t file_task_handle;
 
 static FILE* sequence_file;
 
 static uint32_t frame_count;
-static uint32_t last_frame;
-static uint32_t frames_skipped;
+static uint32_t times_task_was_performed;
+
+uint64_t start_time;
 
 // Initialize RMT subsystem
 void init_rmt() {
@@ -123,6 +119,7 @@ void init_rmt() {
     ESP_LOGI(TAG, "RMT and encoder initialized successfully");
 }
 
+// Initialize SD card to read files from it
 void init_sd_card() {
     ESP_LOGI(TAG, "Initializing SD card");
 #define MOUNT_POINT "/sdcard"
@@ -182,28 +179,33 @@ void IRAM_ATTR send_led_data() {
     ESP_ERROR_CHECK(rmt_transmit(
             tx_channel,
             encoder,
-            (const void*)led_data[current_buffer],
-            sizeof(led_data[current_buffer]),
+            led_data,
+            sizeof(led_data),
             &tx_config));
 }
 
-// task to refill the file buffer
-_Noreturn void refill_file_buffer_task(void* pvParameters) {
-    while (1) {
-        if (ulTaskNotifyTake(pdTRUE, portMAX_DELAY)) {
-            size_t bytes_read = fread(led_data, 1, sizeof(led_data), sequence_file);
-            if (bytes_read < sizeof(led_data)) {
-                ESP_LOGI(TAG, "Failed to read file. Probably reached EOF.");
-            }
-        }
-    }
-}
-
-// task to load the LED buffer out of the larger file buffer and send it to the lights
+// task to load the led_data buffer out of the SD card and send it to the LEDs
 _Noreturn void load_and_send_led_buffer_task(void* pvParameters) {
     while (1) {
         if (ulTaskNotifyTake(pdTRUE, portMAX_DELAY)) {
-
+            times_task_was_performed++;
+            size_t bytes_read = fread(led_data, 1, sizeof(led_data), sequence_file);
+            if (bytes_read < sizeof(led_data)) {
+                if (feof(sequence_file)) {
+                    ESP_LOGI(TAG, "Reached end of file.");
+                }
+                else if (ferror(sequence_file)) {
+                    ESP_LOGE(TAG, "Error reading file.");
+                }
+                uint64_t end_time = esp_timer_get_time();
+                ESP_LOGI(TAG, "Frame Count: %lu; Task execution count: %lu; "
+                              "Total time: %llu seconds",
+                              frame_count, times_task_was_performed, (end_time - start_time) / 1000000);
+                ESP_LOGI(TAG, "Restarting...");
+                fclose(sequence_file);
+                esp_restart();
+            }
+            send_led_data();
         }
     }
 }
@@ -225,29 +227,14 @@ _Noreturn void app_main(void) {
     init_rmt();
     init_sd_card();
 
-    file_access_mutex = xSemaphoreCreateMutex();
-    if (file_access_mutex == NULL) {
-        ESP_LOGE(TAG, "Failed to create file access mutex");
-    }
-
     // Create the LED buffer task
-    xTaskCreatePinnedToCore(
+    xTaskCreate(
             load_and_send_led_buffer_task,
             "Frame Task",
             DEFAULT_TASK_STACK_DEPTH,
             NULL,
             5,
-            &led_task_handle,
-            1);
-    // Create the refill task
-    xTaskCreatePinnedToCore(
-            refill_file_buffer_task,
-            "Refill Task",
-            DEFAULT_TASK_STACK_DEPTH,
-            NULL,
-            5,
-            &file_task_handle,
-            0);
+            &led_task_handle);
 
     // init ISR timer
     gptimer_handle_t gptimer = NULL;
@@ -273,5 +260,6 @@ _Noreturn void app_main(void) {
     ESP_ERROR_CHECK(gptimer_start(gptimer));
 
     ESP_LOGI(TAG, "Beginning main loop");
+    start_time = esp_timer_get_time();
     while (1) {}
 }
