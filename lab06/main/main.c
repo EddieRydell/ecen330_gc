@@ -1,6 +1,5 @@
 #include <sys/cdefs.h>
 #include <stdlib.h>
-#include <string.h>
 
 // esp headers for RMT, logging, ISRs, and SD card file management
 #include "esp_log.h"
@@ -30,11 +29,11 @@
 #define BYTE_SIZE_BITS 8
 #define BYTES_PER_LED (BITS_PER_LED / BYTE_SIZE_BITS)
 
-// WS2812 protocol data high and low time in ticks for 50ns period
-#define WS2812_1_HIGH_TIME_NS 800   // 800ns
-#define WS2812_1_LOW_TIME_NS 450     // 450ns
-#define WS2812_0_HIGH_TIME_NS 400    // 400ns
-#define WS2812_0_LOW_TIME_NS 850    // 850ns
+// WS2812 protocol data high and low time ns
+#define WS2812_1_HIGH_TIME_NS 800
+#define WS2812_1_LOW_TIME_NS 450
+#define WS2812_0_HIGH_TIME_NS 400
+#define WS2812_0_LOW_TIME_NS 850
 
 #define WS2812_1_HIGH_TIME_TICKS (WS2812_1_HIGH_TIME_NS / RMT_PERIOD)
 #define WS2812_1_LOW_TIME_TICKS (WS2812_1_LOW_TIME_NS / RMT_PERIOD)
@@ -66,6 +65,28 @@ static uint32_t frame_count;
 static uint32_t times_task_was_performed;
 
 uint64_t start_time;
+
+// Parse the header of the .fseq file.
+// This function advances sequence_file to be at the beginning of the actual LED data
+void parse_fseq_header() {
+    ESP_LOGI(TAG, "Parsing .fseq file header");
+    uint8_t header_data[6];
+    size_t bytes_read = fread(header_data, 1, sizeof(header_data), sequence_file);
+    if (bytes_read < sizeof(led_data)) {
+        if (feof(sequence_file)) {
+            ESP_LOGI(TAG, "Reached end of file.");
+        }
+        else if (ferror(sequence_file)) {
+            ESP_LOGE(TAG, "Error reading file.");
+        }
+    }
+    uint16_t data_location = *(header_data + 4);
+
+    // Move the file pointer to the data location
+    if (fseek(sequence_file, data_location, SEEK_SET) != 0) {
+        ESP_LOGE(TAG, "Error seeking to data location.");
+    }
+}
 
 // Initialize RMT subsystem
 void init_rmt() {
@@ -169,6 +190,8 @@ void init_sd_card() {
         ESP_LOGI(TAG, "Null file");
     }
     ESP_LOGI(TAG, "Filesystem mounted");
+
+    parse_fseq_header();
 }
 
 // Use RMT module to transmit LED data out from DATA_OUT_PIN
@@ -189,6 +212,7 @@ _Noreturn void load_and_send_led_buffer_task(void* pvParameters) {
     while (1) {
         if (ulTaskNotifyTake(pdTRUE, portMAX_DELAY)) {
             times_task_was_performed++;
+            send_led_data();
             size_t bytes_read = fread(led_data, 1, sizeof(led_data), sequence_file);
             if (bytes_read < sizeof(led_data)) {
                 if (feof(sequence_file)) {
@@ -205,7 +229,6 @@ _Noreturn void load_and_send_led_buffer_task(void* pvParameters) {
                 fclose(sequence_file);
                 esp_restart();
             }
-            send_led_data();
         }
     }
 }
@@ -235,6 +258,9 @@ _Noreturn void app_main(void) {
             NULL,
             5,
             &led_task_handle);
+
+    // preload led_data buffer to read from it at the beginning of the first frame
+    xTaskNotifyGive(led_task_handle);
 
     // init ISR timer
     gptimer_handle_t gptimer = NULL;
