@@ -1,5 +1,6 @@
 #include <sys/cdefs.h>
 #include <stdlib.h>
+#include <string.h>
 
 // esp headers for RMT, logging, ISRs, and SD card file management
 #include "esp_log.h"
@@ -10,6 +11,9 @@
 #include "esp_vfs_fat.h"
 #include "freertos/queue.h"
 #include "esp_timer.h"
+#include "errno.h"
+#include "sys/stat.h"
+#include "dirent.h"
 
 #include "pin.h"
 
@@ -66,13 +70,27 @@ static uint32_t times_task_was_performed;
 
 uint64_t start_time;
 
+void list_directory(const char* path) {
+    DIR *dir = opendir(path);
+    if (dir == NULL) {
+        ESP_LOGE(TAG, "Failed to open directory: %s", strerror(errno));
+        return;
+    }
+
+    struct dirent* entry;
+    while ((entry = readdir(dir)) != NULL) {
+        ESP_LOGI(TAG, "Found file: %s", entry->d_name);
+    }
+    closedir(dir);
+}
+
 // Parse the header of the .fseq file.
 // This function advances sequence_file to be at the beginning of the actual LED data
 void parse_fseq_header() {
     ESP_LOGI(TAG, "Parsing .fseq file header");
     uint8_t header_data[6];
     size_t bytes_read = fread(header_data, 1, sizeof(header_data), sequence_file);
-    if (bytes_read < sizeof(led_data)) {
+    if (bytes_read < sizeof(header_data)) {
         if (feof(sequence_file)) {
             ESP_LOGI(TAG, "Reached end of file.");
         }
@@ -144,14 +162,15 @@ void init_rmt() {
 void init_sd_card() {
     ESP_LOGI(TAG, "Initializing SD card");
 #define MOUNT_POINT "/sdcard"
+#define FILE_NAME "/NOCOMP~1.FSE"
     esp_vfs_fat_sdmmc_mount_config_t mount_config = {
             .format_if_mount_failed = false,
             .max_files = DEFAULT_MAX_FILES,
-            .allocation_unit_size = DEFAULT_ALLOCATION_UNIT_SIZE
+            .allocation_unit_size = DEFAULT_ALLOCATION_UNIT_SIZE // DEFAULT_ALLOCATION_UNIT_SIZE
     };
 
     esp_err_t ret;
-    sdmmc_card_t *card;
+    sdmmc_card_t* card;
     sdmmc_host_t host = SDSPI_HOST_DEFAULT();
     spi_bus_config_t bus_cfg = {
             .mosi_io_num = SD_MOSI_PIN,
@@ -164,7 +183,7 @@ void init_sd_card() {
 
     ret = spi_bus_initialize(host.slot, &bus_cfg, (spi_dma_chan_t)SDSPI_DEFAULT_DMA);
     if (ret != ESP_OK) {
-        ESP_LOGE(TAG, "Failed to initialize bus.");
+        ESP_LOGE(TAG, "Failed to initialize bus: %s", esp_err_to_name(ret));
         return;
     }
 
@@ -185,11 +204,26 @@ void init_sd_card() {
         }
         return;
     }
-    sequence_file = fopen(MOUNT_POINT"/sequence.hex", "r");
-    if (sequence_file == NULL) {
-        ESP_LOGI(TAG, "Null file");
-    }
     ESP_LOGI(TAG, "Filesystem mounted");
+    ESP_LOGI(TAG, "Listing directory contents of %s", MOUNT_POINT);
+    list_directory(MOUNT_POINT);
+
+    ESP_LOGI(TAG, "Opening file %s", MOUNT_POINT FILE_NAME);
+
+    sequence_file = fopen(MOUNT_POINT FILE_NAME, "rb");
+    if (sequence_file == NULL) {
+        ESP_LOGE(TAG, "Failed to open file: %s", strerror(errno));
+        // Additional debugging information
+        struct stat st;
+        if (stat(MOUNT_POINT FILE_NAME, &st) == 0) {
+            ESP_LOGI(TAG, "File exists. Permissions: %lo", st.st_mode);
+        }
+        else {
+            ESP_LOGE(TAG, "stat failed: %s", strerror(errno));
+        }
+        return;
+    }
+    ESP_LOGI(TAG, "File opened successfully");
 
     parse_fseq_header();
 }
