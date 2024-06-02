@@ -1,8 +1,5 @@
-#include <sys/cdefs.h>
 #include <stdlib.h>
-#include <string.h>
 
-// esp headers for RMT, logging, ISRs, and SD card file management
 #include "esp_log.h"
 #include "driver/gptimer.h"
 #include "driver/rmt_tx.h"
@@ -11,6 +8,7 @@
 
 #include "pin.h"
 #include "sd_card_file_system.h"
+#include "fseq.h"
 
 #define DATA_OUT_PIN 12
 
@@ -46,7 +44,7 @@
 static const char* TAG = "lab06_WS2812";
 
 // Globals here aren't marked as volatile as they're only accessed from one task each
-static char led_data[NUM_LEDS * BYTES_PER_LED];
+static uint8_t led_data[NUM_LEDS * BYTES_PER_LED];
 
 static rmt_channel_handle_t tx_channel;
 static rmt_encoder_handle_t encoder;
@@ -131,20 +129,13 @@ _Noreturn void load_and_send_led_buffer_task(void* pvParameters) {
         if (ulTaskNotifyTake(pdTRUE, portMAX_DELAY)) {
             times_task_was_performed++;
             send_led_data();
-            size_t bytes_read = fread(led_data, 1, sizeof(led_data), sequence.sequence_file);
-            if (bytes_read < sizeof(led_data)) {
-                if (feof(sequence.sequence_file)) {
-                    ESP_LOGI(TAG, "Reached end of file.");
-                }
-                else if (ferror(sequence.sequence_file)) {
-                    ESP_LOGE(TAG, "Error reading file.");
-                }
+            if (get_next_led_buffer(led_data, sequence) == -1) {
                 uint64_t end_time = esp_timer_get_time();
                 ESP_LOGI(TAG, "Frame Count: %lu; Task execution count: %lu; "
                               "Total time: %llu seconds",
                               frame_count, times_task_was_performed, (end_time - start_time) / 1000000);
                 ESP_LOGI(TAG, "Restarting...");
-                fclose(sequence.sequence_file);
+                close_sequence(sequence);
                 esp_restart();
             }
         }
@@ -167,7 +158,7 @@ _Noreturn void app_main(void) {
 
     init_rmt();
     init_sd_card();
-    sequence = open_and_parse_fseq_file("NOCOMP~1.FSE");
+    sequence = open_and_parse_fseq_file(FILE_NAME);
 
     // Create the LED buffer task
     xTaskCreate(
