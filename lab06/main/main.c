@@ -6,22 +6,13 @@
 #include "esp_log.h"
 #include "driver/gptimer.h"
 #include "driver/rmt_tx.h"
-#include "driver/sdspi_host.h"
 #include "sdmmc_cmd.h"
-#include "esp_vfs_fat.h"
-#include "freertos/queue.h"
 #include "esp_timer.h"
-#include "errno.h"
-#include "sys/stat.h"
-#include "dirent.h"
 
 #include "pin.h"
+#include "sd_card_file_system.h"
 
 #define DATA_OUT_PIN 12
-#define SD_CS_PIN 22
-#define SD_MOSI_PIN 23
-#define SD_MISO_PIN 19
-#define SD_SCK_PIN 18
 
 #define DEFAULT_TIMER_RESOLUTION 1000000 // 1MHz, 1 tick = 1us
 #define FRAMES_PER_SECOND 200
@@ -48,10 +39,9 @@
 #define GREEN_CHANNEL 1
 #define BLUE_CHANNEL 2
 
-#define DEFAULT_TASK_STACK_DEPTH 4096
+#define FILE_NAME "/NOCOMP~1.FSE"
 
-#define DEFAULT_MAX_FILES 5
-#define DEFAULT_ALLOCATION_UNIT_SIZE (16 * 1024)
+#define DEFAULT_TASK_STACK_DEPTH 4096
 
 static const char* TAG = "lab06_WS2812";
 
@@ -63,48 +53,12 @@ static rmt_encoder_handle_t encoder;
 
 static TaskHandle_t led_task_handle;
 
-static FILE* sequence_file;
-
 static uint32_t frame_count;
 static uint32_t times_task_was_performed;
 
+static fseq_sequence_t sequence;
+
 uint64_t start_time;
-
-void list_directory(const char* path) {
-    DIR *dir = opendir(path);
-    if (dir == NULL) {
-        ESP_LOGE(TAG, "Failed to open directory: %s", strerror(errno));
-        return;
-    }
-
-    struct dirent* entry;
-    while ((entry = readdir(dir)) != NULL) {
-        ESP_LOGI(TAG, "Found file: %s", entry->d_name);
-    }
-    closedir(dir);
-}
-
-// Parse the header of the .fseq file.
-// This function advances sequence_file to be at the beginning of the actual LED data
-void parse_fseq_header() {
-    ESP_LOGI(TAG, "Parsing .fseq file header");
-    uint8_t header_data[6];
-    size_t bytes_read = fread(header_data, 1, sizeof(header_data), sequence_file);
-    if (bytes_read < sizeof(header_data)) {
-        if (feof(sequence_file)) {
-            ESP_LOGI(TAG, "Reached end of file.");
-        }
-        else if (ferror(sequence_file)) {
-            ESP_LOGE(TAG, "Error reading file.");
-        }
-    }
-    uint16_t data_location = *(header_data + 4);
-
-    // Move the file pointer to the data location
-    if (fseek(sequence_file, data_location, SEEK_SET) != 0) {
-        ESP_LOGE(TAG, "Error seeking to data location.");
-    }
-}
 
 // Initialize RMT subsystem
 void init_rmt() {
@@ -158,76 +112,6 @@ void init_rmt() {
     ESP_LOGI(TAG, "RMT and encoder initialized successfully");
 }
 
-// Initialize SD card to read files from it
-void init_sd_card() {
-    ESP_LOGI(TAG, "Initializing SD card");
-#define MOUNT_POINT "/sdcard"
-#define FILE_NAME "/NOCOMP~1.FSE"
-    esp_vfs_fat_sdmmc_mount_config_t mount_config = {
-            .format_if_mount_failed = false,
-            .max_files = DEFAULT_MAX_FILES,
-            .allocation_unit_size = DEFAULT_ALLOCATION_UNIT_SIZE // DEFAULT_ALLOCATION_UNIT_SIZE
-    };
-
-    esp_err_t ret;
-    sdmmc_card_t* card;
-    sdmmc_host_t host = SDSPI_HOST_DEFAULT();
-    spi_bus_config_t bus_cfg = {
-            .mosi_io_num = SD_MOSI_PIN,
-            .miso_io_num = SD_MISO_PIN,
-            .sclk_io_num = SD_SCK_PIN,
-            .quadwp_io_num = -1,
-            .quadhd_io_num = -1,
-            .max_transfer_sz = 4000,
-    };
-
-    ret = spi_bus_initialize(host.slot, &bus_cfg, (spi_dma_chan_t)SDSPI_DEFAULT_DMA);
-    if (ret != ESP_OK) {
-        ESP_LOGE(TAG, "Failed to initialize bus: %s", esp_err_to_name(ret));
-        return;
-    }
-
-    sdspi_device_config_t slot_config = SDSPI_DEVICE_CONFIG_DEFAULT();
-    slot_config.gpio_cs = SD_CS_PIN;
-    slot_config.host_id = host.slot;
-    ESP_LOGI(TAG, "Success initializing SD card");
-
-    ESP_LOGI(TAG, "Mounting filesystem");
-    ret = esp_vfs_fat_sdspi_mount(MOUNT_POINT, &host, &slot_config, &mount_config, &card);
-    if (ret != ESP_OK) {
-        if (ret == ESP_FAIL) {
-            ESP_LOGE(TAG, "Failed to mount filesystem. "
-                          "If you want the card to be formatted, set the CONFIG_EXAMPLE_FORMAT_IF_MOUNT_FAILED menuconfig option.");
-        } else {
-            ESP_LOGE(TAG, "Failed to initialize the card (%s). "
-                          "Make sure SD card lines have pull-up resistors in place.", esp_err_to_name(ret));
-        }
-        return;
-    }
-    ESP_LOGI(TAG, "Filesystem mounted");
-    ESP_LOGI(TAG, "Listing directory contents of %s", MOUNT_POINT);
-    list_directory(MOUNT_POINT);
-
-    ESP_LOGI(TAG, "Opening file %s", MOUNT_POINT FILE_NAME);
-
-    sequence_file = fopen(MOUNT_POINT FILE_NAME, "rb");
-    if (sequence_file == NULL) {
-        ESP_LOGE(TAG, "Failed to open file: %s", strerror(errno));
-        // Additional debugging information
-        struct stat st;
-        if (stat(MOUNT_POINT FILE_NAME, &st) == 0) {
-            ESP_LOGI(TAG, "File exists. Permissions: %lo", st.st_mode);
-        }
-        else {
-            ESP_LOGE(TAG, "stat failed: %s", strerror(errno));
-        }
-        return;
-    }
-    ESP_LOGI(TAG, "File opened successfully");
-
-    parse_fseq_header();
-}
-
 // Use RMT module to transmit LED data out from DATA_OUT_PIN
 void IRAM_ATTR send_led_data() {
     rmt_transmit_config_t tx_config = {
@@ -247,12 +131,12 @@ _Noreturn void load_and_send_led_buffer_task(void* pvParameters) {
         if (ulTaskNotifyTake(pdTRUE, portMAX_DELAY)) {
             times_task_was_performed++;
             send_led_data();
-            size_t bytes_read = fread(led_data, 1, sizeof(led_data), sequence_file);
+            size_t bytes_read = fread(led_data, 1, sizeof(led_data), sequence.sequence_file);
             if (bytes_read < sizeof(led_data)) {
-                if (feof(sequence_file)) {
+                if (feof(sequence.sequence_file)) {
                     ESP_LOGI(TAG, "Reached end of file.");
                 }
-                else if (ferror(sequence_file)) {
+                else if (ferror(sequence.sequence_file)) {
                     ESP_LOGE(TAG, "Error reading file.");
                 }
                 uint64_t end_time = esp_timer_get_time();
@@ -260,7 +144,7 @@ _Noreturn void load_and_send_led_buffer_task(void* pvParameters) {
                               "Total time: %llu seconds",
                               frame_count, times_task_was_performed, (end_time - start_time) / 1000000);
                 ESP_LOGI(TAG, "Restarting...");
-                fclose(sequence_file);
+                fclose(sequence.sequence_file);
                 esp_restart();
             }
         }
@@ -283,6 +167,7 @@ _Noreturn void app_main(void) {
 
     init_rmt();
     init_sd_card();
+    sequence = open_and_parse_fseq_file("NOCOMP~1.FSE");
 
     // Create the LED buffer task
     xTaskCreate(

@@ -1,5 +1,5 @@
-idf_component_register(SRCS "main.c"
-        INCLUDE_DIRS "."
+idf_component_register(SRCS "main.c" "sd_card_file_system.c"
+        "."
         PRIV_REQUIRES fatfs driver pin esp_timer
         )
 # PRIV_REQUIRES "..."
