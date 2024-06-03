@@ -71,7 +71,7 @@ fseq_sequence_t open_and_parse_fseq_file(const char* filename) {
 }
 
 int32_t get_next_led_buffer(uint8_t* buffer, fseq_sequence_t sequence) {
-    size_t bytes_read = fread(buffer, 1, sizeof(buffer), sequence.sequence_file);
+    size_t bytes_read = fread(buffer, 1, sequence.channel_count_per_frame, sequence.sequence_file);
     if (bytes_read < sizeof(buffer)) {
         if (feof(sequence.sequence_file)) {
             ESP_LOGI(TAG, "Reached end of file.");

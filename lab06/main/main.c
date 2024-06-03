@@ -58,6 +58,17 @@ static fseq_sequence_t sequence;
 
 uint64_t start_time;
 
+void print_led_data_as_hex() {
+    char hex_string[sizeof(led_data) * 2 + 1];
+    hex_string[sizeof(led_data) * 2] = 0;
+
+    for (size_t i = 0; i < sizeof(led_data); ++i) {
+        sprintf(hex_string + (i * 2), "%02X", led_data[i]);
+    }
+
+    ESP_LOGI(TAG, "%s", hex_string);
+}
+
 // Initialize RMT subsystem
 void init_rmt() {
     rmt_tx_channel_config_t tx_channel_config = {
@@ -129,7 +140,7 @@ _Noreturn void load_and_send_led_buffer_task(void* pvParameters) {
         if (ulTaskNotifyTake(pdTRUE, portMAX_DELAY)) {
             times_task_was_performed++;
             send_led_data();
-            if (get_next_led_buffer(led_data, sequence) == -1) {
+            if (get_next_led_buffer(led_data, sequence) == 0) {
                 uint64_t end_time = esp_timer_get_time();
                 ESP_LOGI(TAG, "Frame Count: %lu; Task execution count: %lu; "
                               "Total time: %llu seconds",
