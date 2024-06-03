@@ -144,9 +144,9 @@ _Noreturn void load_and_send_led_buffer_task(void* pvParameters) {
 
 // ISR function to handle sending the data to the LEDs and loading the next buffer of data to send
 bool IRAM_ATTR advance_frame(gptimer_handle_t timer, const gptimer_alarm_event_data_t* edata, void* user_ctx) {
-    frame_count++;
     BaseType_t higher_priority_task_woken = pdFALSE;
     vTaskNotifyGiveFromISR(led_task_handle, &higher_priority_task_woken);
+    frame_count++;
     return higher_priority_task_woken == pdTRUE;
 }
 

@@ -19,7 +19,7 @@
 
 static const char* TAG = "FSEQ";
 
-// Open filename and parse the header
+// Open file "filename" and parse the header
 // Returns a fseq_sequence_t initialized based on the header
 // This function advances sequence_file to be at the beginning of the actual LED data
 fseq_sequence_t open_and_parse_fseq_file(const char* filename) {
@@ -75,14 +75,14 @@ int32_t get_next_led_buffer(uint8_t* buffer, fseq_sequence_t sequence) {
     if (bytes_read < sizeof(buffer)) {
         if (feof(sequence.sequence_file)) {
             ESP_LOGI(TAG, "Reached end of file.");
-            return -1;
+            return 0;
         }
         else if (ferror(sequence.sequence_file)) {
             ESP_LOGE(TAG, "Error reading file.");
-            return -1;
+            return 0;
         }
     }
-    return 0;
+    return 1;
 }
 
 int32_t close_sequence(fseq_sequence_t sequence) {

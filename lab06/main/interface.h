@@ -1,0 +1,4 @@
+#ifndef LAB06_INTERFACE_H
+#define LAB06_INTERFACE_H
+
+#endif //LAB06_INTERFACE_H
