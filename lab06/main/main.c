@@ -9,8 +9,17 @@
 #include "pin.h"
 #include "sd_card_file_system.h"
 #include "fseq.h"
+#include "interface.h"
 
 #define DATA_OUT_PIN 12
+#define BTN_A      32
+#define BTN_B      33
+#define BTN_MENU   13
+#define BTN_OPTION  0
+#define BTN_SELECT 27
+#define BTN_START  39
+
+#define DEBOUNCE_WAIT_TIME 5 // ms
 
 #define DEFAULT_TIMER_RESOLUTION 1000000 // 1MHz, 1 tick = 1us
 #define FRAMES_PER_SECOND 200
@@ -163,13 +172,26 @@ bool IRAM_ATTR advance_frame(gptimer_handle_t timer, const gptimer_alarm_event_d
 
 // Main function containing timer setup and execution
 _Noreturn void app_main(void) {
-    ESP_LOGI(TAG, "Startup - initialize data out pin, frame timer, and RMT subsystem");
+    ESP_LOGI(TAG, "Startup - initialize pins");
     pin_reset(DATA_OUT_PIN);
     pin_output(DATA_OUT_PIN, true);
+    pin_reset(BTN_A);
+    pin_input(BTN_A, true);
+    pin_reset(BTN_B);
+    pin_input(BTN_B, true);
+    pin_reset(BTN_MENU);
+    pin_input(BTN_MENU, true);
+    pin_reset(BTN_OPTION);
+    pin_input(BTN_OPTION, true);
+    pin_reset(BTN_SELECT);
+    pin_input(BTN_SELECT, true);
+    pin_reset(BTN_START);
+    pin_input(BTN_START, true);
 
     init_rmt();
+    // init_sd_card must be called before init_display to avoid reinitializing the SPI bus
     init_sd_card();
-    sequence = open_and_parse_fseq_file(FILE_NAME);
+    init_display();
 
     // Create the LED buffer task
     xTaskCreate(
@@ -203,10 +225,31 @@ _Noreturn void app_main(void) {
     };
     ESP_ERROR_CHECK(gptimer_register_event_callbacks(gptimer, &cbs, NULL));
 
+    RESET:
+    ESP_LOGI(TAG, "Displaying menu");
+    draw_interface();
+    while (pin_get_level(BTN_START)) { // while start isn't pressed display the menu
+        while (!pin_get_level(BTN_A)) {
+            draw_interface();
+            vTaskDelay(pdMS_TO_TICKS(DEBOUNCE_WAIT_TIME));
+            while (!pin_get_level(BTN_A)); // wait for button release
+        }
+        directory_index++;
+        vTaskDelay(pdMS_TO_TICKS(DEBOUNCE_WAIT_TIME));
+    }
+
+    sequence = open_and_parse_fseq_file(FILE_NAME);
+
     ESP_ERROR_CHECK(gptimer_enable(gptimer));
     ESP_ERROR_CHECK(gptimer_start(gptimer));
 
     ESP_LOGI(TAG, "Beginning main loop");
     start_time = esp_timer_get_time();
-    while (1) {}
+    while (1) {
+        if (!pin_get_level(BTN_SELECT)) {
+            gptimer_stop(gptimer);
+            gptimer_disable(gptimer);
+            goto RESET;
+        }
+    }
 }

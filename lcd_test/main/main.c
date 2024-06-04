@@ -5,7 +5,7 @@
 #include "freertos/task.h"
 #include "esp_log.h"
 
-#include "lcd.h"
+#include "my_lcd.h"
 #include "lcd_test.h"
 
 static const char *TAG = "lcd_test";

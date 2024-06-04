@@ -11,7 +11,7 @@
 #include "esp_log.h"
 #include "esp_check.h"
 
-#include "lcd.h"
+#include "my_lcd.h"
 #include "pin.h"
 #include "joy.h"
 #include "tone.h"

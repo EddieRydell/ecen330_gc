@@ -53,7 +53,7 @@
 
 #define CONFIG_COLOR_PLANE WHITE
 
-#include "lcd.h"
+#include "my_lcd.h"
 // Defined in main.c. Declared here so all modules can see it.
 extern TFT_t dev; // Declare device handle for the display
 

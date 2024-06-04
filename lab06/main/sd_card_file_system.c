@@ -15,19 +15,38 @@
 #define SD_MISO_PIN 19
 #define SD_SCK_PIN 18
 
-static const char* TAG = "SD CARD FILE SYSTEM";
+static const char* TAG = "sd card";
 
 // Function to list the contents of a directory on the sd card specified by path
-void list_directory(const char* path) {
-    ESP_LOGI(TAG, "Listing directory contents of %s", MOUNT_POINT);
+int32_t list_directory(const char* path) {
+    ESP_LOGI(TAG, "Listing directory contents of %s", path);
     DIR* dir = opendir(path);
     if (dir == NULL) {
         ESP_LOGE(TAG, "Failed to open directory: %s", strerror(errno));
-        return;
+        return 0;
     }
     struct dirent* entry;
+    int32_t num_directories = 0;
     while ((entry = readdir(dir)) != NULL) {
         ESP_LOGI(TAG, "Found file: %s", entry->d_name);
+        num_directories++;
+    }
+    closedir(dir);
+    return num_directories;
+}
+
+// Populates directory_names with all the directories inside a path
+// Make sure directory_names is malloced with the right amount of entries
+void get_directory_names(const char* path, char** directory_names) {
+    ESP_LOGI(TAG, "Getting directory contents of %s", path);
+    DIR* dir = opendir(path);
+    if (dir == NULL) {
+        ESP_LOGE(TAG, "Failed to open directory: %s", strerror(errno));
+    }
+    struct dirent* entry;
+    uint32_t index = 0;
+    while ((entry = readdir(dir)) != NULL) {
+        directory_names[index++] = strdup(entry->d_name);
     }
     closedir(dir);
 }
@@ -50,11 +69,15 @@ void init_sd_card() {
             .sclk_io_num = SD_SCK_PIN,
             .quadwp_io_num = -1,
             .quadhd_io_num = -1,
-            .max_transfer_sz = 4000,
+            .max_transfer_sz = 0,
     };
 
+
     ret = spi_bus_initialize(host.slot, &bus_cfg, (spi_dma_chan_t)SDSPI_DEFAULT_DMA);
-    if (ret != ESP_OK) {
+    if (ret == ESP_ERR_INVALID_STATE) {
+        ESP_LOGE(TAG, "SPI bus already initialized. Keeping previous SPI configuration");
+    }
+    else if (ret != ESP_OK) {
         ESP_LOGE(TAG, "Failed to initialize bus: %s", esp_err_to_name(ret));
         return;
     }
@@ -80,3 +103,4 @@ void init_sd_card() {
     ESP_LOGI(TAG, "Filesystem mounted");
     list_directory(MOUNT_POINT);
 }
+

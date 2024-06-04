@@ -1,6 +1,6 @@
 #include "plane.h"
 
-#include "lcd.h"
+#include "my_lcd.h"
 #include "config.h"
 
 #include "esp_random.h"

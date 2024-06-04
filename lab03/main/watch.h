@@ -3,7 +3,7 @@
 
 #include <stdint.h>
 
-#include "lcd.h" // TFT_t
+#include "my_lcd.h" // TFT_t
 
 // Initialize the watch face. The device dev must be valid.
 void watch_init(TFT_t *dev);

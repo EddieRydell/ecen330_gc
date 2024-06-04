@@ -2,7 +2,7 @@
 #include <stdlib.h> // rand
 
 #include "config.h"
-#include "lcd.h"
+#include "my_lcd.h"
 #include "cursor.h"
 #include "pin.h"
 #include "btn.h"

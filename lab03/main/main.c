@@ -4,7 +4,7 @@
 #include "esp_log.h"
 
 #include "driver/gptimer.h"
-#include "lcd.h"
+#include "my_lcd.h"
 #include "pin.h"
 #include "watch.h"
 

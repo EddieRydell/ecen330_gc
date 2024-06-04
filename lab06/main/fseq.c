@@ -8,16 +8,26 @@
 #include <string.h>
 
 // https://github.com/FalconChristmas/fpp/blob/master/docs/FSEQ_Sequence_File_Format.txt
-#define HEADER_SIZE 22
+#define HEADER_SIZE 32
 #define OFFSET_CHANNEL_DATA_START 4
+#define OFFSET_MINOR_VERSION 6
+#define OFFSET_MAJOR_VERSION 7
+#define OFFSET_VARIABLE_HEADER_INDEX 8
 #define OFFSET_CHANNEL_COUNT_PER_FRAME 10
 #define OFFSET_NUM_FRAMES 14
 #define OFFSET_STEP_TIME 18
 #define OFFSET_COMPRESSION 20
+#define OFFSET_NUM_SPARSE_RANGES 22
+#define OFFSET_SEQUENCE_UUID 24
+
 #define HIGH_NIBBLE(byte) ((byte) >> 4)
 #define LOW_NIBBLE(byte) (0x0F & (byte))
 
 static const char* TAG = "FSEQ";
+
+// TODO: enable compression
+// TODO: support older versions of fseq
+// TODO: better error handling - maybe return a number that indexes to an array of strings describing error codes
 
 // Open file "filename" and parse the header
 // Returns a fseq_sequence_t initialized based on the header
@@ -53,13 +63,21 @@ fseq_sequence_t open_and_parse_fseq_file(const char* filename) {
         }
     }
     result.channel_data_offset = *(uint16_t*)(header_data + OFFSET_CHANNEL_DATA_START);
+    result.minor_version = *(uint8_t*)(header_data + OFFSET_MINOR_VERSION);
+    result.major_version = *(uint8_t*)(header_data + OFFSET_MAJOR_VERSION);
+    result.index_to_first_variable_header = *(uint16_t*)(header_data + OFFSET_VARIABLE_HEADER_INDEX);
     result.channel_count_per_frame = *(uint32_t*)(header_data + OFFSET_CHANNEL_COUNT_PER_FRAME);
     result.num_frames = *(uint32_t*)(header_data + OFFSET_NUM_FRAMES);
     result.step_time_ms = *(header_data + OFFSET_STEP_TIME);
     result.compression_type = HIGH_NIBBLE(*(header_data + OFFSET_COMPRESSION));
-    result.total_compression_blocks = ((uint16_t)LOW_NIBBLE(*(header_data + OFFSET_COMPRESSION)) << 8) | *(header_data + OFFSET_COMPRESSION + 1);
+    result.num_compression_blocks = ((uint16_t)LOW_NIBBLE(*(header_data + OFFSET_COMPRESSION)) << 8) | *(header_data + OFFSET_COMPRESSION + 1);
+    result.num_sparse_ranges = *(uint8_t*)(header_data + OFFSET_NUM_SPARSE_RANGES);
+    result.uuid = *(uint64_t*)(header_data + OFFSET_SEQUENCE_UUID);
 
-    if (result.compression_type != UNCOMPRESSED) {
+    if (result.major_version < 2) {
+        ESP_LOGE(TAG, "Error: only fseq version 2.0 and greater are supported");
+    }
+    if (result.compression_type != FSEQ_UNCOMPRESSED) {
         ESP_LOGE(TAG, "Error: fseq file compression is not currently supported");
     }
 
@@ -67,6 +85,7 @@ fseq_sequence_t open_and_parse_fseq_file(const char* filename) {
     if (fseek(result.sequence_file, result.channel_data_offset, SEEK_SET) != 0) {
         ESP_LOGE(TAG, "Error seeking to data location.");
     }
+    ESP_LOGI(TAG, "Success parsing and initializing fseq file and sequence");
     return result;
 }
 

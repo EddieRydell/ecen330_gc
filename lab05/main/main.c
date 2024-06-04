@@ -6,7 +6,7 @@
 #include "esp_timer.h"
 
 #include "config.h"
-#include "lcd.h"
+#include "my_lcd.h"
 #include "cursor.h"
 #include "pin.h"
 #include "btn.h"

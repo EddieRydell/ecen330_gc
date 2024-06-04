@@ -8,7 +8,7 @@
 #include "driver/gpio.h" // gpio_dump_io_configuration
 #include "driver/rtc_io.h" // rtc_gpio_is_valid_gpio
 
-#include "lcd.h"
+#include "my_lcd.h"
 #include "pin.h"
 #include "pin_test.h"
 

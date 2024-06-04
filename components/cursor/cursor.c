@@ -1,7 +1,7 @@
 
 #include <stdlib.h> // abs
 
-#include "lcd.h"
+#include "my_lcd.h"
 #include "joy.h"
 #include "cursor.h"
 
