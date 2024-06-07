@@ -144,7 +144,7 @@ void IRAM_ATTR send_led_data() {
 }
 
 // task to load the led_data buffer out of the SD card and send it to the LEDs
-_Noreturn void load_and_send_led_buffer_task(void* pvParameters) {
+_Noreturn void IRAM_ATTR load_and_send_led_buffer_task(void* pvParameters) {
     while (1) {
         if (ulTaskNotifyTake(pdTRUE, portMAX_DELAY)) {
             times_task_was_performed++;
@@ -189,9 +189,9 @@ _Noreturn void app_main(void) {
     pin_input(BTN_START, true);
 
     init_rmt();
-    // init_sd_card must be called before init_display to avoid reinitializing the SPI bus
-    init_sd_card();
     init_display();
+    init_sd_card();
+    init_filenames();
 
     // Create the LED buffer task
     xTaskCreate(
@@ -201,9 +201,6 @@ _Noreturn void app_main(void) {
             NULL,
             5,
             &led_task_handle);
-
-    // preload led_data buffer to read from it at the beginning of the first frame
-    xTaskNotifyGive(led_task_handle);
 
     // init ISR timer
     gptimer_handle_t gptimer = NULL;
@@ -233,12 +230,13 @@ _Noreturn void app_main(void) {
             draw_interface();
             vTaskDelay(pdMS_TO_TICKS(DEBOUNCE_WAIT_TIME));
             while (!pin_get_level(BTN_A)); // wait for button release
+            vTaskDelay(pdMS_TO_TICKS(DEBOUNCE_WAIT_TIME));
         }
-        directory_index++;
-        vTaskDelay(pdMS_TO_TICKS(DEBOUNCE_WAIT_TIME));
     }
 
-    sequence = open_and_parse_fseq_file(FILE_NAME);
+    sequence = open_and_parse_fseq_file(get_current_file());
+    // preload led_data buffer to read from it at the beginning of the first frame
+    xTaskNotifyGive(led_task_handle);
 
     ESP_ERROR_CHECK(gptimer_enable(gptimer));
     ESP_ERROR_CHECK(gptimer_start(gptimer));

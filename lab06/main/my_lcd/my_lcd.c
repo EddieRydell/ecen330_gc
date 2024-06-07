@@ -128,7 +128,7 @@ static void spi_master_init(TFT_t *dev, int16_t GPIO_MOSI, int16_t GPIO_SCLK, in
 	ESP_LOGI(TAG, "GPIO_SCLK=%hd",GPIO_SCLK);
 	spi_bus_config_t buscfg = {
 		.mosi_io_num = GPIO_MOSI,
-		.miso_io_num = -1,
+		.miso_io_num = 19,
 		.sclk_io_num = GPIO_SCLK,
 		.quadwp_io_num = -1,
 		.quadhd_io_num = -1,
@@ -138,10 +138,10 @@ static void spi_master_init(TFT_t *dev, int16_t GPIO_MOSI, int16_t GPIO_SCLK, in
 
 	ret = spi_bus_initialize( HOST_ID, &buscfg, SPI_DMA_CH_AUTO );
     if (ret == ESP_ERR_INVALID_STATE) {
-        ESP_LOGE(TAG, "SPI bus already initialized. Keeping previous SPI configuration");
+        ESP_LOGE(TAG, "SPI bus already initialized.");
     }
 	ESP_LOGD(TAG, "spi_bus_initialize=%d",(int)ret);
-	assert(ret==ESP_OK || ret==ESP_ERR_INVALID_STATE);
+	assert(ret==ESP_OK || ret == ESP_ERR_INVALID_STATE);
 
 	spi_device_interface_config_t devcfg;
 	memset(&devcfg, 0, sizeof(devcfg));
@@ -753,7 +753,7 @@ void lcdFillRect(TFT_t *dev, int32_t x1, int32_t y1, int32_t x2, int32_t y2, uin
 	if (y1 < 0) y1 = 0;
 	if (y2 >= dev->_height) y2=dev->_height-1;
 
-	ESP_LOGD(TAG,"offset(x)=%ld offset(y)=%ld",dev->_offsetx,dev->_offsety);
+	ESP_LOGI(TAG,"offset(x)=%ld offset(y)=%ld",dev->_offsetx,dev->_offsety);
 
 	if (dev->_use_frame_buffer) {
 		for (int32_t j = y1; j <= y2; j++){

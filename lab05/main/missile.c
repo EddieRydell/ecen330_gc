@@ -39,7 +39,7 @@ void missile_init_player(missile_t* missile, coord_t x_dest, coord_t y_dest) {
     int32_t offset = segment_width / 2;
 
     // make sure the missile won't fire from offscreen,
-    // then have it quantize its x_dest to one of the firing locations
+    // then have it quantize its x_origin to one of the firing locations
     if (x_dest <= 0) x_dest = 1;
     else if (x_dest >= LCD_W - CURSOR_EDGE_CORRECTION) x_dest = LCD_W - CURSOR_EDGE_CORRECTION;
     missile->x_origin = (coord_t)roundf((float)(x_dest - offset) / (float)segment_width) * segment_width + offset;
@@ -111,6 +111,9 @@ void missile_tick(missile_t* missile) {
             missile->currentState = MOVING;
             break;
         case MOVING:
+            // transition out of this state if:
+            // 1. the missile needs to explode (EXPLODING_GROWING)
+            // 2. the missile has traversed its entire path (IMPACTED or EXPLODING GROWING, depending on type)
             if (missile->explode_me) {
                 missile->currentState = EXPLODING_GROWING;
             }
