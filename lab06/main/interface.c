@@ -9,6 +9,8 @@
 #define TEXT_COLOR WHITE
 #define SELECTION_COLOR (rgb565(100, 100, 100))
 
+#define SELECTION_OFFSET 2
+
 static const char* TAG = "interface";
 
 TFT_t display_config;
@@ -44,7 +46,10 @@ void draw_interface() {
     ESP_LOGI(TAG, "Drawing interface");
     directory_index = (directory_index + 1) % num_directories;
     lcdFillScreen(&display_config, BACKGROUND_COLOR);
-    lcdFillRect(&display_config, 0, (int32_t)directory_index * ROW_SPACING, LCD_W, (int32_t)(directory_index + 1) * ROW_SPACING, SELECTION_COLOR);
+    lcdFillRect(&display_config,
+                0, (int32_t)directory_index * ROW_SPACING - SELECTION_OFFSET,
+                LCD_W, (int32_t)(directory_index + 1) * ROW_SPACING - SELECTION_OFFSET,
+                SELECTION_COLOR);
     for (uint32_t i = 0; i < num_directories; i++) {
         lcdDrawString(&display_config, 0, (int32_t)i * ROW_SPACING, directories[i], TEXT_COLOR);
         ESP_LOGI(TAG, "%s", directories[i]);
