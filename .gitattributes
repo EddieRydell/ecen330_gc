@@ -4,14 +4,17 @@ build/* linguist-vendored
 # Ignore IDE-specific files
 .idea/* linguist-vendored
 
-# Set specific files to be classified as their respective languages
+# Force primary language of the repository
+* linguist-detectable
 *.c linguist-language=C
 *.cpp linguist-language=C++
 *.h linguist-language=C
 *.hpp linguist-language=C++
 
-# Ensure Makefiles are correctly classified but not overrepresented
+# Ignore Makefile-related files
+Makefile linguist-language=Makefile
 *.mk linguist-language=Makefile
+*.make linguist-language=Makefile
 
 # Ignore documentation files
 *.md linguist-documentation
