@@ -10,7 +10,7 @@ if "%ESP_EXPORT_DONE%"=="1" (
     echo export.bat has already been run in this session.
 ) else (
     REM Change directory to esp/esp-idf
-    cd ../../../esp/esp-idf
+    cd ../../esp/esp-idf
 
     REM Execute export.bat
     call export.bat

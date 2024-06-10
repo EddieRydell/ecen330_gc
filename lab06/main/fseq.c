@@ -27,7 +27,6 @@ static const char* TAG = "FSEQ";
 
 // TODO: enable compression
 // TODO: support older versions of fseq
-// TODO: better error handling - maybe return a number that indexes to an array of strings describing error codes
 
 // Open file "filename" and parse the header
 // Returns a fseq_sequence_t initialized based on the header

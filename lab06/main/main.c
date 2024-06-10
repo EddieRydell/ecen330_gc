@@ -19,7 +19,7 @@
 #define BTN_SELECT 27
 #define BTN_START  39
 
-#define DEBOUNCE_WAIT_TIME 5 // ms
+#define DEBOUNCE_WAIT_TIME 8 // ms
 
 #define DEFAULT_TIMER_RESOLUTION 1000000 // 1MHz, 1 tick = 1us
 #define FRAMES_PER_SECOND 200
@@ -41,12 +41,6 @@
 #define WS2812_1_LOW_TIME_TICKS (WS2812_1_LOW_TIME_NS / RMT_PERIOD)
 #define WS2812_0_HIGH_TIME_TICKS (WS2812_0_HIGH_TIME_NS / RMT_PERIOD)
 #define WS2812_0_LOW_TIME_TICKS (WS2812_0_LOW_TIME_NS / RMT_PERIOD)
-
-#define RED_CHANNEL 0
-#define GREEN_CHANNEL 1
-#define BLUE_CHANNEL 2
-
-#define FILE_NAME "/NOCOMP~1.FSE"
 
 #define DEFAULT_TASK_STACK_DEPTH 4096
 
@@ -130,8 +124,16 @@ void init_rmt() {
     ESP_LOGI(TAG, "RMT and encoder initialized successfully");
 }
 
+// Function to reverse the bits of a byte
+void reverse_bits(uint8_t* byte) {
+    *byte = (*byte & 0xF0) >> 4 | (*byte & 0x0F) << 4;
+    *byte = (*byte & 0xCC) >> 2 | (*byte & 0x33) << 2;
+    *byte = (*byte & 0xAA) >> 1 | (*byte & 0x55) << 1;
+}
+
 // Use RMT module to transmit LED data out from DATA_OUT_PIN
 void IRAM_ATTR send_led_data() {
+    //print_led_data_as_hex();
     rmt_transmit_config_t tx_config = {
             .loop_count = 0, // No looping
     };
@@ -157,6 +159,10 @@ _Noreturn void IRAM_ATTR load_and_send_led_buffer_task(void* pvParameters) {
                 ESP_LOGI(TAG, "Restarting...");
                 close_sequence(sequence);
                 esp_restart();
+            }
+            // For some reason the lights read all the bytes backwards
+            for (uint32_t i = 0; i < sizeof(led_data); i++) {
+                reverse_bits(led_data + i);
             }
         }
     }
@@ -189,6 +195,9 @@ _Noreturn void app_main(void) {
     pin_input(BTN_START, true);
 
     init_rmt();
+
+    // These functions must happen in this order.
+    // The SD card, LCD, and file system won't work otherwise
     init_display();
     init_sd_card();
     init_filenames();
@@ -247,6 +256,7 @@ _Noreturn void app_main(void) {
         if (!pin_get_level(BTN_SELECT)) {
             gptimer_stop(gptimer);
             gptimer_disable(gptimer);
+            close_sequence(sequence);
             goto RESET;
         }
     }
