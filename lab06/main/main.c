@@ -22,14 +22,9 @@
 #define DEBOUNCE_WAIT_TIME 8 // ms
 
 #define DEFAULT_TIMER_RESOLUTION 1000000 // 1MHz, 1 tick = 1us
-#define FRAMES_PER_SECOND 200
-#define TICKS_PER_FRAME (DEFAULT_TIMER_RESOLUTION / FRAMES_PER_SECOND)
+#define TICKS_PER_MS (DEFAULT_TIMER_RESOLUTION / 1000)
 #define RMT_RESOLUTION 20000000 // 20MHz
 #define RMT_PERIOD 50 // 1/20MHz = 50ns
-#define NUM_LEDS 100
-#define BITS_PER_LED 24
-#define BYTE_SIZE_BITS 8
-#define BYTES_PER_LED (BITS_PER_LED / BYTE_SIZE_BITS)
 
 // WS2812 protocol data high and low time ns
 #define WS2812_1_HIGH_TIME_NS 800
@@ -47,7 +42,7 @@
 static const char* TAG = "lab06_WS2812";
 
 // Globals here aren't marked as volatile as they're only accessed from one task each
-static uint8_t led_data[NUM_LEDS * BYTES_PER_LED];
+static uint8_t* led_data;
 
 static rmt_channel_handle_t tx_channel;
 static rmt_encoder_handle_t encoder;
@@ -62,10 +57,10 @@ static fseq_sequence_t sequence;
 uint64_t start_time;
 
 void print_led_data_as_hex() {
-    char hex_string[sizeof(led_data) * 2 + 1];
-    hex_string[sizeof(led_data) * 2] = 0;
+    char hex_string[sequence.channel_count_per_frame * 2 + 1];
+    hex_string[sequence.channel_count_per_frame * 2] = 0;
 
-    for (size_t i = 0; i < sizeof(led_data); ++i) {
+    for (size_t i = 0; i < sequence.channel_count_per_frame; ++i) {
         sprintf(hex_string + (i * 2), "%02X", led_data[i]);
     }
 
@@ -83,20 +78,8 @@ void init_rmt() {
             .flags.invert_out = false,         // do not invert output signal
             .flags.with_dma = false,           // do not need DMA backend
     };
-
-    // Create the RMT TX channel
-    esp_err_t ret = rmt_new_tx_channel(&tx_channel_config, &tx_channel);
-    if (ret != ESP_OK) {
-        ESP_LOGE(TAG, "Failed to create TX channel: %s", esp_err_to_name(ret));
-        return;
-    }
-
-    // Enable the RMT TX channel
-    ret = rmt_enable(tx_channel);
-    if (ret != ESP_OK) {
-        ESP_LOGE(TAG, "Failed to enable TX channel: %s", esp_err_to_name(ret));
-        return;
-    }
+    ESP_ERROR_CHECK(rmt_new_tx_channel(&tx_channel_config, &tx_channel));
+    ESP_ERROR_CHECK(rmt_enable(tx_channel));
 
     // Define the RMT bytes encoder configuration
     rmt_bytes_encoder_config_t encoder_config = {
@@ -113,13 +96,7 @@ void init_rmt() {
                     .duration1 = WS2812_1_LOW_TIME_TICKS,
             },
     };
-
-    // Create the RMT bytes encoder
-    ret = rmt_new_bytes_encoder(&encoder_config, &encoder);
-    if (ret != ESP_OK) {
-        ESP_LOGE(TAG, "Failed to create bytes encoder: %s", esp_err_to_name(ret));
-        return;
-    }
+    ESP_ERROR_CHECK(rmt_new_bytes_encoder(&encoder_config, &encoder));
 
     ESP_LOGI(TAG, "RMT and encoder initialized successfully");
 }
@@ -133,7 +110,6 @@ void reverse_bits(uint8_t* byte) {
 
 // Use RMT module to transmit LED data out from DATA_OUT_PIN
 void IRAM_ATTR send_led_data() {
-    //print_led_data_as_hex();
     rmt_transmit_config_t tx_config = {
             .loop_count = 0, // No looping
     };
@@ -141,7 +117,7 @@ void IRAM_ATTR send_led_data() {
             tx_channel,
             encoder,
             led_data,
-            sizeof(led_data),
+            sequence.channel_count_per_frame,
             &tx_config));
 }
 
@@ -151,17 +127,9 @@ _Noreturn void IRAM_ATTR load_and_send_led_buffer_task(void* pvParameters) {
         if (ulTaskNotifyTake(pdTRUE, portMAX_DELAY)) {
             times_task_was_performed++;
             send_led_data();
-            if (get_next_led_buffer(led_data, sequence) == 0) {
-                uint64_t end_time = esp_timer_get_time();
-                ESP_LOGI(TAG, "Frame Count: %lu; Task execution count: %lu; "
-                              "Total time: %llu seconds",
-                              frame_count, times_task_was_performed, (end_time - start_time) / 1000000);
-                ESP_LOGI(TAG, "Restarting...");
-                close_sequence(sequence);
-                esp_restart();
-            }
+            get_next_led_buffer(led_data, sequence);
             // For some reason the lights read all the bytes backwards
-            for (uint32_t i = 0; i < sizeof(led_data); i++) {
+            for (uint32_t i = 0; i < sequence.channel_count_per_frame; i++) {
                 reverse_bits(led_data + i);
             }
         }
@@ -198,7 +166,7 @@ _Noreturn void app_main(void) {
 
     // These functions must happen in this order.
     // The SD card, LCD, and file system won't work otherwise
-    init_display();
+    init_interface();
     init_sd_card();
     init_filenames();
 
@@ -211,53 +179,82 @@ _Noreturn void app_main(void) {
             5,
             &led_task_handle);
 
-    // init ISR timer
+    // Init ISR timer with dummy values.
+    // It will be reinitialized later to match the values in the fseq file
     gptimer_handle_t gptimer = NULL;
-    gptimer_config_t timer_config = {
-            .clk_src = GPTIMER_CLK_SRC_DEFAULT,
-            .direction = GPTIMER_COUNT_UP,
-            .resolution_hz = DEFAULT_TIMER_RESOLUTION
-    };
-    ESP_ERROR_CHECK(gptimer_new_timer(&timer_config, &gptimer));
-    gptimer_alarm_config_t alarm_config = {
-            .reload_count = 0,
-            .alarm_count = TICKS_PER_FRAME,
-            .flags.auto_reload_on_alarm = true,
-    };
-    ESP_ERROR_CHECK(gptimer_set_alarm_action(gptimer, &alarm_config));
-
-    gptimer_event_callbacks_t cbs = {
-            .on_alarm = advance_frame // register user callback
-    };
-    ESP_ERROR_CHECK(gptimer_register_event_callbacks(gptimer, &cbs, NULL));
-
-    RESET:
-    ESP_LOGI(TAG, "Displaying menu");
-    draw_interface();
-    while (pin_get_level(BTN_START)) { // while start isn't pressed display the menu
-        while (!pin_get_level(BTN_A)) {
-            draw_interface();
-            vTaskDelay(pdMS_TO_TICKS(DEBOUNCE_WAIT_TIME));
-            while (!pin_get_level(BTN_A)); // wait for button release
-            vTaskDelay(pdMS_TO_TICKS(DEBOUNCE_WAIT_TIME));
-        }
+    {
+        gptimer_config_t timer_config = {
+                .clk_src = GPTIMER_CLK_SRC_DEFAULT,
+                .direction = GPTIMER_COUNT_UP,
+                .resolution_hz = DEFAULT_TIMER_RESOLUTION
+        };
+        ESP_ERROR_CHECK(gptimer_new_timer(&timer_config, &gptimer));
     }
 
-    sequence = open_and_parse_fseq_file(get_current_file());
-    // preload led_data buffer to read from it at the beginning of the first frame
-    xTaskNotifyGive(led_task_handle);
+    static enum {INIT, MENU, INIT_SEQUENCE, PLAYING} current_state;
 
-    ESP_ERROR_CHECK(gptimer_enable(gptimer));
-    ESP_ERROR_CHECK(gptimer_start(gptimer));
-
-    ESP_LOGI(TAG, "Beginning main loop");
-    start_time = esp_timer_get_time();
     while (1) {
-        if (!pin_get_level(BTN_SELECT)) {
-            gptimer_stop(gptimer);
-            gptimer_disable(gptimer);
-            close_sequence(sequence);
-            goto RESET;
+        switch (current_state) {
+            case INIT:
+                current_state = MENU;
+                break;
+            case MENU:
+                current_state = INIT_SEQUENCE;
+                ESP_LOGI(TAG, "Displaying menu");
+                draw_interface();
+                while (pin_get_level(BTN_START)) { // while start isn't pressed display the menu
+                    while (!pin_get_level(BTN_A)) {
+                        draw_interface();
+                        vTaskDelay(pdMS_TO_TICKS(DEBOUNCE_WAIT_TIME));
+                        while (!pin_get_level(BTN_A)); // wait for button release
+                        vTaskDelay(pdMS_TO_TICKS(DEBOUNCE_WAIT_TIME));
+                    }
+                }
+                break;
+            case INIT_SEQUENCE:
+                ESP_LOGI(TAG, "Initializing sequence");
+                current_state = PLAYING;
+                sequence = open_and_parse_fseq_file(interface_get_selected_filename());
+
+                // Reallocate LED data buffer based on the number of lights specified in the fseq file
+                ESP_LOGI(TAG, "Allocating memory for led_data");
+                if (led_data) {
+                    free(led_data);
+                }
+                led_data = malloc(sequence.channel_count_per_frame);
+                if (!led_data) {
+                    ESP_LOGE(TAG, "Malloc failed");
+                }
+                gptimer_alarm_config_t alarm_config = {
+                        .reload_count = 0,
+                        .alarm_count = sequence.step_time_ms * TICKS_PER_MS,
+                        .flags.auto_reload_on_alarm = true,
+                };
+                ESP_ERROR_CHECK(gptimer_set_alarm_action(gptimer, &alarm_config));
+                gptimer_event_callbacks_t cbs = {
+                        .on_alarm = advance_frame // register user callback
+                };
+                ESP_ERROR_CHECK(gptimer_register_event_callbacks(gptimer, &cbs, NULL));
+
+                ESP_ERROR_CHECK(gptimer_enable(gptimer));
+                ESP_ERROR_CHECK(gptimer_start(gptimer));
+                break;
+            case PLAYING:
+                if (!pin_get_level(BTN_SELECT) || feof(sequence.sequence_file)) {
+                    if (feof(sequence.sequence_file)) {
+                        ESP_LOGI(TAG, "Reached end of sequence file");
+                    }
+                    ESP_ERROR_CHECK(gptimer_stop(gptimer));
+                    ESP_ERROR_CHECK(gptimer_disable(gptimer));
+                    uint64_t end_time = esp_timer_get_time();
+                    ESP_LOGI(TAG, "Frame Count: %lu; Task execution count: %lu; "
+                                  "Total time: %llu seconds",
+                             frame_count, times_task_was_performed, (end_time - start_time) / 1000000);
+
+                    close_sequence(sequence);
+                    current_state = MENU;
+                }
+                break;
         }
     }
 }

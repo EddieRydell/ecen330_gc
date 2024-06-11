@@ -19,7 +19,7 @@ static char** directories;
 static uint32_t num_directories;
 uint32_t directory_index;
 
-void init_display() {
+void init_interface() {
     lcdInit(&display_config);
     lcdFrameEnable(&display_config);
     lcdFillScreen(&display_config, BACKGROUND_COLOR);
@@ -57,6 +57,6 @@ void draw_interface() {
     lcdWriteFrame(&display_config);
 }
 
-const char* get_current_file() {
+const char* interface_get_selected_filename() {
     return directories[directory_index];
 }
