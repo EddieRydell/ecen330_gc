@@ -192,7 +192,6 @@ _Noreturn void app_main(void) {
     }
 
     static enum {INIT, MENU, INIT_SEQUENCE, PLAYING} current_state;
-
     while (1) {
         switch (current_state) {
             case INIT:
