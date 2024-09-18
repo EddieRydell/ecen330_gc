@@ -1,7 +1,7 @@
 {
     "version":            "1.1",
     "project_name":       "lab04",
-    "project_version":    "81ecd2b-dirty",
+    "project_version":    "ca44448-dirty",
     "project_path":       "C:/Users/eddie/CLionProjects/ecen330_gc/lab04",
     "idf_path":           "C:/Users/eddie/esp/esp-idf",
     "build_dir":          "C:/Users/eddie/CLionProjects/ecen330_gc/lab04/cmake-build-debug",
@@ -11,7 +11,7 @@
     "app_elf":            "lab04.elf",
     "app_bin":            "lab04.bin",
     "build_type":         "flash_app",
-    "git_revision":       "v5.4-dev-82-g45fbc9f42b",
+    "git_revision":       "v5.4-dev-86-ga794e98121-dirty",
     "target":             "esp32",
     "rev":                "0",
     "min_rev":            "0",

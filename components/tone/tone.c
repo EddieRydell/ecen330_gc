@@ -79,5 +79,6 @@ void tone_start(tone_t tone, uint32_t freq) {
         default:
             break;
     }
+    tone_test_create_wave(tone_buffer, num_samples);
     sound_cyclic(tone_buffer, num_samples);
 }

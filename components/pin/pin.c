@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "soc/reg_base.h" // DR_REG_GPIO_BASE, DR_REG_IO_MUX_BASE
 #include "driver/rtc_io.h" // rtc_gpio_*
 #include "pin.h"

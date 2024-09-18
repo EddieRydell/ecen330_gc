@@ -11,10 +11,11 @@
 #include "esp_log.h"
 #include "esp_check.h"
 
-#include "my_lcd.h"
+#include "lcd.h"
 #include "pin.h"
 #include "joy.h"
 #include "tone.h"
+#include "tone_test.h"
 
 #define VOL_INC 20 // %
 #define SAMPLE_RATE 48000 // Hz
@@ -89,6 +90,7 @@ void draw_status(void)
 
 void update(TimerHandle_t pxTimer)
 {
+    tone_test_draw_wave(&dev, WHITE);
 	static int32_t lx = -1, ly = -1;
 	static bool pressed = false;
 	int32_t x, y;
@@ -106,6 +108,7 @@ void update(TimerHandle_t pxTimer)
 			tone_set_volume(vol = (vol <= MAX_VOL-VOL_INC) ? vol+VOL_INC : VOL_INC);
 	} else if (pressed && !btns) {
 		tone_stop();
+        tone_test_draw_wave(&dev, SBG_CL);
 		pressed = false;
 	}
 	draw_status();

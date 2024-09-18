@@ -2,6 +2,7 @@
 #define TONE_H_
 
 #include "sound.h"
+#include "tone_test.h"
 
 // This component is a thin layer around the sound component.
 // One cycle of a waveform is generated and then given to the

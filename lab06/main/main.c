@@ -128,7 +128,7 @@ _Noreturn void IRAM_ATTR load_and_send_led_buffer_task(void* pvParameters) {
             times_task_was_performed++;
             send_led_data();
             get_next_led_buffer(led_data, sequence);
-            // For some reason the lights read all the bytes backwards
+            // For some reason the lights read all the bits backwards
             for (uint32_t i = 0; i < sequence.channel_count_per_frame; i++) {
                 reverse_bits(led_data + i);
             }
