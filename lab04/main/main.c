@@ -90,7 +90,6 @@ void draw_status(void)
 
 void update(TimerHandle_t pxTimer)
 {
-    tone_test_draw_wave(&dev, WHITE);
 	static int32_t lx = -1, ly = -1;
 	static bool pressed = false;
 	int32_t x, y;
@@ -100,8 +99,10 @@ void update(TimerHandle_t pxTimer)
 	btns = ~pin_get_in_reg() & BTN_MASK;
 	if (!pressed && btns) {
 		pressed = true;
-		if (!pin_get_level(BTN_A))
-			tone_start(tone, (dcy > 0) ? A4-(dcy*A3)/JOY_MAX_DISP : A4-(dcy*A4)/JOY_MAX_DISP);
+		if (!pin_get_level(BTN_A)) {
+            tone_start(tone, (dcy > 0) ? A4 - (dcy * A3) / JOY_MAX_DISP : A4 - (dcy * A4) / JOY_MAX_DISP);
+            tone_test_draw_wave(&dev, CUR_CL);
+        }
 		else if (!pin_get_level(BTN_MENU))
 			tone = (tone+1)%LAST_T;
 		else if (!pin_get_level(BTN_OPTION))

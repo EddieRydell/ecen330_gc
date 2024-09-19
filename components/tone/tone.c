@@ -65,10 +65,13 @@ void tone_start(tone_t tone, uint32_t freq) {
             break;
         case TRIANGLE_T:
             for (uint32_t i = 0; i < num_samples / 2; i++) {
-                tone_buffer[i] = (uint8_t)(((float)i / ((float)num_samples / 2)) * (2 * AMPLITUDE));
+                float value = ((float)i / ((float)num_samples / 2)) * (2.0f * AMPLITUDE);
+                tone_buffer[i] = (uint8_t)fminf(value, 255.0f);  // Ensure the value stays within uint8_t range
             }
+
             for (uint32_t i = num_samples / 2; i < num_samples; i++) {
-                tone_buffer[i] = (2 * AMPLITUDE) - (uint8_t)(((float)i / ((float)num_samples / 2)) * (2 * AMPLITUDE));
+                float value = (2.0f * AMPLITUDE) - ((((float)i - (float)num_samples / 2) / ((float)num_samples / 2)) * (2.0f * AMPLITUDE));
+                tone_buffer[i] = (uint8_t)fminf(value, 255.0f);  // Ensure the value stays within uint8_t range
             }
             break;
         case SAW_T:
